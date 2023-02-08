@@ -13,3 +13,5 @@ declare module "*.svg" {
 
 declare module '*.png'
 declare module '*.jp?eg'
+
+declare const __IS_DEV__: boolean

@@ -20,8 +20,8 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({className}) => {
                 theme={ThemeButton.CLEAR}
             >
                 {theme === Theme.DARK 
-                    ? <DarkIcon transform='scale(0.75)' />
-                    : <LightIcon transform='scale(0.75)' />
+                    ? <DarkIcon transform='scale(0.7)' />
+                    : <LightIcon transform='scale(0.7)' />
                 }
             </Button>
         </div>
