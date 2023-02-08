@@ -12,6 +12,9 @@ i18n
     debug: __IS_DEV__ ? true : false,
     interpolation: {
       escapeValue: false // react already safes from xss
+    },
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
     }
   });
 
