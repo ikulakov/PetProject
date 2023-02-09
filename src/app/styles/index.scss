@@ -9,9 +9,11 @@
     color: var(--primary-color);
     min-height: 100vh;
 }
+
 .page-content {
     display: flex;
 }
+
 .module-wrapper {
     padding: 40px;
     flex-grow: 1;
