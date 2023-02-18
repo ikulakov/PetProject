@@ -1,13 +1,13 @@
 import cls from './PageError.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import Button from 'shared/ui/Button/Button'
+import { Button } from 'shared/ui/Button/Button'
 
 interface PageErrorProps {
     className?: string
 }
 
-const PageError: React.FC<PageErrorProps> = ({ className }) => {
+export const PageError: React.FC<PageErrorProps> = ({ className }) => {
     const { t } = useTranslation()
     const ReloadPage = () => {
         location.reload()
@@ -23,5 +23,3 @@ const PageError: React.FC<PageErrorProps> = ({ className }) => {
         </div>
     )
 }
-
-export default PageError
