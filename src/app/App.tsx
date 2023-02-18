@@ -4,10 +4,14 @@ import { useTheme } from './providers/ThemeProvider'
 import { AppRouter } from './providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 
 const App: React.FC = () => {
     const { theme } = useTheme()
+
+    useEffect(() => {
+        throw new Error()
+    }, [])
 
     return (
         <div className={classNames('App', { hovered: true, selected: false }, [theme, 'cls2'])}>

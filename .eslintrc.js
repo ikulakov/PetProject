@@ -29,7 +29,8 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/strict-boolean-expressions": 0,
     "@typescript-eslint/prefer-nullish-coalescing": 0,
-    "i18next/no-literal-string": 2
+    "i18next/no-literal-string": 2,
+    "@typescript-eslint/explicit-function-return-type": 0
   },
   root: true
 }
