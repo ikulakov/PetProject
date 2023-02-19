@@ -9,7 +9,7 @@ import { Navbar } from 'widgets/Navbar'
 const App: React.FC = () => {
     const { theme } = useTheme()
     return (
-        <div className={classNames('App', { hovered: true, selected: false }, [theme, 'cls2'])}>
+        <div className={classNames('App', { }, [theme])}>
             <Suspense fallback="">
                 <Navbar />
                 <div className='page-content'>

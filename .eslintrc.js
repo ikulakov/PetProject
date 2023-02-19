@@ -4,38 +4,31 @@ module.exports = {
         es2021: true,
         jest: true
     },
-    extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'standard-with-typescript',
-        'plugin:i18next/recommended'
-    ],
+    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'standard-with-typescript', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         project: ['tsconfig.json'],
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    plugins: [
-        '@typescript-eslint',
-        'i18next'
-    ],
+    plugins: ['@typescript-eslint', 'i18next'],
     rules: {
         indent: 'off',
         '@typescript-eslint/indent': ['warn', 4],
         '@typescript-eslint/strict-boolean-expressions': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0,
         'i18next/no-literal-string': 2,
-        '@typescript-eslint/explicit-function-return-type': 0
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/consistent-type-assertions': 0,
+        '@typescript-eslint/no-unsafe-assignment': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/consistent-type-imports': 0
     },
-    overrides: [
-        {
-            files: ['**/src/**/*.test.{ts,tsx}'],
-            rules: {
-                'i18next/no-literal-string': 0
-            }
+    overrides: [{
+        files: ['**/src/**/*.test.{ts,tsx}'],
+        rules: {
+            'i18next/no-literal-string': 0
         }
-    ],
+    }],
     root: true
 }

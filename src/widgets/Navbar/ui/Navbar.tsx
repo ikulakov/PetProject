@@ -11,7 +11,10 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
     const { t } = useTranslation()
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <div
+            className={classNames(cls.Navbar, {}, [className])}
+            data-testid="navbar"
+        >
             <div className={cls.widgets}>
                 <ThemeSwitcher />
                 <LangSwitcher />

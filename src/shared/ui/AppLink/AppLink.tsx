@@ -4,7 +4,8 @@ import { classNames } from '../../lib/classNames/classNames'
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+    SECONDARY = 'secondary',
+    RED = 'red'
 }
 
 interface AppLinkProps extends LinkProps {
