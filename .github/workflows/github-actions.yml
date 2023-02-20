@@ -10,10 +10,8 @@ jobs:
     strategy:
       matrix:
         node-version: [ 17.x ]
-
     steps:
       - uses: actions/checkout@v2
-      - uses: ikulakov/ulbi_course_2023@ref
       - name: Starting Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
