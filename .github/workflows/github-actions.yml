@@ -12,9 +12,10 @@ jobs:
         node-version: [ 17.x ]
 
     steps:
-      - uses: ikulakov/ulbi_course_2023@v2
+      - uses: actions/checkout@v2
+      - uses: ikulakov/ulbi_course_2023@ref
       - name: Starting Node.js ${{ matrix.node-version }}
-        uses: ikulakov/ulbi_course_2023@v1
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install node modules
