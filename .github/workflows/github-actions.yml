@@ -12,12 +12,22 @@ jobs:
         node-version: [ 17.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: ikulakov/ulbi_course_2023@v2
       - name: Starting Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: ikulakov/ulbi_course_2023@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install node modules
         uses: npm ci
       - name: Build production project
         uses: npm run build:prod
+      - name: Linting TS
+        uses: npm run lint:ts
+      - name: Linting CSS
+        uses: npm run lint:scss
+      - name: unit testing
+        uses: npm run test:unit
+      - name: build storybook
+        uses: npm run storybook:build
+      - name: screenshot test
+        uses: npm run test:ui:ci
