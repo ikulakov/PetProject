@@ -1,5 +1,4 @@
-name: CI/CD
-
+name: listing, testing, building
 on:
   push:
     branches: [ main ]
@@ -7,24 +6,30 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  pipeline:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [17.x]
-
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
-
+      uses: actions/checkout@v1
     - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run build:prod
+    - name: Install node modules
+      uses: npm install
+    - name: Build production project
+      uses: npm run build:prod
+    - name: Linting TS
+      uses: npm run lint:ts
+    - name: Linting CSS
+      uses: npm run lint:scss
+    - name: unit testing
+      uses: npm run test:unit
+    - name: build storybook
+      uses: npm run storybook:build
+    - name: screenshot test
+      uses: npm run test:ui:ci
