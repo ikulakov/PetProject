@@ -7,7 +7,7 @@ on:
 
 jobs:
   pipeline:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [17.x]
@@ -33,4 +33,3 @@ jobs:
       run: npm run storybook:build
     - name: screenshot test
       run: npm run test:ui:ci
-      
