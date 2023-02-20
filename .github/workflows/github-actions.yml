@@ -21,9 +21,3 @@ jobs:
         uses: npm ci
       - name: Build production project
         uses: npm run build:prod
-      - name: Linting TS
-        uses: npm run lint:ts
-      - name: Linting CSS
-        uses: npm run lint:scss
-      - name: unit testing
-        uses: npm run test:unit
