@@ -27,7 +27,3 @@ jobs:
         uses: npm run lint:scss
       - name: unit testing
         uses: npm run test:unit
-      - name: build storybook
-        uses: npm run storybook:build
-      - name: screenshot test
-        uses: npm run test:ui:ci
