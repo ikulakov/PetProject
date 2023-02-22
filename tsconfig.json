@@ -48,5 +48,6 @@
     "webpack.config.ts",
     "./config/storybook/*.js",
     "./config/storybook/*.ts",
+    "./scripts/*.js"
   ]
 }
