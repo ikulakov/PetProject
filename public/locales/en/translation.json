@@ -5,10 +5,9 @@
   "Контент на странице о нас": "About Us Page Content",
   "Контент на главной": "Content on homepage",
   "Загрузка": "Loading",
-  "prosto-tekst-bez-perevoda": "Просто текст без перевода",
   "Страница не найдена": "Page not found",
   "Ошибка": "Something went wrong.",
   "Обновить страницу": "Refresh the page",
-  "Burger": "BurgerMenu",
-  "Main": "home"
+  "Main": "Home",
+  "About": "About Us"
 }
