@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { Navbar } from 'widgets/Navbar'
-import { BrowserRouter } from 'react-router-dom'
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
 
 describe('Sidebar', () => {
     test('test render', () => {
-        render(<BrowserRouter><Navbar /></BrowserRouter>)
+        componentRender(<Navbar />)
         expect(screen.getByTestId('navbar')).toBeInTheDocument()
     })
 })
