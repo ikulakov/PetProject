@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 
 export const enum ButtonTheme {
     CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
     BACKGOUND = 'background',
     BACKGOUND_INVERTED = 'backgroundInverted'

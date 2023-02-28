@@ -1,0 +1,37 @@
+.Modal {
+    inset: 0; // аналог top, bottom, left, right - 0
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.1s ease-out;
+    transition-property: opacity, z-index;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    display: grid;
+    place-items: center;
+}
+
+.content {
+    padding: 40px;
+    border-radius: 3px;
+    background-color: var(--bg-color);
+    transform: scale(0.4);
+    transition: 0.1s ease;
+    min-width: 50%;
+    color: var(--primary-color);
+}
+
+.opened {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: var(--modal-z-index);
+
+    .content {
+        transform: scale(1);
+    }
+}

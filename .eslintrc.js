@@ -11,7 +11,11 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    plugins: ['@typescript-eslint', 'i18next'],
+    plugins: [
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks'
+    ],
     rules: {
         indent: 'off',
         '@typescript-eslint/indent': ['warn', 4],
@@ -22,7 +26,9 @@ module.exports = {
         '@typescript-eslint/consistent-type-assertions': 0,
         '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/no-unsafe-member-access': 0,
-        '@typescript-eslint/consistent-type-imports': 0
+        '@typescript-eslint/consistent-type-imports': 0,
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error' // Checks effect dependencies
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],
