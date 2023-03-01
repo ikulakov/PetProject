@@ -40,14 +40,13 @@
     }
   },
   "include": [
-    "./config/jest/*.ts",
-    "./config/jest/*.tsx",
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
     "./src/**/*.ts",
     "./src/**/*.tsx",
     ".eslintrc.js",
     "webpack.config.ts",
-    "./config/storybook/*.js",
-    "./config/storybook/*.ts",
-    "./scripts/*.js"
+    "./scripts/*.js",
+    "./json-server/*.js"
   ]
 }

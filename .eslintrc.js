@@ -7,6 +7,7 @@ module.exports = {
     extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'standard-with-typescript', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
+        // parser: '@typescript-eslint/parser',
         project: ['tsconfig.json'],
         ecmaVersion: 'latest',
         sourceType: 'module'
@@ -37,6 +38,5 @@ module.exports = {
         rules: {
             'i18next/no-literal-string': 0
         }
-    }],
-    root: true
+    }]
 }
