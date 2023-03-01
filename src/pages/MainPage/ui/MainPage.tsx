@@ -1,4 +1,3 @@
-import { Counter } from 'entites/Counter'
 import { useTranslation } from 'react-i18next'
 
 const MainPage: React.FC = () => {
@@ -7,7 +6,6 @@ const MainPage: React.FC = () => {
         <div>
             <h1>{t('Главная страница')}</h1>
             {t('Контент на главной')}
-            <Counter />
         </div>
     )
 }
