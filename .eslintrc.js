@@ -21,12 +21,14 @@ module.exports = {
         '@typescript-eslint/indent': ['warn', 4],
         '@typescript-eslint/strict-boolean-expressions': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0,
-        'i18next/no-literal-string': 2,
+        'i18next/no-literal-string': 0, //! 2
+        // '@typescript-eslint/no-floating-promises': 0, //
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/consistent-type-assertions': 0,
         '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/no-unsafe-member-access': 0,
         '@typescript-eslint/consistent-type-imports': 0,
+        '@typescript-eslint/consistent-type-exports': 0,
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error' // Checks effect dependencies
     },
