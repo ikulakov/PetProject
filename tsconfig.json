@@ -39,14 +39,14 @@
       "module": "CommonJS"
     }
   },
-  "include": [
-    "./config/**/*.ts",
-    "./config/**/*.tsx",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    ".eslintrc.js",
-    "webpack.config.ts",
-    "./scripts/*.js",
-    "./json-server/*.js"
-  ]
+  // "include": [
+  //   "./config/**/*.ts",
+  //   "./config/**/*.tsx",
+  //   "./src/**/*.ts",
+  //   "./src/**/*.tsx",
+  //   ".eslintrc.js",
+  //   "webpack.config.ts",
+  //   "./scripts/*.js",
+  //   "./json-server/*.js"
+  // ]
 }
