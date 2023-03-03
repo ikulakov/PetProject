@@ -1,0 +1,15 @@
+.InputWrapper {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+}
+
+.Input {
+    padding: 8px 10px;
+    width: 100%;
+}
+
+.placeholder {
+    position: absolute;
+    margin-left: 10px;
+}
