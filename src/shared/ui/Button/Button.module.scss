@@ -7,6 +7,10 @@
     justify-content: center;
 }
 
+.Button:disabled {
+    opacity: 0.5;
+}
+
 .clear,
 .clearInverted {
     padding: 0;

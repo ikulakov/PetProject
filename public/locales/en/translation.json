@@ -10,5 +10,10 @@
   "Обновить страницу": "Refresh the page",
   "Main": "Home",
   "About": "About Us",
-  "Войти": "Log in"
+  "Войти": "Log in",
+  "Введите имя": "Enter your name",
+  "Введите пароль": "enter password",
+  "Форма авторизации": "Authorization form",
+  "Пользователь ввел неверный логин или пароль": "The user entered an incorrect username or password",
+  "Выйти": "Go out"
 }

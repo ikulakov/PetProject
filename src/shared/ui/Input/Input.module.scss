@@ -9,7 +9,13 @@
     width: 100%;
 }
 
+.Input:focus {
+    outline: none;
+}
+
 .placeholder {
     position: absolute;
     margin-left: 10px;
+    font-size: 12px;
+    color: gray;
 }
