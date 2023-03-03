@@ -73,7 +73,7 @@ BackgroundInverted.args = {
 export const Disabled = Template.bind({})
 Disabled.args = {
     children: 'Text',
-    dasabled: true,
+    disabled: true,
     theme: ButtonTheme.BACKGOUND_INVERTED
 }
 
