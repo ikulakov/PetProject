@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             </div>
             <div>
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onToggleModal}>{t('Войти')}</Button>
-                <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />
+                {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />}
             </div>
         </div>
     )
