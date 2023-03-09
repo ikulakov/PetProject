@@ -1,4 +1,4 @@
-import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
+import { CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 import { AxiosInstance } from 'axios'
 import { CounterSchema } from 'entites/Counter'
 import { ProfileSchema } from 'entites/Profile'
@@ -18,7 +18,7 @@ export type StateSchemaKey = keyof StateSchema
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>
-    reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>
+    reduce: Reducer<CombinedState<StateSchema>>
     add: (key: StateSchemaKey, reducer: Reducer) => void
     remove: (key: StateSchemaKey) => void
 }

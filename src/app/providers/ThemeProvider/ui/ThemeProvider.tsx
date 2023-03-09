@@ -8,7 +8,7 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, initialTheme }) => {
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme)
+    const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme)
 
     useEffect(() => {
         document.body.classList.add(theme)

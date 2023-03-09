@@ -11,24 +11,26 @@ export default ({ config }: { config: webpack.Configuration }) => {
         html: '',
         src: path.resolve(__dirname, '..', '..', 'src')
     }
-    config.resolve.modules.push(paths.src)
-    config.resolve.extensions.push('.ts', '.tsx')
+    config.resolve?.modules?.push(paths.src)
+    config.resolve?.extensions?.push('.ts', '.tsx')
 
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    const rules = config.module?.rules as RuleSetRule[]
+    // @ts-expect-error temp
+    config.module.rules = rules.map((rule) => {
         // eslint-disable-next-line @typescript-eslint/prefer-includes
         if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i }
         }
         return rule
     })
-    config.module.rules.push({
+    config.module?.rules.push({
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         use: ['@svgr/webpack']
     })
-    config.module.rules.push(buildCssLoader(true))
+    config.module?.rules.push(buildCssLoader(true))
 
-    config.plugins.push(new DefinePlugin({
+    config.plugins?.push(new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
         __API__: JSON.stringify('')
     }))

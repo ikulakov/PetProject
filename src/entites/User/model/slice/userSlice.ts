@@ -10,11 +10,11 @@ export const userSlice = createSlice({
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload
         },
-        initAuthData: (state, action) => {
+        initAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload
         },
         logout: state => {
-            state.authData = null
+            state.authData = undefined
         }
     }
 })

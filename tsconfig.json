@@ -11,6 +11,7 @@
     "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "node",
     // Для абсолютного импорта
     "baseUrl": ".",
@@ -32,21 +33,20 @@
     // можно писать такой
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
-    //"strictNullChecks":true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  // "include": [
-  //   "./config/**/*.ts",
-  //   "./config/**/*.tsx",
-  //   "./src/**/*.ts",
-  //   "./src/**/*.tsx",
-  //   ".eslintrc.js",
-  //   "webpack.config.ts",
-  //   "./scripts/*.js",
-  //   "./json-server/*.js"
-  // ]
+  "include": [
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "webpack.config.ts",
+    ".eslintrc.js",
+    "./scripts/*.js",
+    "./json-server/*.js"
+  ]
 }
