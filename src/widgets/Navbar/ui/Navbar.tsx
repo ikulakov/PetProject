@@ -1,8 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
-import { LangSwitcher, ThemeSwitcher } from 'features/ThemeSwitcher'
+import { ThemeSwitcher } from 'features/ThemeSwitcher'
+import { LangSwitcher } from 'features/LangSwitcher'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,7 +14,7 @@ interface NavbarProps {
     className?: string
 }
 
-const Navbar: React.FC<NavbarProps> = ({ className }) => {
+export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
     const [isAuthModal, setIsAuthModal] = useState(false)
     const { t } = useTranslation()
     const user = useSelector(getUserAuthData)
@@ -76,6 +77,4 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             </div>
         </div>
     )
-}
-
-export default Navbar
+})

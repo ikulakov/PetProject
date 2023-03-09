@@ -1,7 +1,7 @@
 import cls from './Modal.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ReactNode, useEffect, useState } from 'react'
-import Portal from 'shared/ui/Portal/Portal'
+import { Portal } from 'shared/ui/Portal/Portal'
 
 interface ModalProps {
     className?: string
@@ -11,7 +11,7 @@ interface ModalProps {
     lazy?: boolean
 }
 
-const Modal = (props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
@@ -46,5 +46,3 @@ const Modal = (props: ModalProps) => {
         </Portal>
     )
 }
-
-export default Modal

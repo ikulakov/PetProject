@@ -6,12 +6,10 @@ interface PageLoaderProps {
     className?: string
 }
 
-const PageLoader: React.FC<PageLoaderProps> = ({ className }) => {
+export const PageLoader: React.FC<PageLoaderProps> = ({ className }) => {
     return (
         <div className={classNames(cls.PageLoader, {}, [className])}>
             <Loader />
         </div>
     )
 }
-
-export default PageLoader

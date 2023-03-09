@@ -3,12 +3,13 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import cls from './LangSwitcher.module.scss'
 import LangIcon from '../assets/lang.svg'
+import { memo } from 'react'
 
 interface LangSwitcherProps {
     className?: string
 }
 
-const LangSwitcher: React.FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher: React.FC<LangSwitcherProps> = memo(({ className }) => {
     const { t, i18n } = useTranslation()
 
     const toggleLanguage = (): void => {
@@ -22,6 +23,4 @@ const LangSwitcher: React.FC<LangSwitcherProps> = ({ className }) => {
             <LangIcon /> {t('Язык')}
         </Button>
     )
-}
-
-export default LangSwitcher
+})

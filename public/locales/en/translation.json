@@ -8,12 +8,13 @@
   "Страница не найдена": "Page not found",
   "Ошибка": "Something went wrong.",
   "Обновить страницу": "Refresh the page",
-  "Main": "Home",
-  "About": "About Us",
+  "Главная": "Home",
   "Войти": "Log in",
   "Введите имя": "Enter your name",
   "Введите пароль": "enter password",
   "Форма авторизации": "Authorization form",
   "Пользователь ввел неверный логин или пароль": "The user entered an incorrect username or password",
-  "Выйти": "Go out"
+  "Выйти": "Log out",
+  "Страница профиля": "Profile Page",
+  "Профиль": "Profile"
 }
