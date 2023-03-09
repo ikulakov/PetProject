@@ -25,6 +25,15 @@
         "password": "123"
       }
     ],
-    "profile": { "name": "typicode" }
+    "profile": { 
+      "first": "Ivan",
+      "lasname": "Kulakov",
+      "age": "31",
+      "currency": "rub",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://ulbitv.ru/public/img/default_profile_50.png"
+    }
   }
   
