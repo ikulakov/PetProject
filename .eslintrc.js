@@ -45,5 +45,9 @@ module.exports = {
         rules: {
             'i18next/no-literal-string': 0
         }
-    }]
+    }],
+    globals: {
+        __IS_DEV__: true,
+        __API__: ''
+    } 
 }
