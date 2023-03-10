@@ -19,3 +19,11 @@
     font-size: 12px;
     color: gray;
 }
+
+.readonly {
+    .Input {
+        border-color: transparent;
+        background: none;
+        cursor: auto;
+    }
+}

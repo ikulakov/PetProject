@@ -2,13 +2,14 @@ import cls from './Input.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> // переопределение дефолтных типов
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'> // переопределение дефолтных типов
 
 interface InputProps extends HTMLInputProps {
     className?: string
-    value?: string
+    value?: string | number
     onChange?: (value: string) => void
     autofocus?: boolean
+    readonly?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
@@ -19,13 +20,14 @@ export const Input = memo((props: InputProps) => {
         type = 'text',
         placeholder,
         autofocus,
+        readonly,
         ...otherProps
     } = props
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => [
-        // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value)
-    ]
+    }
+
     const ref = useRef<HTMLInputElement>(null)
     const [isFocused, setIsFocused] = useState(false)
     const onFocusHandler = () => {
@@ -43,7 +45,7 @@ export const Input = memo((props: InputProps) => {
     }, [autofocus])
 
     return (
-        <div className={classNames(cls.InputWrapper, {}, [className])}>
+        <div className={classNames(cls.InputWrapper, { [cls.readonly]: readonly }, [className])}>
             {placeholder && !isFocused && !value &&
                 <div className={cls.placeholder}>
                     {placeholder}
@@ -57,6 +59,7 @@ export const Input = memo((props: InputProps) => {
                 onBlur={onBlurHandler}
                 className={cls.Input}
                 ref={ref}
+                readOnly={readonly}
                 {...otherProps}
             />
         </div>

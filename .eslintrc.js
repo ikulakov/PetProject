@@ -32,7 +32,7 @@ module.exports = {
         // 'i18next/no-literal-string': 0,
         '@typescript-eslint/explicit-function-return-type': 0, // "warn"
         '@typescript-eslint/consistent-type-assertions': 0,
-        // '@typescript-eslint/no-unsafe-assignment': 0,
+        '@typescript-eslint/no-unsafe-assignment': 0,
         // '@typescript-eslint/no-unsafe-member-access': 0,
         '@typescript-eslint/consistent-type-imports': 0,
         '@typescript-eslint/consistent-type-exports': 0,

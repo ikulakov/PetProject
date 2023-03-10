@@ -1,39 +1,38 @@
 {
-    "posts": [
-      {
-        "id": "1",
-        "title": "json-server",
-        "userId": 1
-      },
-      {
-        "id": "2",
-        "title": "json-server",
-        "userId": 2
-      }
-    ],
-    "comments": [
-      {
-        "id": "1",
-        "body": "some comment",
-        "postId": 1
-      }
-    ],
-    "users": [
-      {
-        "id": "1",
-        "username": "admin",
-        "password": "123"
-      }
-    ],
-    "profile": { 
-      "first": "Ivan",
-      "lasname": "Kulakov",
-      "age": "31",
-      "currency": "rub",
-      "country": "Russia",
-      "city": "Moscow",
-      "username": "admin",
-      "avatar": "https://ulbitv.ru/public/img/default_profile_50.png"
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": 1
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": 2
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Ivan",
+    "lastname": "Kulakov",
+    "age": "31",
+    "currency": "rub",
+    "country": "Ukraine",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://avt-30.foto.mail.ru/mail/marianna.gul/_avatar180?"
   }
-  
+}

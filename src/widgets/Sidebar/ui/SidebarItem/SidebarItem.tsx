@@ -4,6 +4,8 @@ import { SidebarItemsType } from '../../model/items'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { memo } from 'react'
+import { useSelector } from 'react-redux'
+import { getUserAuthData } from 'entites/User'
 
 interface SidebarItemProps {
     item: SidebarItemsType
@@ -17,6 +19,11 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
     } = props
 
     const { t } = useTranslation()
+    const isAuth = useSelector(getUserAuthData)
+
+    if (item.authOnly && !isAuth) {
+        return null
+    }
 
     return (
         <AppLink
