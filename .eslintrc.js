@@ -40,7 +40,8 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         '@typescript-eslint/no-floating-promises': 0,
         '@typescript-eslint/unbound-method': 0,
-        '@typescript-eslint/no-explicit-any': 0
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/no-invalid-void-type': 0
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],

@@ -50,18 +50,18 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                 : (
                     <>
                         <Button
-                            theme={ButtonTheme.BACKGOUND_INVERTED}
-                            className={cls.saveBtn}
-                            onClick={onSave}
-                        >
-                            {t('Сохранить')}
-                        </Button>
-                        <Button
                             theme={ButtonTheme.OUTLINE}
                             className={cls.editBtn}
                             onClick={onCancelEdit}
                         >
                             {t('Отменить')}
+                        </Button>
+                        <Button
+                            theme={ButtonTheme.BACKGOUND_INVERTED}
+                            className={cls.saveBtn}
+                            onClick={onSave}
+                        >
+                            {t('Сохранить')}
                         </Button>
                     </>
                 )

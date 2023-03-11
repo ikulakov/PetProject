@@ -2,6 +2,7 @@
     display: flex;
     flex-grow: 1;
     position: relative;
+    align-items: center;
 }
 
 .Input {
@@ -17,7 +18,7 @@
     position: absolute;
     margin-left: 10px;
     font-size: 12px;
-    color: gray;
+    color: var(--secondary-color);
 }
 
 .readonly {
@@ -26,4 +27,11 @@
         background: none;
         cursor: auto;
     }
+}
+
+.label {
+    width: 150px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--secondary-color);
 }

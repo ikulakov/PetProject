@@ -13,5 +13,10 @@
   "Введите имя пользователя": "Enter username",
   "Введите ссылку на аватар": "Enter link to avatar",
   "Укажите валюту": "Specify currency",
-  "Укажите страну": "Specify country"
+  "Укажите страну": "Specify country",
+  "Введите корректный возраст": "Enter correct age",
+  "Некорректная страна": "Incorrect country",
+  "Некорректно введены имя или фамилия": "Name or surname entered incorrectly",
+  "Данных не получено": "No data received",
+  "Ошибка сервера": "server error"
 }

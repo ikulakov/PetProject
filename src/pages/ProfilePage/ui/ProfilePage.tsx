@@ -1,4 +1,4 @@
-import { fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, ProfileCard, profileReducer, profileActions } from 'entites/Profile'
+import { fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, ProfileCard, profileReducer, profileActions, getProfileValidateErrors } from 'entites/Profile'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { memo, ReactNode, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
@@ -6,6 +6,9 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Currency } from 'entites/Currency'
 import { Country } from 'entites/Country'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { ValidateProfileError } from 'entites/Profile/model/types/profile'
+import { useTranslation } from 'react-i18next'
 
 interface ProfilePageProps {
     children: ReactNode
@@ -21,6 +24,15 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     const error = useSelector(getProfileError)
     const isLoading = useSelector(getProfileIsLoading)
     const readonly = useSelector(getProfileReadonly)
+    const validateErrors = useSelector(getProfileValidateErrors)
+    const { t } = useTranslation('profile')
+    const validateErrorsTranslates = {
+        [ValidateProfileError.INCORRECT_AGE]: t('Введите корректный возраст'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректно введены имя или фамилия'),
+        [ValidateProfileError.NO_DATA]: t('Данных не получено'),
+        [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера')
+    }
 
     useEffect(() => {
         dispatch(fetchProfileData())
@@ -55,6 +67,9 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <ProfilePageHeader />
+            {validateErrors?.map((err) => (
+                <Text theme={TextTheme.ERROR} text={validateErrorsTranslates[err]} key={err} />
+            ))}
             <ProfileCard
                 data={formData}
                 error={error}

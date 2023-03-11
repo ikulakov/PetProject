@@ -5,10 +5,13 @@
 
 .label {
     margin-right: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    width: 150px;
+    color: var(--secondary-color);
 }
 
 .Select {
-    background: none;
     outline: none;
     color: var(--primary-color);
     padding: 5px 15px 5px 5px;

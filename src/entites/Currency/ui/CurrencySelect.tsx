@@ -11,7 +11,9 @@ interface CurrencySelectProps {
     onChange?: (value: Currency) => void
 }
 
-const currencyOptions = Object.entries(Currency).map((val) => ({ value: val[0], content: val[1] }))
+const currencyOptions = Object.entries(Currency).map((val) => (
+    { value: val[0], content: val[1] }
+))
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
     const {

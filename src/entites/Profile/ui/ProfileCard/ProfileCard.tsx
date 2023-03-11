@@ -70,66 +70,76 @@ export const ProfileCard = (props: ProfileCardProps) => {
             className={classNames(cls.ProfileCard, {}, [className])}
         >
             <div className={cls.data}>
-                {data?.avatar &&
-                    <div className={cls.avatarWrapper}>
-                        <Avatar
-                            src={data.avatar}
-                            size={180}
-                        />
-                    </div>
-                }
-                <Input
-                    value={data?.first}
-                    placeholder={t('Ваше имя')}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeFirstname}
-                />
-                <Input
-                    value={data?.lastname}
-                    placeholder={t('Ваша фамилия')}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeLastname}
-                />
-                <Input
-                    value={data?.age}
-                    placeholder={t('Ваш возраст')}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeAge}
-                />
-                <Input
-                    value={data?.city}
-                    placeholder={t('Город')}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeCity}
-                />
-                <Input
-                    value={data?.username}
-                    placeholder={t('Введите имя пользователя')}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeUsername}
-                />
-                <Input
-                    value={data?.avatar}
-                    placeholder={t('Введите ссылку на аватар')}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeAvatar}
-                />
-                <CurrencySelect
-                    value={data?.currency}
-                    onChange={onChangeCurrency}
-                    readonly={readonly}
-                />
-                <CountrySelect
-                    value={data?.country}
-                    onChange={onChangeCountry}
-                    readonly={readonly}
-                />
+                <div>
+                    {data?.avatar &&
+                        <div className={cls.avatarWrapper}>
+                            <Avatar
+                                src={data.avatar}
+                                size={180}
+                            />
+                        </div>
+                    }
+                </div>
+                <div className={cls.fields}>
+                    <Input
+                        value={data?.first}
+                        placeholder={t('Ваше имя')}
+                        label={t('Ваше имя')}
+                        className={cls.input}
+                        readonly={readonly}
+                        onChange={onChangeFirstname}
+                    />
+                    <Input
+                        value={data?.lastname}
+                        placeholder={t('Ваша фамилия')}
+                        label={t('Ваша фамилия')}
+                        className={cls.input}
+                        readonly={readonly}
+                        onChange={onChangeLastname}
+                    />
+                    <Input
+                        value={data?.age}
+                        placeholder={t('Ваш возраст')}
+                        label={t('Ваш возраст')}
+                        className={cls.input}
+                        readonly={readonly}
+                        onChange={onChangeAge}
+                    />
+                    <Input
+                        value={data?.city}
+                        placeholder={t('Город')}
+                        label={t('Город')}
+                        className={cls.input}
+                        readonly={readonly}
+                        onChange={onChangeCity}
+                    />
+                    <Input
+                        value={data?.username}
+                        placeholder={t('Введите имя пользователя')}
+                        label={t('Введите имя пользователя')}
+                        className={cls.input}
+                        readonly={readonly}
+                        onChange={onChangeUsername}
+                    />
+                    <Input
+                        value={data?.avatar}
+                        placeholder={t('Введите ссылку на аватар')}
+                        label={t('Введите ссылку на аватар')}
+                        className={cls.input}
+                        readonly={readonly}
+                        onChange={onChangeAvatar}
+                    />
+                    <CurrencySelect
+                        value={data?.currency}
+                        onChange={onChangeCurrency}
+                        readonly={readonly}
+                    />
+                    <CountrySelect
+                        value={data?.country}
+                        onChange={onChangeCountry}
+                        readonly={readonly}
+                    />
+                </div>
             </div>
         </div>
     )
