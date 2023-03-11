@@ -2,7 +2,7 @@ import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { Select } from './Select'
 
 export default {
-    title: 'shared/Avatar',
+    title: 'shared/Select',
     component: Select,
     argTypes: {
         backgroundColor: { control: 'color' }
