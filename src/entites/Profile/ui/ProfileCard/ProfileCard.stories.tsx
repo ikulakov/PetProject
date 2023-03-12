@@ -2,7 +2,6 @@ import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { ProfileCard } from './ProfileCard'
 import { Country } from 'entites/Country'
 import { Currency } from 'entites/Currency'
-import AvatarImage from 'shared/ui/Avatar/avatar.jpg'
 
 export default {
     title: 'entites/ProfileCard',
@@ -24,7 +23,7 @@ Primary.args = {
         first: 'Ivan',
         city: 'Moscow',
         currency: Currency.RUB,
-        avatar: AvatarImage
+        avatar: 'shared/ui/Avatar/avatar.jpg'
     }
 }
 
