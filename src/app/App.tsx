@@ -3,12 +3,13 @@ import { AppRouter } from './providers/router'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { Navbar } from 'widgets/Navbar'
-import { useDispatch } from 'react-redux'
-import { User, userActions } from 'entites/User'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserInited, User, userActions } from 'entites/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
 const App: React.FC = () => {
     const dispatch = useDispatch()
+    const inited = useSelector(getUserInited)
 
     useEffect(() => {
         const user = localStorage.getItem(USER_LOCALSTORAGE_KEY)
@@ -24,7 +25,7 @@ const App: React.FC = () => {
                 <Navbar />
                 <div className='page-content'>
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>
