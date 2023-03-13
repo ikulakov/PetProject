@@ -18,7 +18,12 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
         },
         plugins: buildPlugins(options),
         module: {
-            rules: buildLoaders(options)
+            rules: buildLoaders(options),
+            parser: {
+                javascript: {
+                    reexportExportsPresence: false
+                }
+            } //
         },
         resolve: buildResolvers(options),
         devtool: isDev ? 'inline-source-map' : undefined,

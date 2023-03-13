@@ -27,6 +27,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -70,6 +71,8 @@
     "json-server": "^0.17.2",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "react-refresh": "^0.14.0",
+    "react-refresh-typescript": "^2.0.8",
     "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.9",
