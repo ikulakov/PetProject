@@ -5,7 +5,6 @@ import ProfilePage from './ProfilePage'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Country } from 'entites/Country'
 import { Currency } from 'entites/Currency'
-import AvatarImage from 'shared/ui/Avatar/avatar.jpg'
 
 export default {
     title: 'pages/ProfilePage',
@@ -29,7 +28,7 @@ Light.decorators = [StoreDecorator({
             first: 'Ivan',
             city: 'Moscow',
             currency: Currency.RUB,
-            avatar: AvatarImage
+            avatar: 'https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?'
         }
     }
 })]
