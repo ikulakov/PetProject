@@ -46,7 +46,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             first: 'Ivan',
             city: 'Moscow',
             currency: Currency.RUB,
-            avatar: AvatarImage
+            avatar: 'https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?'
         }
     }
 })]

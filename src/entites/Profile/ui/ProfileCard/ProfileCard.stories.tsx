@@ -23,7 +23,7 @@ Primary.args = {
         first: 'Ivan',
         city: 'Moscow',
         currency: Currency.RUB,
-        avatar: 'shared/ui/Avatar/avatar.jpg'
+        avatar: 'https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?'
     }
 }
 
