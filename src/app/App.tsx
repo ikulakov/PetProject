@@ -12,11 +12,12 @@ const App: React.FC = () => {
     const inited = useSelector(getUserInited)
 
     useEffect(() => {
+        let userData: User | undefined
         const user = localStorage.getItem(USER_LOCALSTORAGE_KEY)
         if (user) {
-            const userData = JSON.parse(user) as User
-            dispatch(userActions.initAuthData(userData))
+            userData = JSON.parse(user)
         }
+        dispatch(userActions.initAuthData(userData))
     }, [dispatch])
 
     return (

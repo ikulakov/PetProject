@@ -11,6 +11,7 @@
     bottom: 32px;
     right: -32px;
     font-family: consolas, serif;
+    transform: rotate(180deg);
 }
 
 .items {
@@ -23,4 +24,8 @@
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .toggle {
+        transform: rotate(360deg);
+    }
 }

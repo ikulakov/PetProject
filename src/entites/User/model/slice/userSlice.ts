@@ -12,7 +12,7 @@ export const userSlice = createSlice({
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload
         },
-        initAuthData: (state, action: PayloadAction<User>) => {
+        initAuthData: (state, action: PayloadAction<User | undefined>) => {
             state.authData = action.payload
             state._inited = true
         },

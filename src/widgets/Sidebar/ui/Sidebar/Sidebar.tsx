@@ -4,6 +4,7 @@ import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { SidebarItemsList } from '../../model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
+import ArrowCollapseIcon from '../../assets/chevrons-right.svg'
 
 interface SidebarProps {
     className?: string
@@ -36,7 +37,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 theme={ButtonTheme.BACKGOUND_INVERTED}
                 square
             >
-                {collapsed ? '>' : '<'}
+                {/* {collapsed ? '>' : '<'} */}
+                <ArrowCollapseIcon />
             </Button>
         </div>
     )
