@@ -3,10 +3,12 @@ import { Story } from '@storybook/react'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { profileReducer } from 'entites/Profile'
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { articleReducer } from 'entites/Article'
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    articleDetails: articleReducer
 }
 
 export const StoreDecorator = (

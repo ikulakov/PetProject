@@ -5,6 +5,11 @@
     padding: 6px 15px;
     align-items: center;
     justify-content: center;
+    transition: 0.2 ease;
+
+    &:hover {
+        opacity: 0.9;
+    }
 }
 
 .Button:disabled {

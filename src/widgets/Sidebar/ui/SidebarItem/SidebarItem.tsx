@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from 'entites/User'
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon'
 
 interface SidebarItemProps {
     item: SidebarItemsType
@@ -32,7 +33,8 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             className={classNames(cls.item, { [cls.collapsed]: collapsed }, []) }
         >
             <div className={cls.iconWrapper}>
-                <item.Icon className={cls.icon} />
+                <Icon Svg={item.Icon} className={cls.icon} theme={IconTheme.DARK}/>
+                {/* <item.Icon className={cls.icon} /> */}
             </div>
             <span className={cls.link}>
                 {t(item.text)}

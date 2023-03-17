@@ -1,0 +1,8 @@
+.Icon {
+    stroke: var(--primary-color);
+    stroke-width: 1.5;
+}
+
+.Icon.dark_icon {
+    stroke: var(--inverted-primary-color);
+}

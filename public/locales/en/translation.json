@@ -15,5 +15,6 @@
   "Форма авторизации": "Authorization form",
   "Пользователь ввел неверный логин или пароль": "The user entered an incorrect username or password",
   "Выйти": "Log out",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "Статьи": "Articles"
 }
