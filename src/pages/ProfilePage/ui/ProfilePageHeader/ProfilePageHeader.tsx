@@ -4,9 +4,9 @@ import { Text } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { getProfileReadonly, updateProfileData } from 'entites/Profile'
+import { getProfileReadonly, updateProfileData } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { profileActions } from 'entites/Profile/model/slice/profileSlice'
+import { profileActions } from 'entities/Profile/model/slice/profileSlice'
 import { useCallback } from 'react'
 
 interface ProfilePageHeaderProps {

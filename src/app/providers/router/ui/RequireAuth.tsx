@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entites/User'
+import { getUserAuthData } from 'entities/User'
 import { Navigate, useLocation } from 'react-router-dom'
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
 

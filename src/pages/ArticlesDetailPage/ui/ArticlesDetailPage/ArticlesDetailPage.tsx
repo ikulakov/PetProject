@@ -1,5 +1,5 @@
-import { ArticleDetails } from 'entites/Article'
-import { CommentList } from 'entites/Comment'
+import { ArticleDetails } from 'entities/Article'
+import { CommentList } from 'entities/Comment'
 import { articleDetailCommentsReducer, fetchCommentsByArticleId, getArticleComments, getArticleCommentsIsLoading } from 'features/ArticleCommentList'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'

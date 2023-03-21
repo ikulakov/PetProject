@@ -1,6 +1,6 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
-import { counterReducer } from 'entites/Counter/model/slice/counterSlice'
-import { userReducer } from 'entites/User'
+import { counterReducer } from 'entities/Counter/model/slice/counterSlice'
+import { userReducer } from 'entities/User'
 import { StateSchema } from './StateSchema'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'

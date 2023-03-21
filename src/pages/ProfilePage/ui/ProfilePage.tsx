@@ -1,13 +1,13 @@
-import { fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, ProfileCard, profileReducer, profileActions, getProfileValidateErrors } from 'entites/Profile'
+import { fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, ProfileCard, profileReducer, profileActions, getProfileValidateErrors } from 'entities/Profile'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { memo, ReactNode, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Currency } from 'entites/Currency'
-import { Country } from 'entites/Country'
+import { Currency } from 'entities/Currency'
+import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { ValidateProfileError } from 'entites/Profile/model/types/profile'
+import { ValidateProfileError } from 'entities/Profile/model/types/profile'
 import { useTranslation } from 'react-i18next'
 
 interface ProfilePageProps {

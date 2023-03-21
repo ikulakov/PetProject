@@ -4,7 +4,7 @@ import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { Navbar } from 'widgets/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserInited, User, userActions } from 'entites/User'
+import { getUserInited, User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
 const App: React.FC = () => {
