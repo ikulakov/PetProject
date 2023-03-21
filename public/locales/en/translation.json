@@ -16,5 +16,6 @@
   "Пользователь ввел неверный логин или пароль": "The user entered an incorrect username or password",
   "Выйти": "Log out",
   "Профиль": "Profile",
-  "Статьи": "Articles"
+  "Статьи": "Articles",
+  "Комментарии отсутствуют": "No comments"
 }
