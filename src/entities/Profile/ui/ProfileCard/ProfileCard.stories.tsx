@@ -4,7 +4,7 @@ import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 
 export default {
-    title: 'entites/ProfileCard',
+    title: 'entities/ProfileCard',
     component: ProfileCard,
     argTypes: {
         backgroundColor: { control: 'color' }

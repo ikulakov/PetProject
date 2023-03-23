@@ -41,7 +41,8 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 0,
         '@typescript-eslint/unbound-method': 0,
         '@typescript-eslint/no-explicit-any': 0,
-        '@typescript-eslint/no-invalid-void-type': 0
+        '@typescript-eslint/no-invalid-void-type': 0,
+        '@typescript-eslint/prefer-nullish-coalescing': 0
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],

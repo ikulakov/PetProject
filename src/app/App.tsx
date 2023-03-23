@@ -3,12 +3,13 @@ import { AppRouter } from './providers/router'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { Navbar } from 'widgets/Navbar'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { getUserInited, User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 const App: React.FC = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const inited = useSelector(getUserInited)
 
     useEffect(() => {

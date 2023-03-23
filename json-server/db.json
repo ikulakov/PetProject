@@ -102,6 +102,12 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "text": "asdasdasdasd",
+      "userId": "1",
+      "id": "rJ1rzRp"
     }
   ],
   "users": [
@@ -120,14 +126,28 @@
       "avatar": "https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Ivan1",
+      "lastname": "Ivanov",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?"
+    },
+    {
+      "id": "2",
+      "first": "Petr",
+      "lastname": "Petrov",
+      "age": 15,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "user213",
+      "avatar": "https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?"
+    }
+  ]
 }

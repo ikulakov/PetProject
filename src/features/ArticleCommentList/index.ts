@@ -15,8 +15,12 @@ export {
 export {
     getArticleCommentsError,
     getArticleCommentsIsLoading
-} from './selectors/comments'
+} from './model/selectors/comments'
 
 export {
     fetchCommentsByArticleId
 } from './model/service/fetchCommentsByArticleId'
+
+export {
+    addCommentForArticle
+} from './model/service/addCommentForArticle'

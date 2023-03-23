@@ -45,8 +45,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
     } = props
     const { t } = useTranslation('profile')
 
-    // const countryOptions = useMemo(() => Object.entries(Country).map((val) => ({ value: val[0], content: val[1] })), [])
-
     if (isLoading) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>

@@ -1,7 +1,7 @@
 import { ArticleDetails } from 'entities/Article'
 import { CommentList } from 'entities/Comment'
-import { articleDetailCommentsReducer, fetchCommentsByArticleId, getArticleComments, getArticleCommentsIsLoading } from 'features/ArticleCommentList'
-import { memo } from 'react'
+import { addCommentForArticle, articleDetailCommentsReducer, fetchCommentsByArticleId, getArticleComments, getArticleCommentsIsLoading } from 'features/ArticleCommentList'
+import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -11,6 +11,7 @@ import { Text } from 'shared/ui/Text/Text'
 import cls from './ArticlesDetailPage.module.scss'
 import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { AddCommentForm } from 'features/AddCommentForm'
 
 interface ArticlesDetailPageProps {
     className?: string
@@ -28,6 +29,10 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
     const isLoading = useSelector(getArticleCommentsIsLoading)
     const dispatch = useAppDispatch()
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text))
+    }, [dispatch])
+
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(articleId))
     })
@@ -41,10 +46,11 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.articlesDetailPage, {}, [className])}>
                 <ArticleDetails id={articleId} />
                 <Text title={t('Комментарии')} className={cls.commentTitle}/>
+                <AddCommentForm onSendComment={onSendComment} />
                 <CommentList
                     comments={comments}
                     isLoading={isLoading}
