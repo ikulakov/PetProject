@@ -1,6 +1,6 @@
 import cls from './ArticleDetails.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { memo, useEffect } from 'react'
+import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getArticleById } from '../../model/services/getArticleById/getArticleById'
@@ -20,6 +20,7 @@ import { ArticleBlock } from 'entities/Article/model/types/article'
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent'
+import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 interface ArticleDetailsProps {
     className?: string
@@ -74,11 +75,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const isLoading = useSelector(getArticleDetailsIsLoading)
     const error = useSelector(getArticleDetailsError)
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(getArticleById(id))
-        }
-    }, [dispatch, id])
+    useInitialEffect(() => {
+        dispatch(getArticleById(id))
+    })
 
     const content = isLoading
         ? (
@@ -126,7 +125,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             )
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div
                 className={classNames(cls.ArticleDetails, {}, [className])}
             >
