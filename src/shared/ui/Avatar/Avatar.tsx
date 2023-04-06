@@ -17,6 +17,8 @@ export const Avatar = (props: AvatarProps) => {
         alt
     } = props
 
+    console.log('render avatar')
+
     const styles = useMemo<CSSProperties>(() => ({
         width: size,
         height: size

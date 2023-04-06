@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable promise/param-names */
 /* eslint-disable @typescript-eslint/no-unsafe-call */

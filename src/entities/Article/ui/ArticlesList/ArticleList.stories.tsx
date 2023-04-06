@@ -1,37 +1,32 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Article, ArticleType } from 'entities/Article/model/types/article'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import ArticlesDetailPage from './ArticlesDetailPage'
-import { Suspense } from 'react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ArticlesList } from './ArticlesList'
+import { Article } from 'entities/Article/model/types/article'
 
 export default {
-    title: 'pages/ArticlesDetailPage',
-    component: ArticlesDetailPage,
-    loaders: [],
-    parameters: {
-        reactRouter: {
-            routePath: '/articles/:id',
-            routeParams: { id: '1' }
-        }
-    },
+    title: 'entities/Article/ArticlesList',
+    component: ArticlesList,
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof ArticlesDetailPage>
+} as ComponentMeta<typeof ArticlesList>
 
-const articleData: Article = {
+const article = {
     id: '1',
-    user: {
-        id: '1',
-        username: 'admin'
-    },
-    title: 'Javascript news',
+    title: 'Javascript news asfasjf asfjkask f',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '1',
+        username: 'Ulbi tv',
+        avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg'
+    },
     type: [
-        ArticleType.IT
+        'IT',
+        'SCIENCE',
+        'POLITICS',
+        'ECONOMICS'
     ],
     blocks: [
         {
@@ -93,16 +88,42 @@ const articleData: Article = {
             ]
         }
     ]
+} as Article
+
+const Template: ComponentStory<typeof ArticlesList> = (args) => <ArticlesList {...args} />
+
+export const IsLoadingGrid = Template.bind({})
+IsLoadingGrid.args = {
+    isLoading: true,
+    articles: [],
+    view: 'grid'
 }
 
-const Template: ComponentStory<typeof ArticlesDetailPage> = (args) => <Suspense fallback=""><ArticlesDetailPage { ...args } /></Suspense>
+export const IsLoadingList = Template.bind({})
+IsLoadingList.args = {
+    isLoading: true,
+    articles: [],
+    view: 'list'
+}
 
-export const Primary = Template.bind({})
-Primary.args = {}
-Primary.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            data: articleData
-        }
-    })
-]
+export const GRID = Template.bind({})
+GRID.args = {
+    view: 'grid',
+    articles: new Array(9)
+        .fill(0)
+        .map((_, index) => ({
+            ...article,
+            id: String(index)
+        }))
+}
+
+export const LIST = Template.bind({})
+LIST.args = {
+    view: 'list',
+    articles: new Array(9)
+        .fill(0)
+        .map((_, index) => ({
+            ...article,
+            id: String(index)
+        }))
+}

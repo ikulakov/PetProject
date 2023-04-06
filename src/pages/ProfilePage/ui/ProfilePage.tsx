@@ -1,6 +1,6 @@
 import { fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, ProfileCard, profileReducer, profileActions, getProfileValidateErrors } from 'entities/Profile'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
-import { memo, ReactNode, useCallback } from 'react'
+import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch'
@@ -12,15 +12,11 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { useInitialEffect } from '../../../shared/lib/hooks/useInitialEffect/useInitialEffect'
 
-interface ProfilePageProps {
-    children: ReactNode
-}
-
 const initialReducers: ReducersList = {
     profile: profileReducer
 }
 
-const ProfilePage = memo((props: ProfilePageProps) => {
+const ProfilePage = memo(() => {
     const dispatch = useAppDispatch()
     const formData = useSelector(getProfileForm)
     const error = useSelector(getProfileError)
