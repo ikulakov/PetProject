@@ -7,7 +7,7 @@ import { getArticleById } from '../../model/services/getArticleById/getArticleBy
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading'
-import { articleReducer } from '../../model/slice/articleDetailsSlice'
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice/articleDetailsSlice'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
@@ -28,7 +28,7 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-    articleDetails: articleReducer
+    articleDetails: articleDetailsReducer
 }
 
 const renderBlock = (block: ArticleBlock) => {

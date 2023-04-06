@@ -1,0 +1,8 @@
+.ArticleViewSelector {
+    display: flex;
+}
+
+.selected {
+    stroke: var(--secondary-color);
+    stroke-width: 2.5px;
+}

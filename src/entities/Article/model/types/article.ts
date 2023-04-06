@@ -1,3 +1,4 @@
+import { EntityState } from '@reduxjs/toolkit'
 import { User } from 'entities/User'
 
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
@@ -48,4 +49,11 @@ export interface ArticleDetailsSchema {
     data?: Article
     isLoading: boolean
     error?: string
+}
+
+export interface ArticleListSchema extends EntityState<Article> {
+    isLoading: boolean
+    error?: string
+
+    view: ArticleView
 }

@@ -1,11 +1,12 @@
 export {
-    articleReducer,
-    articleActions
-} from './model/slice/articleDetailsSlice'
+    articleDetailsReducer,
+    articleDetailsActions
+} from './model/slice/articleDetailsSlice/articleDetailsSlice'
 
 export type {
     ArticleDetailsSchema,
-    ArticleView
+    ArticleView,
+    ArticleListSchema
 } from './model/types/article'
 
 // components
@@ -16,6 +17,10 @@ export {
 export {
     ArticlesList
 } from './ui/ArticlesList/ArticlesList'
+
+export {
+    ArticleViewSelector
+} from './ui/ArticleViewSelector/ArticleViewSelector'
 
 // selectors
 export {
