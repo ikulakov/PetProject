@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
 
     if (user) {
         return (
-            <div
+            <header
                 className={classNames(cls.Navbar, {}, [className])}
                 data-testid="navbar"
             >
@@ -58,12 +58,12 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 <div>
                     <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>{t('Выйти')}</Button>
                 </div>
-            </div>
+            </header>
         )
     }
 
     return (
-        <div
+        <header
             className={classNames(cls.Navbar, {}, [className])}
             data-testid="navbar"
         >
@@ -75,6 +75,6 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onToggleModal}>{t('Войти')}</Button>
                 {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />}
             </div>
-        </div>
+        </header>
     )
 })

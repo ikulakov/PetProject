@@ -41,8 +41,8 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     }, [])
 
     return (
-        <div>
+        <>
             {children}
-        </div>
+        </>
     )
 }

@@ -20,11 +20,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         setCollapsed(prev => !prev)
     }
     return (
-        <div
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
 
-            <div className={cls.items}>
+            <nav className={cls.items}>
                 {sidebarItemsList.map((item) => (
                     <SidebarItem
                         item={item}
@@ -32,7 +32,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                         key={item.path}
                     />
                 ))}
-            </div>
+            </nav>
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
@@ -43,6 +43,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 <ArrowCollapseIcon />
             </Button>
-        </div>
+        </aside>
     )
 })

@@ -14,6 +14,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { AddCommentForm } from 'features/AddCommentForm'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
+import { Page } from 'shared/ui/Page/Page'
 
 interface ArticlesDetailPageProps {
     className?: string
@@ -46,15 +47,15 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
 
     if (!articleId) {
         return (
-            <div className={classNames(cls.articlesDetailPage, {}, [className])}>
+            <Page className={classNames(cls.articlesDetailPage, {}, [className])}>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         )
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articlesDetailPage, {}, [className])}>
+            <Page className={classNames(cls.articlesDetailPage, {}, [className])}>
                 <Button
                     theme={ButtonTheme.OUTLINE}
                     onClick={onBackToList}
@@ -68,7 +69,7 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
                     comments={comments}
                     isLoading={isLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

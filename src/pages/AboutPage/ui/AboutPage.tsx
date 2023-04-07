@@ -1,13 +1,14 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Page } from 'shared/ui/Page/Page'
 
 const AboutPage: React.FC = memo(() => {
     const { t } = useTranslation()
     return (
-        <div>
+        <Page>
             <h1>{t('О нас')}</h1>
             {t('Контент на странице о нас')}
-        </div>
+        </Page>
     )
 })
 

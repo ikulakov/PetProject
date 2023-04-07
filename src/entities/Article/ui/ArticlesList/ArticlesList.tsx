@@ -20,18 +20,6 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
         view = 'grid'
     } = props
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
-                {new Array(view === 'grid' ? 9 : 3)
-                    .fill(0)
-                    .map((_, index) => (
-                        <ArticleListItemSkeleton view={view} key={index} className='' />
-                    ))}
-            </div>
-        )
-    }
-
     return (
         <div
             className={classNames(cls.ArticlesList, {}, [className, cls[view]])}
@@ -45,6 +33,15 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
                     />
                 ))
                 : null
+            }
+            {isLoading &&
+                <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
+                    {new Array(view === 'grid' ? 9 : 3)
+                        .fill(0)
+                        .map((_, index) => (
+                            <ArticleListItemSkeleton view={view} key={index} className='' />
+                        ))}
+                </div>
             }
         </div>
     )
