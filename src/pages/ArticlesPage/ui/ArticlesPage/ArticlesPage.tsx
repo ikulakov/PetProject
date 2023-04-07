@@ -5,12 +5,12 @@ import cls from './ArticlesPage.module.scss'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articleListSliceActions, articleListSliceReducer, getArticles } from 'entities/Article/model/slice/articleListSlice/articleListSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { fetchArticlesList } from 'entities/Article/model/services/fetchArticlesList/fetchArticlesList'
 import { useSelector } from 'react-redux'
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from 'entities/Article/model/selectors/articlesPageSelectors'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Page } from 'shared/ui/Page/Page'
 import { fetchNextArticlePage } from 'entities/Article/model/services/fetchNextArticlePage/fetchNextArticlePage'
+import { initArticlesPage } from 'entities/Article/model/services/initArticlesPage/initArticlesPage'
 
 interface ArticlesPageProps {
     className?: string
@@ -39,10 +39,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch, isLoading])
 
     useInitialEffect(() => {
-        dispatch(articleListSliceActions.InitialState())
-        dispatch(fetchArticlesList({
-            page: 1
-        }))
+        dispatch(initArticlesPage())
     })
 
     if (error) {
@@ -50,7 +47,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page className={classNames(cls.articlesPage, {}, [className])} onScrollEnd={onLoadNextPart}>
                 <ArticleViewSelector
                     view={view}
