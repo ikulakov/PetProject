@@ -7,10 +7,12 @@ import { UserSchema } from 'entities/User'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticleDetailsCommentsSchema } from 'features/ArticleCommentList'
 import { LoginSchema } from 'features/AuthByUsername'
+import { ScrollSaveSchema } from 'widgets/Page/ScrollSave/model/types/ScrollSchema'
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+    scrollSave: ScrollSaveSchema
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema

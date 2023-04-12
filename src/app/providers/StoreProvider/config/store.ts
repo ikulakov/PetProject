@@ -4,6 +4,7 @@ import { userReducer } from 'entities/User'
 import { StateSchema } from './StateSchema'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
+import { scrollReducer } from 'widgets/Page/ScrollSave/model/slices/scrollSaveSclice'
 
 export function createReduxStore (
     initialState?: StateSchema,
@@ -12,7 +13,8 @@ export function createReduxStore (
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
-        user: userReducer
+        user: userReducer,
+        scrollSave: scrollReducer
     }
 
     const reducerManager = createReducerManager(rootReducers)
