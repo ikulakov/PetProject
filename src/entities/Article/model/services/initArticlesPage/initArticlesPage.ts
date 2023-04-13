@@ -4,7 +4,7 @@ import { getArticlesPageInited } from 'entities/Article/model/selectors/articles
 import { articleListSliceActions } from '../../../model/slice/articleListSlice/articleListSlice'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 import { SortOrder } from 'shared/types'
-import { ArticleSortField } from 'entities/Article/model/types/article'
+import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article'
 
 export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
     'entities/Article/initArticlesPage',
@@ -26,9 +26,11 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
                 case 'q':
                     dispatch(articleListSliceActions.setSearch(value))
                     break
+                case 'type':
+                    dispatch(articleListSliceActions.setType(value as ArticleType))
+                    break
             }
         })
-
         dispatch(articleListSliceActions.initState())
         dispatch(fetchArticlesList({}))
     }

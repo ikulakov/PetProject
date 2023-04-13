@@ -46,20 +46,20 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
     const onChangeOrder = useCallback((order: SortOrder) => {
         dispatch(articleListSliceActions.setOrder(order))
         dispatch(articleListSliceActions.setPage(1))
-        debouncedFetchData()
+        fetchData()
 
         searchParams.set('order', order)
         setSearchParams(searchParams)
-    }, [dispatch, debouncedFetchData, searchParams, setSearchParams])
+    }, [dispatch, fetchData, searchParams, setSearchParams])
 
     const onChangeSort = useCallback((sort: ArticleSortField) => {
         dispatch(articleListSliceActions.setSort(sort))
         dispatch(articleListSliceActions.setPage(1))
-        debouncedFetchData()
+        fetchData()
 
         searchParams.set('sort', sort)
         setSearchParams(searchParams)
-    }, [dispatch, debouncedFetchData, searchParams, setSearchParams])
+    }, [dispatch, fetchData, searchParams, setSearchParams])
 
     const onChangeSearch = useCallback((query: string) => {
         dispatch(articleListSliceActions.setSearch(query))
@@ -73,11 +73,11 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
     const onChangeTab = useCallback((value: ArticleType) => {
         dispatch(articleListSliceActions.setType(value))
         dispatch(articleListSliceActions.setPage(1))
-        debouncedFetchData()
+        fetchData()
 
         searchParams.set('type', value)
         setSearchParams(searchParams)
-    }, [dispatch, debouncedFetchData, searchParams, setSearchParams])
+    }, [dispatch, fetchData, searchParams, setSearchParams])
 
     return (
         <div className={classNames('', {}, [className])}>
