@@ -9,6 +9,9 @@ import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
 
 interface NavbarProps {
     className?: string
@@ -51,6 +54,10 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 className={classNames(cls.Navbar, {}, [className])}
                 data-testid="navbar"
             >
+                <Text className={cls.appName} title={t('Pet App')} theme={TextTheme.INVERTED} />
+                <AppLink to={RoutePath.article_create} className={cls.createBtn}>
+                    {t('Создать статью')}
+                </AppLink>
                 <div className={cls.widgets}>
                     <ThemeSwitcher />
                     <LangSwitcher />
