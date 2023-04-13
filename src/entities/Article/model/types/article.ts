@@ -1,5 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit'
 import { User } from 'entities/User'
+import { SortOrder } from 'shared/types'
 
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 
@@ -26,6 +27,7 @@ export interface ArticleImageBlock extends ArticleBlockBase {
 export type ArticleBlock = ArticleCodeBlock | ArticleTextBlock | ArticleImageBlock
 
 export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'
@@ -52,13 +54,26 @@ export interface ArticleDetailsSchema {
 }
 
 export interface ArticleListSchema extends EntityState<Article> {
-    isLoading: boolean
+    isLoading?: boolean
     error?: string
 
-    view: ArticleView
+    // pagination
     page: number
-    limit?: number
+    limit: number
     hasMore: boolean
 
+    // filters
+    view: ArticleView
+    order: SortOrder
+    sort: ArticleSortField
+    search: string
+    type: ArticleType
+
     _inited: boolean
+}
+
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt'
 }

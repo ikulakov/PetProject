@@ -3,6 +3,11 @@ export {
     articleDetailsActions
 } from './model/slice/articleDetailsSlice/articleDetailsSlice'
 
+export {
+    articleListSliceReducer,
+    articleListSliceActions
+} from './model/slice/articleListSlice/articleListSlice'
+
 export type {
     ArticleDetailsSchema,
     ArticleView,
@@ -22,7 +27,24 @@ export {
     ArticleViewSelector
 } from './ui/ArticleViewSelector/ArticleViewSelector'
 
+export {
+    ArticleTypeTabs
+} from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
+
 // selectors
 export {
     getArticleDetailsData
 } from './model/selectors/getArticleDetailsData/getArticleDetailsData'
+
+export {
+    getArticlesPageIsLoading,
+    getArticlesPageError,
+    getArticlesPageView,
+    getArticlesPageNum,
+    getArticlesPageLimit,
+    getArticlesPageHasMore,
+    getArticlesPageInited,
+    getArticlesPageSearch,
+    getArticlesPageOrder,
+    getArticlesPageSort
+} from 'entities/Article/model/selectors/articlesPageSelectors'
