@@ -1,6 +1,6 @@
 import cls from './ArticlesList.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { memo } from 'react'
+import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
 import { Article, ArticleView } from '../../model/types/article'
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticlesListItem/ArticleListItemSkeleton'
@@ -12,6 +12,7 @@ interface ArticlesListProps {
     articles: Article[]
     isLoading?: boolean
     view?: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticlesList = memo((props: ArticlesListProps) => {
@@ -19,7 +20,8 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
         className,
         articles,
         isLoading,
-        view = 'grid'
+        view = 'grid',
+        target
     } = props
 
     const { t } = useTranslation()
@@ -42,6 +44,7 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
                         article={article}
                         view={view}
                         key={article.id}
+                        target={target}
                     />
                 ))
                 : null
