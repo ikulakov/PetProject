@@ -21,6 +21,7 @@ import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockC
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { useInitialEffect } from '../../../../shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { HStack, VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsProps {
     className?: string
@@ -38,7 +39,6 @@ const renderBlock = (block: ArticleBlock) => {
                 <ArticleTextBlockComponent
                     key={block.id}
                     block={block}
-                    className={cls.block}
                 />
             )
         case 'CODE':
@@ -46,7 +46,6 @@ const renderBlock = (block: ArticleBlock) => {
                 <ArticleCodeBlockComponent
                     key={block.id}
                     block={block}
-                    className={cls.block}
                 />
             )
         case 'IMAGE':
@@ -54,7 +53,6 @@ const renderBlock = (block: ArticleBlock) => {
                 <ArticleImageBlockComponent
                     key={block.id}
                     block={block}
-                    className={cls.block}
                 />
             )
         default:
@@ -97,30 +95,30 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             )
             : (
                 <>
-                    <div className={cls.avatarWrapper}>
+                    <HStack justify='center' max>
                         <Avatar
                             src={article?.img}
                             size={200}
                             className={cls.avatar}
                         />
-                    </div>
+                    </HStack>
                     <Text
                         title={article?.title}
                         text={article?.subtitle}
                         theme={TextTheme.PRIMARY}
                         size={TextSize.L}
                     />
-                    <div className={cls.articleInfo}>
-                        <Icon Svg={EyeIcon} className={cls.icon}/>
+                    <HStack gap='8'>
+                        <Icon Svg={EyeIcon} />
                         <Text text={String(article?.views)} />
-                    </div>
-                    <div className={cls.articleInfo}>
-                        <Icon Svg={CalendarIcon} className={cls.icon}/>
+                    </HStack>
+                    <HStack gap='8'>
+                        <Icon Svg={CalendarIcon} />
                         <Text text={article?.createdAt} />
-                    </div>
-                    <div>
+                    </HStack>
+                    <VStack gap='32'>
                         {article?.blocks.map(renderBlock)}
-                    </div>
+                    </VStack>
                 </>
             )
 

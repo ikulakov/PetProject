@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom'
 import { useInitialEffect } from '../../../shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Page } from 'widgets/Page/Page'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { VStack } from 'shared/ui/Stack'
 
 const initialReducers: ReducersList = {
     profile: profileReducer
@@ -74,24 +75,26 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <Page className={classNames('', {}, [className])}>
-                <ProfilePageHeader />
-                {validateErrors?.map((err) => (
-                    <Text theme={TextTheme.ERROR} text={validateErrorsTranslates[err]} key={err} />
-                ))}
-                <ProfileCard
-                    data={formData}
-                    error={error}
-                    isLoading={isLoading}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeUsername={onChangeUsername}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                    readonly={readonly}
-                />
+                <VStack gap='32'>
+                    <ProfilePageHeader />
+                    {validateErrors?.map((err) => (
+                        <Text theme={TextTheme.ERROR} text={validateErrorsTranslates[err]} key={err} />
+                    ))}
+                    <ProfileCard
+                        data={formData}
+                        error={error}
+                        isLoading={isLoading}
+                        onChangeFirstname={onChangeFirstname}
+                        onChangeLastname={onChangeLastname}
+                        onChangeAge={onChangeAge}
+                        onChangeCity={onChangeCity}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeUsername={onChangeUsername}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
+                        readonly={readonly}
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     )

@@ -7,6 +7,7 @@ import ArrowCollapseIcon from '../../assets/chevrons-right.svg'
 import { SidebarItemsType } from '../../model/types/sidebar'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import { VStack } from 'shared/ui/Stack'
 
 interface SidebarProps {
     className?: string
@@ -22,15 +23,16 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-
-            <nav className={cls.items}>
-                {sidebarItemsList.map((item) => (
-                    <SidebarItem
-                        item={item}
-                        collapsed={collapsed}
-                        key={item.path}
-                    />
-                ))}
+            <nav>
+                <VStack gap='32' className={cls.items}>
+                    {sidebarItemsList.map((item) => (
+                        <SidebarItem
+                            item={item}
+                            collapsed={collapsed}
+                            key={item.path}
+                        />
+                    ))}
+                </VStack>
             </nav>
             <Button
                 data-testid="sidebar-toggle"

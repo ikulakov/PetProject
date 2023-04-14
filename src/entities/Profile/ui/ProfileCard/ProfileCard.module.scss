@@ -2,26 +2,3 @@
     padding: 30px;
     border: 1px solid var(--inverted-bg-color);
 }
-
-.data {
-    display: flex;
-    gap: 30px;
-
-    .fields {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-}
-
-.loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.avatarWrapper {
-    display: flex;
-    justify-content: center;
-}

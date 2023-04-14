@@ -1,4 +1,3 @@
-import cls from './ProfilePageHeader.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Text } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
@@ -9,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { profileActions } from 'entities/Profile/model/slice/profileSlice'
 import { useCallback } from 'react'
 import { getUserAuthData } from 'entities/User'
+import { HStack } from 'shared/ui/Stack'
 
 interface ProfilePageHeaderProps {
     className?: string
@@ -38,8 +38,10 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch])
 
     return (
-        <div
-            className={classNames(cls.ProfilePageHeader, {}, [className])}
+        <HStack
+            justify='between'
+            max
+            className={classNames('', {}, [className])}
         >
             <Text title={t('Профиль')} />
             {canEdit && (
@@ -47,32 +49,29 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                     ? (
                         <Button
                             theme={ButtonTheme.OUTLINE}
-                            className={cls.editBtn}
                             onClick={onEdit}
                         >
                             {t('Редактировать')}
                         </Button>
                     )
                     : (
-                        <>
+                        <HStack gap='8'>
                             <Button
                                 theme={ButtonTheme.OUTLINE}
-                                className={cls.editBtn}
                                 onClick={onCancelEdit}
                             >
                                 {t('Отменить')}
                             </Button>
                             <Button
                                 theme={ButtonTheme.BACKGOUND_INVERTED}
-                                className={cls.saveBtn}
                                 onClick={onSave}
                             >
                                 {t('Сохранить')}
                             </Button>
-                        </>
+                        </HStack>
                     )
             )
             }
-        </div>
+        </HStack>
     )
 }
