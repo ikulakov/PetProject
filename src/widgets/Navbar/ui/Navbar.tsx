@@ -12,6 +12,8 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface NavbarProps {
     className?: string
@@ -63,7 +65,21 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                     <LangSwitcher />
                 </div>
                 <div>
-                    <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>{t('Выйти')}</Button>
+                    <Dropdown
+                        items={[
+                            {
+                                content: t('Профиль'),
+                                href: RoutePath.profile + user.id
+                            },
+                            {
+                                content: t('Выйти'),
+                                onClick: onLogout
+                            }
+                        ]}
+                        className={cls.dropdown}
+                        trigger={<Avatar src={user.avatar} size={30}/>}
+                        direction={'bottom left'}
+                    />
                 </div>
             </header>
         )

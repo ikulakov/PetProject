@@ -18,5 +18,6 @@
   "Некорректная страна": "Incorrect country",
   "Некорректно введены имя или фамилия": "Name or surname entered incorrectly",
   "Данных не получено": "No data received",
-  "Ошибка сервера": "server error"
+  "Ошибка сервера": "server error",
+  "Профиль пользователя": "User profile"
 }
