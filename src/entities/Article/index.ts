@@ -11,7 +11,9 @@ export {
 export type {
     ArticleDetailsSchema,
     ArticleView,
-    ArticleListSchema
+    ArticleListSchema,
+    ArticleSortField,
+    ArticleType
 } from './model/types/article'
 
 // components

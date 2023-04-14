@@ -1,7 +1,6 @@
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
-import { ProfileSchema, profileReducer, profileActions, updateProfileData } from 'entities/Profile'
-import { ValidateProfileError } from 'entities/Profile/model/types/profile'
+import { ProfileSchema, profileReducer, profileActions, updateProfileData, ValidateProfileError } from 'entities/Profile'
 
 const data = {
     username: '123',

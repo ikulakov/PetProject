@@ -22,7 +22,8 @@ module.exports = {
     plugins: [
         '@typescript-eslint',
         'i18next',
-        'react-hooks'
+        'react-hooks',
+        'feature-sliced-design'
     ],
     rules: {
         indent: 'off',
@@ -43,6 +44,9 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/no-invalid-void-type': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0
+        // 'feature-sliced-design/relative-path-within-slice': 2,
+        // 'feature-sliced-design/layers-hierarchy': 2,
+        // 'feature-sliced-design/public-api-slice-import': 2
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],

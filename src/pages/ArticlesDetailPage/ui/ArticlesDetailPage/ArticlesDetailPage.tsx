@@ -16,7 +16,7 @@ import { Page } from 'widgets/Page/Page'
 import { articleDetailsPageRecommendationReducer, getArticleRecommendations } from 'entities/Article/model/slice/articleDetailsPageRecommendationSlice/articleDetailsPageRecommendation'
 import { getArticleDetailsRecommendationIsLoading } from '../../../../entities/Article/model/selectors/articleRecommendations'
 import { fetchArticlesRecommendations } from 'entities/Article/model/services/fetchArticlesRecommendations/fetchArticlesRecommendations'
-import { ArticlesDetailPageHeader } from 'pages/ArticlesDetailPage/ui/ArticlesDetailPageHeader/ArticlesDetailPageHeader'
+import { ArticlesDetailPageHeader } from '../ArticlesDetailPageHeader/ArticlesDetailPageHeader'
 
 interface ArticlesDetailPageProps {
     className?: string

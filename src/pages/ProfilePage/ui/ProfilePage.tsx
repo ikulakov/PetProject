@@ -1,4 +1,4 @@
-import { fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, ProfileCard, profileReducer, profileActions, getProfileValidateErrors } from 'entities/Profile'
+import { fetchProfileData, getProfileForm, getProfileError, getProfileIsLoading, getProfileReadonly, ProfileCard, profileReducer, profileActions, getProfileValidateErrors, ValidateProfileError } from 'entities/Profile'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
@@ -7,7 +7,6 @@ import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppD
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { ValidateProfileError } from 'entities/Profile/model/types/profile'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { useInitialEffect } from '../../../shared/lib/hooks/useInitialEffect/useInitialEffect'
