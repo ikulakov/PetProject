@@ -3,17 +3,19 @@ import { AxiosInstance } from 'axios'
 import { ArticleDetailsSchema, ArticleListSchema } from 'entities/Article'
 import { ArticleDetailsPageRecommendationSchema } from 'entities/Article/model/types/articleDetailsPageRecommendationSchema'
 import { CounterSchema } from 'entities/Counter'
-import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticleDetailsCommentsSchema } from 'features/ArticleCommentList'
 import { LoginSchema } from 'features/AuthByUsername'
+import { ProfileSchema } from 'features/EditableProfileCard'
+import { rtkApi } from 'shared/api/rtkApi'
 import { ScrollSaveSchema } from 'widgets/Page/ScrollSave/model/types/ScrollSchema'
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
     scrollSave: ScrollSaveSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema

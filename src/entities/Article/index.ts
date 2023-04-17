@@ -16,6 +16,14 @@ export type {
     ArticleType
 } from './model/types/article'
 
+// services
+export {
+    initArticlesPage
+} from './model/services/initArticlesPage/initArticlesPage'
+export {
+    fetchNextArticlePage
+} from './model/services/fetchNextArticlePage/fetchNextArticlePage'
+
 // components
 export {
     ArticleDetails
@@ -49,4 +57,4 @@ export {
     getArticlesPageSearch,
     getArticlesPageOrder,
     getArticlesPageSort
-} from 'entities/Article/model/selectors/articlesPageSelectors'
+} from './model/selectors/articlesPageSelectors'

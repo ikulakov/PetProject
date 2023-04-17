@@ -5,6 +5,7 @@ import { StateSchema } from './StateSchema'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
 import { scrollReducer } from 'widgets/Page/ScrollSave/model/slices/scrollSaveSclice'
+import { rtkApi } from 'shared/api/rtkApi'
 
 export function createReduxStore (
     initialState?: StateSchema,
@@ -14,7 +15,8 @@ export function createReduxStore (
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        scrollSave: scrollReducer
+        scrollSave: scrollReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     }
 
     const reducerManager = createReducerManager(rootReducers)
@@ -29,7 +31,7 @@ export function createReduxStore (
                     api: $api
                 }
             }
-        })
+        }).concat(rtkApi.middleware)
     })
 
     // @ts-expect-error temp

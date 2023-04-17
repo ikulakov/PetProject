@@ -5,7 +5,7 @@ import ArticlesDetailPage from './ArticlesDetailPage'
 import { Suspense } from 'react'
 
 export default {
-    title: 'pages/ArticlesDetailPage',
+    title: 'pages/Article/ArticlesDetailPage',
     component: ArticlesDetailPage,
     loaders: [],
     parameters: {
