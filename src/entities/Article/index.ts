@@ -9,6 +9,7 @@ export {
 } from './model/slice/articleListSlice/articleListSlice'
 
 export type {
+    Article,
     ArticleDetailsSchema,
     ArticleView,
     ArticleListSchema,
