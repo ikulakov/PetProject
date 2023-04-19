@@ -7,7 +7,7 @@ import { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData, userActions } from 'entities/User'
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
@@ -24,6 +24,9 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
     const { t } = useTranslation()
     const user = useSelector(getUserAuthData)
     const dispatch = useDispatch()
+    const isAdmin = useSelector(isUserAdmin)
+    const isManger = useSelector(isUserManager)
+    const isAdminPanelAvailable = isAdmin || isManger
 
     const onToggleModal = useCallback(() => {
         setIsAuthModal((prev) => !prev)
@@ -67,6 +70,13 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 <div>
                     <Dropdown
                         items={[
+                            ...(isAdminPanelAvailable
+                                ? [{
+                                    content: t('Админка'),
+                                    href: RoutePath.admin_panel
+                                }]
+                                : []
+                            ),
                             {
                                 content: t('Профиль'),
                                 href: RoutePath.profile + user.id

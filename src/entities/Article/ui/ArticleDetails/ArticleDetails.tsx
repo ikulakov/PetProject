@@ -124,11 +124,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
+            <VStack
                 className={classNames(cls.ArticleDetails, {}, [className])}
+                gap='16'
+                max
             >
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     )
 })
