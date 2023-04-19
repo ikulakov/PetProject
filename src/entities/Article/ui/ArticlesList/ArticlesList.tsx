@@ -6,6 +6,7 @@ import { Article, ArticleView } from '../../model/types/article'
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticlesListItem/ArticleListItemSkeleton'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { HStack } from 'shared/ui/Stack'
 
 interface ArticlesListProps {
     className?: string
@@ -35,29 +36,33 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
     }
 
     return (
-        <div
-            className={classNames(cls.ArticlesList, {}, [className, cls[view]])}
-        >
-            {articles
-                ? articles.map((article: Article) => (
-                    <ArticlesListItem
-                        article={article}
-                        view={view}
-                        key={article.id}
-                        target={target}
-                    />
-                ))
-                : null
-            }
+        <>
+            <HStack
+                max
+                gap='16'
+                className={classNames(cls.ArticlesList, {}, [className, cls[view]])}
+            >
+                {articles
+                    ? articles.map((article: Article) => (
+                        <ArticlesListItem
+                            article={article}
+                            view={view}
+                            key={article.id}
+                            target={target}
+                        />
+                    ))
+                    : null
+                }
+            </HStack>
             {isLoading &&
-                <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
+                <HStack max gap='16' className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
                     {new Array(view === 'grid' ? 9 : 3)
                         .fill(0)
                         .map((_, index) => (
                             <ArticleListItemSkeleton view={view} key={index} className='' />
                         ))}
-                </div>
+                </HStack>
             }
-        </div>
+        </>
     )
 })
