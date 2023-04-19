@@ -8,7 +8,7 @@ import { getUserInited, User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
-const App: React.FC = () => {
+const App = () => {
     const dispatch = useAppDispatch()
     const inited = useSelector(getUserInited)
 

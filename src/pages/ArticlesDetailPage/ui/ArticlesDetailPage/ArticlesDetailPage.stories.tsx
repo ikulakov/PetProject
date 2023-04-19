@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Article, ArticleType } from 'entities/Article/model/types/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import ArticlesDetailPage from './ArticlesDetailPage'
-import { Suspense } from 'react'
 
 export default {
     title: 'pages/Article/ArticlesDetailPage',
@@ -95,7 +94,7 @@ const articleData: Article = {
     ]
 }
 
-const Template: ComponentStory<typeof ArticlesDetailPage> = (args) => <Suspense fallback=""><ArticlesDetailPage { ...args } /></Suspense>
+const Template: ComponentStory<typeof ArticlesDetailPage> = (args) => <ArticlesDetailPage { ...args } />
 
 export const Primary = Template.bind({})
 Primary.args = {}

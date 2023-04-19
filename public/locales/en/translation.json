@@ -28,5 +28,7 @@
   "Наука": "The science",
   "Все": "All",
   "Статьи не найдены": "Articles not found",
-  "Админка": "admin"
+  "Админка": "admin",
+  "У вас нет доступа к данной странице": "You do not have access to this page",
+  "Pet App": "pet app"
 }

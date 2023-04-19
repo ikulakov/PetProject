@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { memo, useCallback } from 'react'
+import { Suspense, memo, useCallback } from 'react'
 import { Text } from 'shared/ui/Text/Text'
 import { AddCommentForm } from 'features/AddCommentForm'
 import { CommentList } from 'entities/Comment'
@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { addCommentForArticle, fetchCommentsByArticleId, getArticleComments, getArticleCommentsIsLoading } from 'features/ArticleCommentList'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import Loader from 'shared/ui/Loader/Loader'
 
 interface ArticleDetailsCommentsProps {
     className?: string
@@ -34,7 +35,9 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
         <div className={classNames('', {}, [className])}>
 
             <Text title={t('Комментарии')} />
-            <AddCommentForm onSendComment={onSendComment} />
+            <Suspense fallback={<Loader />}>
+                <AddCommentForm onSendComment={onSendComment} />
+            </Suspense>
             <CommentList
                 comments={comments}
                 isLoading={isLoading}
