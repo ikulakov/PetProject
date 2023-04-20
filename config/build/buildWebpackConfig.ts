@@ -18,6 +18,9 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
             publicPath: '/'
         },
         plugins: buildPlugins(options),
+        watchOptions: {
+            ignored: /node_modules/,
+        },
         module: {
             rules: buildLoaders(options),
             parser: {
@@ -29,5 +32,5 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
         resolve: buildResolvers(options),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined
-    }
+    };
 }
