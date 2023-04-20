@@ -2,9 +2,9 @@ import cls from './ArticlesSortSelector.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Select, SelectOption } from 'shared/ui/Select/Select'
+import { Select, type SelectOption } from 'shared/ui/Select/Select'
 import { ArticleSortField } from 'entities/Article/model/types/article'
-import { SortOrder } from 'shared/types'
+import { type SortOrder } from 'shared/types'
 
 interface ArticlesSortSelectorProps {
     className?: string
@@ -22,7 +22,7 @@ export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
     } = props
     const { t } = useTranslation()
 
-    const orderOptions = useMemo<Array<SelectOption<SortOrder>>>(() => [
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
         {
             value: 'asc',
             content: t('возрастанию')
@@ -33,7 +33,7 @@ export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
         }
     ], [t])
 
-    const sortFieldOptions = useMemo<Array<SelectOption<ArticleSortField>>>(() => [
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
         {
             value: ArticleSortField.CREATED,
             content: t('дате создания')

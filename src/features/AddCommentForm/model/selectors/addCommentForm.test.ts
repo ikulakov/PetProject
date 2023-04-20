@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider'
+import { type StateSchema } from 'app/providers/StoreProvider'
 import { getAddCommentFormText, getAddCommentFormError } from './addCommentForm'
 
 describe('addCommentForm.test.test', () => {

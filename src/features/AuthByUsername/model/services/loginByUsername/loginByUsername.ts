@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { User, userActions } from 'entities/User'
+import { type ThunkConfig } from 'app/providers/StoreProvider'
+import { type User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
 interface LoginByUsernameProps {
@@ -19,6 +19,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
                 username,
                 password
             })
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (!response.data) {
                 throw new Error()
             }

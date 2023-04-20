@@ -5,7 +5,7 @@ export function useThrottle (callback: (...args: any[]) => void, delay: number) 
 
     return useCallback((...args: any[]) => {
         if (!throttleRef.current) {
-            // eslint-disable-next-line n/no-callback-literal, @typescript-eslint/no-unsafe-argument
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             callback(...args)
             throttleRef.current = true
 

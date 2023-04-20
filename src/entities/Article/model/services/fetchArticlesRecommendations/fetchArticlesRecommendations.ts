@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { Article } from 'entities/Article/model/types/article'
+import { type ThunkConfig } from 'app/providers/StoreProvider'
+import { type Article } from 'entities/Article/model/types/article'
 
 export const fetchArticlesRecommendations = createAsyncThunk<Article[], void, ThunkConfig<string>>(
     'entities/Article/fetchArticlesRecommendations',
@@ -15,6 +15,7 @@ export const fetchArticlesRecommendations = createAsyncThunk<Article[], void, Th
                 }
             })
 
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (!response.data) {
                 throw new Error()
             }

@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Article } from '../../model/types/article'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from './ArticlesListItem'
 
 export default {

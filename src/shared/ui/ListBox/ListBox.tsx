@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, memo } from 'react'
+import { Fragment, type ReactNode, memo } from 'react'
 import { Listbox as HListbox } from '@headlessui/react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ListBox.module.scss'

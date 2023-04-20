@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { ArticlesSortSelector } from './ArticlesSortSelector'
 
 export default {

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { Comment } from 'entities/Comment'
+import { type ThunkConfig } from 'app/providers/StoreProvider'
+import { type Comment } from 'entities/Comment'
 
 export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string | undefined, ThunkConfig<string>>(
     'features/ArticleCommentList',
@@ -19,6 +19,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string | und
                 }
             })
 
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (!response.data) {
                 throw new Error()
             }

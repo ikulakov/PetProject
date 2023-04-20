@@ -2,28 +2,28 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        jest: true
+        jest: true,
+        node: true
     },
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'standard-with-typescript',
+        'plugin:@typescript-eslint/strict',
+        // 'standard-with-typescript',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended'
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        project: ['tsconfig.json'],
         tsconfigRootDir: __dirname,
-        ecmaVersion: 'latest',
-        sourceType: 'module'
+        project: ['./tsconfig.json'],
+        ecmaVersion: 'latest'
     },
     plugins: [
         '@typescript-eslint',
         'i18next',
-        'react-hooks',
-        'feature-sliced-design'
+        'react-hooks'
     ],
     rules: {
         indent: 'off',
@@ -44,9 +44,6 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/no-invalid-void-type': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0
-        // 'feature-sliced-design/relative-path-within-slice': 2,
-        // 'feature-sliced-design/layers-hierarchy': 2,
-        // 'feature-sliced-design/public-api-slice-import': 2
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],

@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider'
+import { type StateSchema } from 'app/providers/StoreProvider'
 import { getUserAuthData } from './getUserAuthData'
 
 describe('getProfileData.test', () => {

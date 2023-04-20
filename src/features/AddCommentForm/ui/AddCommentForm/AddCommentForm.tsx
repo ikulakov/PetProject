@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { getAddCommentFormText } from '../../model/selectors/addCommentForm'
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentForm'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { memo, useCallback } from 'react'
 
 export interface AddCommentFormProps {
@@ -34,7 +34,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     }, [dispatch])
 
     const onSendCommentHandler = useCallback(() => {
-        onSendComment(text ?? '')
+        onSendComment(text || '')
         onInputChange('')
     }, [text, onSendComment, onInputChange])
 

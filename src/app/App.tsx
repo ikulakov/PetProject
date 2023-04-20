@@ -4,7 +4,7 @@ import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { Navbar } from 'widgets/Navbar'
 import { useSelector } from 'react-redux'
-import { getUserInited, User, userActions } from 'entities/User'
+import { getUserInited, type User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 

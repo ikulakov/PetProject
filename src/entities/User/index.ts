@@ -1,4 +1,5 @@
-import { User, UserSchema, UserRole } from './model/types/user'
+import { User, UserSchema } from './model/types/user'
+import { UserRole } from "./model/consts/consts"
 import { userReducer, userActions } from './model/slice/userSlice'
 import { getUserAuthData } from './model/selector/getUserAuthData/getUserAuthData'
 import { getUserInited } from './model/selector/getUserInited/getUserInited'
@@ -7,11 +8,14 @@ import { isUserAdmin, isUserManager } from './model/selector/getUserRoles/getUse
 export {
     userReducer,
     userActions,
-    User,
-    UserSchema,
     UserRole,
     getUserAuthData,
     getUserInited,
     isUserAdmin,
     isUserManager
+}
+
+export type {
+    User,
+    UserSchema
 }

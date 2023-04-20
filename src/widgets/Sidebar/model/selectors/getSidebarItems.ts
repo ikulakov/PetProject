@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { getUserAuthData } from 'entities/User'
-import { SidebarItemsType } from '../types/sidebar'
+import { type SidebarItemsType } from '../types/sidebar'
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
 import HomeIcon from '../../assets/home.svg'
 import AboutIcon from '../../assets/about.svg'

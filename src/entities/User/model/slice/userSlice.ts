@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { UserSchema, User } from '../types/user'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type UserSchema, type User } from '../types/user'
 
 const initialState: UserSchema = {
     _inited: false

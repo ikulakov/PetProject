@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, memo } from 'react'
+import { Fragment, type ReactNode, memo } from 'react'
 import { Menu } from '@headlessui/react'
 import cls from './Dropdown.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'

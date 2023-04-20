@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import cls from './ArticlesListItem.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { HTMLAttributeAnchorTarget, memo } from 'react'
-import { Article, ArticleTextBlock, ArticleView } from '../../model/types/article'
+import { type HTMLAttributeAnchorTarget, memo } from 'react'
+import { type Article, type ArticleTextBlock, type ArticleView } from '../../model/types/article'
 import { Text } from 'shared/ui/Text/Text'
 import { Card } from 'shared/ui/Card/Card'
 import { Avatar } from 'shared/ui/Avatar/Avatar'

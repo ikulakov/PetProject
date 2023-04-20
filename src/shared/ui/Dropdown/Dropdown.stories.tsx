@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { Dropdown } from './Dropdown'
 import { Button } from 'shared/ui/Button/Button'
 

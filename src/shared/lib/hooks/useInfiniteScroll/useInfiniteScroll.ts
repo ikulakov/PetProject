@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect } from 'react'
+import { type MutableRefObject, useEffect } from 'react'
 
 export interface UseInfiniteScrollOptions {
     callback?: () => void
@@ -27,6 +27,7 @@ export function useInfiniteScroll ({ callback, triggerRef, wrapperRef }: UseInfi
             observer.observe(triggerElement)
         }
         return () => {
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (observer && triggerElement) {
                 observer.unobserve(triggerElement)
             }

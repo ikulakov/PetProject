@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export type Mods = Record<string, boolean | string | undefined>
 
 export function classNames (
     cls: string,
     mods: Mods = {},
-    aditional: Array<string | undefined> = []
+    aditional: (string | undefined)[] = []
 ): string {
     return [
         cls,

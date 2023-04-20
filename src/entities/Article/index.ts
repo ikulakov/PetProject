@@ -10,11 +10,14 @@ export {
 
 export type {
     Article,
-    ArticleDetailsSchema,
     ArticleView,
+    ArticleDetailsSchema,
     ArticleListSchema,
+} from './model/types/article'
+
+export {
+    ArticleType,
     ArticleSortField,
-    ArticleType
 } from './model/types/article'
 
 // services

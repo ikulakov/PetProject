@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { ArticlesInfiniteList } from './ArticlesInfiniteList'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 

@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { ValidateProfileError } from '../../types/editableProfileCardSchema'
+import { type ThunkConfig } from 'app/providers/StoreProvider'
+import { ValidateProfileError } from "../../consts/consts"
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm'
 import { validateProfile } from '../validateProfile/validateProfile'
-import { Profile } from 'entities/Profile'
+import { type Profile } from 'entities/Profile'
 
 export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
     'profile/updateProfileData',
@@ -22,6 +22,7 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
         try {
             const response = await extra.api.put<Profile>(`/profile/${formData.id || ''}`, formData)
 
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (!response.data) {
                 throw new Error()
             }

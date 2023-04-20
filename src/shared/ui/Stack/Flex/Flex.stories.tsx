@@ -1,5 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
 import { Flex } from './Flex'
 

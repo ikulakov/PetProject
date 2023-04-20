@@ -1,8 +1,8 @@
 import cls from './ArticlesList.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { HTMLAttributeAnchorTarget, memo } from 'react'
+import { type HTMLAttributeAnchorTarget, memo } from 'react'
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem'
-import { Article, ArticleView } from '../../model/types/article'
+import { type Article, type ArticleView } from '../../model/types/article'
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticlesListItem/ArticleListItemSkeleton'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
@@ -42,16 +42,14 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
                 gap='16'
                 className={classNames(cls.ArticlesList, {}, [className, cls[view]])}
             >
-                {articles
-                    ? articles.map((article: Article) => (
-                        <ArticlesListItem
-                            article={article}
-                            view={view}
-                            key={article.id}
-                            target={target}
-                        />
-                    ))
-                    : null
+                {articles.map((article: Article) => (
+                    <ArticlesListItem
+                        article={article}
+                        view={view}
+                        key={article.id}
+                        target={target}
+                    />
+                ))
                 }
             </HStack>
             {isLoading &&

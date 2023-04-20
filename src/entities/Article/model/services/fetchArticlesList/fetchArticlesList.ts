@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { Article, ArticleType } from '../../types/article'
+import { type ThunkConfig } from 'app/providers/StoreProvider'
+import { type Article, ArticleType } from '../../types/article'
 import { getArticlesPageLimit, getArticlesPageNum, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType } from '../../selectors/articlesPageSelectors'
 
 interface FetchArticlesListProps {
@@ -32,6 +32,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListPr
                 }
             })
 
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (!response.data) {
                 throw new Error()
             }

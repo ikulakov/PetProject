@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { Tabs } from './Tabs'
 import { action } from '@storybook/addon-actions'
 
