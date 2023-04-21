@@ -10,6 +10,7 @@ interface PopoverProps {
     trigger?: ReactNode
     direction?: DropdownDirection
     children: ReactNode
+    unmount?: boolean
 }
 
 export const Popover = memo((props: PopoverProps) => {
@@ -17,6 +18,7 @@ export const Popover = memo((props: PopoverProps) => {
         className,
         trigger,
         children,
+        unmount = true,
         direction = 'bottom right'
     } = props
 
@@ -26,7 +28,7 @@ export const Popover = memo((props: PopoverProps) => {
                 {trigger}
             </HPopover.Button>
 
-            <HPopover.Panel className={classNames(cls.panel, {}, [mapDirectionClass[direction]])}>
+            <HPopover.Panel className={classNames(cls.panel, {}, [mapDirectionClass[direction]])} unmount={unmount}>
                 {children}
             </HPopover.Panel>
         </HPopover>

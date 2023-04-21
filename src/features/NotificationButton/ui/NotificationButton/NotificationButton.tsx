@@ -17,6 +17,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     return (
         <Popover 
             direction='bottom left'
+            unmount={false}  // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу
             className={classNames(cls.notificationButton, {}, [className])}
             trigger={(
                 <Button theme={ButtonTheme.CLEAR}>

@@ -53,7 +53,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                         )
                     }
                     return (
-                        <Menu.Item as={Fragment}>
+                        <Menu.Item as={Fragment} key={index}>
                             { content }
                         </Menu.Item>
                     )
