@@ -13,17 +13,15 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo(({ className }) 
     const { theme, toggleTheme } = useTheme()
 
     return (
-        <div>
-            <Button
-                onClick={toggleTheme}
-                className={classNames('', {}, [className])}
-                theme={ButtonTheme.CLEAR}
-            >
-                {theme === Theme.DARK
-                    ? <DarkIcon style={{ stroke: '#ffc107' }} />
-                    : <LightIcon style={{ stroke: '#98afba' }} />
-                }
-            </Button>
-        </div>
+        <Button
+            onClick={toggleTheme}
+            className={classNames('', {}, [className])}
+            theme={ButtonTheme.CLEAR}
+        >
+            {theme === Theme.DARK
+                ? <DarkIcon style={{ stroke: '#ffc107' }} />
+                : <LightIcon style={{ stroke: '#98afba' }} />
+            }
+        </Button>
     )
 })
