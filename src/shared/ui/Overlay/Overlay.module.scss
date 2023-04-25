@@ -1,0 +1,9 @@
+.Overlay {
+    background: var(--overlay-color);
+    display: grid;
+    place-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    cursor: pointer;
+}

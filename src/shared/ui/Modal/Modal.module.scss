@@ -1,17 +1,11 @@
 .Modal {
-    inset: 0; // аналог top, bottom, left, right - 0
+    inset: 0;
     position: fixed;
     z-index: -1;
     pointer-events: none;
     opacity: 0;
     transition: 0.1s ease-out;
     transition-property: opacity, z-index;
-}
-
-.overlay {
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-color);
     display: grid;
     place-items: center;
 }
@@ -21,7 +15,7 @@
     border-radius: 3px;
     background-color: var(--bg-color);
     transform: scale(0.4);
-    transition: 0.1s ease;
+    transition: 0.1s all;
     min-width: 30%;
     color: var(--primary-color);
 }
@@ -35,3 +29,5 @@
         transform: scale(1);
     }
 }
+
+// TODO: Починить анимацию попапа

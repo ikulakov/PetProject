@@ -14,6 +14,9 @@ import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
 import { HStack } from 'shared/ui/Stack'
 import { NotificationButton } from 'features/NotificationButton'
 import { AvatarDropdown } from 'features/AvatarDropdown'
+import { Drawer } from 'shared/ui/Drawer/Drawer'
+import { NotificationList } from 'shared/ui/Notification'
+import { useDevice } from 'shared/lib/hooks/useDevice/useDevice'
 
 interface NavbarProps {
     className?: string
@@ -23,6 +26,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
     const [isAuthModal, setIsAuthModal] = useState(false)
     const { t } = useTranslation()
     const user = useSelector(getUserAuthData)
+    const isMobile = useDevice()
 
     const onToggleModal = useCallback(() => {
         setIsAuthModal((prev) => !prev)
@@ -69,14 +73,13 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
             className={classNames(cls.Navbar, {}, [className])}
             data-testid="navbar"
         >
-            <div className={cls.widgets}>
+            <HStack gap='16' className={cls.widgets}>
                 <ThemeSwitcher />
                 <LangSwitcher />
-            </div>
-            <div>
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onToggleModal}>{t('Войти')}</Button>
-                {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />}
-            </div>
+            </HStack>
+
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />}
         </header>
     )
 })
