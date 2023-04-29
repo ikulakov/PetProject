@@ -5,7 +5,7 @@ export type {
 export {
     articleDetailCommentsReducer,
     articleDetailCommentsActions
-} from 'features/ArticleCommentList/model/slice/articleDetailCommentsSlice'
+} from './model/slice/articleDetailCommentsSlice'
 
 // selectors
 export {

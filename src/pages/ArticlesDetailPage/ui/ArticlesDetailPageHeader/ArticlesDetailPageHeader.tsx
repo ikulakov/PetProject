@@ -1,13 +1,13 @@
 import cls from './ArticlesDetailPageHeader.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
+import { RoutePath } from '@/app/providers/router/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
-import { getCanEditArticle } from 'pages/ArticlesDetailPage/model/selectors/getCanEditArticle'
-import { getArticleDetailsData } from 'entities/Article'
+import { getCanEditArticle } from '@/pages/ArticlesDetailPage/model/selectors/getCanEditArticle'
+import { getArticleDetailsData } from '@/entities/Article'
 
 interface ArticlesDetailPageHeaderProps {
     className?: string

@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import cls from './ArticlesListItem.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { type HTMLAttributeAnchorTarget, memo } from 'react'
 import { type Article, type ArticleTextBlock, type ArticleView } from '../../model/types/article'
-import { Text } from 'shared/ui/Text/Text'
-import { Card } from 'shared/ui/Card/Card'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Icon } from 'shared/ui/Icon/Icon'
+import { Text } from '@/shared/ui/Text/Text'
+import { Card } from '@/shared/ui/Card/Card'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { Icon } from '@/shared/ui/Icon/Icon'
 import EyeIcon from '../../../../shared/assets/icons/eye.svg'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { RoutePath } from 'app/providers/router/routeConfig/routeConfig'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from '@/app/providers/router/routeConfig/routeConfig'
+import { AppLink } from '@/shared/ui/AppLink/AppLink'
 
 interface ArticlesListItemProps {
     className?: string

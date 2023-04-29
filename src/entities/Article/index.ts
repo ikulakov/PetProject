@@ -43,7 +43,7 @@ export {
 
 export {
     ArticleTypeTabs
-} from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
+} from './ui/ArticleTypeTabs/ArticleTypeTabs'
 
 // selectors
 export {

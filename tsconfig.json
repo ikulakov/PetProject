@@ -16,7 +16,7 @@
     // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
@@ -48,6 +48,7 @@
     "webpack.config.ts",
     ".eslintrc.js",
     "./scripts/*.js",
+    "./scripts/**/*.ts",
     "./json-server/*.js"
   ]
 }

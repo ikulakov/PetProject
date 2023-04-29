@@ -1,6 +1,6 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
-import { type Article, ArticleType } from 'entities/Article/model/types/article'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { type Article, ArticleType } from '@/entities/Article/model/types/article'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import ArticlesDetailPage from './ArticlesDetailPage'
 
 export default {

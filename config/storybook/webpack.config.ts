@@ -32,6 +32,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     })
     config.module?.rules.push(buildCssLoader(true))
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    config.resolve!.alias = { '@': paths.src }
+
     config.plugins?.push(new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
         __API__: JSON.stringify(''),

@@ -1,5 +1,5 @@
 import cls from './Input.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'> // переопределение дефолтных типов

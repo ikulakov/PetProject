@@ -1,6 +1,6 @@
 
 import { type DeepPartial } from '@reduxjs/toolkit'
-import { type AddCommentFormSchema, addCommentFormActions, addCommentFormReducer } from 'features/AddCommentForm'
+import { type AddCommentFormSchema, addCommentFormActions, addCommentFormReducer } from '@/features/AddCommentForm'
 
 describe('addCommentForm.test', () => {
     test('test addCommentForm set text', () => {

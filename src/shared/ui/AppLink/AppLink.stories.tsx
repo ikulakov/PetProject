@@ -1,6 +1,6 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
+import { Theme } from '@/app/providers/ThemeProvider'
 import { AppLink, AppLinkTheme } from './AppLink'
 
 export default {

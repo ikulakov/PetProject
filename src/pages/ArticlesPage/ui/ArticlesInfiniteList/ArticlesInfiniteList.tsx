@@ -1,11 +1,11 @@
 import { memo } from 'react'
-import { ArticlesList, getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView, initArticlesPage } from 'entities/Article'
+import { ArticlesList, getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView, initArticlesPage } from '@/entities/Article'
 import { useSelector } from 'react-redux'
-import { getArticles } from 'entities/Article/model/slice/articleListSlice/articleListSlice'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { getArticles } from '@/entities/Article/model/slice/articleListSlice/articleListSlice'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSearchParams } from 'react-router-dom'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { Text, TextTheme } from '@/shared/ui/Text/Text'
 
 interface ArticlesInfiniteListProps {
     className?: string
