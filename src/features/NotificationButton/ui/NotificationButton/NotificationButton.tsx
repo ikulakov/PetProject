@@ -37,14 +37,14 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                     <>
                         {trigger}
                         <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                            <NotificationList className={cls.notifications}/>
+                            <NotificationList />
                         </Drawer>
                     </>
                 )
                 : (
                     <Popover 
                         direction='bottom left'
-                        unmount={false}  // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу
+                        unmount={true}  // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу если false
                         className={classNames(cls.notificationButton, {}, [className])}
                         trigger={trigger}>
                         <NotificationList className={cls.notifications}/>

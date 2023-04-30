@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationList.module.scss';
 import { memo } from 'react';
@@ -21,7 +23,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
             <VStack 
                 gap='16'
                 max
-                className={classNames(cls.notificationList, {}, [className])}
+                className={classNames(cls.NotificationList, {}, [className])}
             >
                 <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
                 <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
@@ -34,9 +36,9 @@ export const NotificationList = memo((props: NotificationListProps) => {
         <VStack 
             gap='16'
             max
-            className={classNames(cls.notificationList, {}, [className])}
+            className={classNames(cls.NotificationList, {}, [className])}
         >
-            {data?.map(item => (
+            {data?.map((item) => (
                 <NotificationItem key={item.id} item={item}/>
             ))}
         </VStack>

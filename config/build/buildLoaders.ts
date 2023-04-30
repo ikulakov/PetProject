@@ -10,17 +10,6 @@ export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack']
     }
 
-    const cssLoader = buildCssLoader(isDev)
-
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-            {
-                loader: 'file-loader'
-            }
-        ]
-    }
-
     const typescriptLoader = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -34,6 +23,17 @@ export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                     }),
                     transpileOnly: isDev
                 }
+            }
+        ]
+    }
+
+    const cssLoader = buildCssLoader(isDev)
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader'
             }
         ]
     }
