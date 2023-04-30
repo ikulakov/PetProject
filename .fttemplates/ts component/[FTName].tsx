@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './[FTName].module.scss'
 import { memo } from 'react'
 
@@ -12,7 +12,7 @@ export const [FTName] = memo((props: [FTName]Props) => {
    const { t } = useTranslation()
 
    return (
-      <div className={classNames(cls.[FTName | camelcase], {}, [className])}>
+      <div className={classNames(cls.[FTName], {}, [className])}>
 
       </div>
    )

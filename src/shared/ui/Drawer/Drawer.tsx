@@ -79,7 +79,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}>
+            <div className={classNames(cls.Drawer, {[cls.opened]: isOpen}, [className, theme, 'app_drawer'])}>
                 <Overlay onClick={() => close()} />
                 <Spring.a.div 
                     className={cls.content}
@@ -95,7 +95,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
 const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs()
-    return !isLoaded 
+    return isLoaded 
         ? <DrawerContent {...props} /> 
         : null
 }

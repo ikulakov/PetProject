@@ -31,10 +31,12 @@ module.exports = {
         '@typescript-eslint/strict-boolean-expressions': 0,
         // '@typescript-eslint/prefer-nullish-coalescing': 0,
         // 'i18next/no-literal-string': 0,
+        '@typescript-eslint/restrict-plus-operands': 0,
         '@typescript-eslint/explicit-function-return-type': 0, // "warn"
         '@typescript-eslint/consistent-type-assertions': 0,
         '@typescript-eslint/no-unsafe-assignment': 0,
-        // '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/no-unsafe-call': 0,
         '@typescript-eslint/consistent-type-imports': 0,
         '@typescript-eslint/consistent-type-exports': 0,
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks

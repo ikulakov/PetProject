@@ -49,7 +49,7 @@ export const ListBox = memo((props: ListBoxProps) => {
                 className={popupCls.popup}
             >
                 {/* <HStack className={cls.ListBox} > */}
-                <HListbox.Button className={popupCls.trigger}>
+                <HListbox.Button as={'div'} className={popupCls.trigger}>
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>

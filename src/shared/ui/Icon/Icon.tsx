@@ -7,9 +7,9 @@ export const enum IconTheme {
     DARK = 'dark_icon'
 }
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string
-    Svg: React.VFC<React.SVGProps<SVGSVGElement>>
+    Svg: React.FC<React.SVGProps<SVGSVGElement>>
     theme?: IconTheme
 }
 
@@ -17,10 +17,14 @@ export const Icon = memo((props: IconProps) => {
     const {
         className,
         Svg,
-        theme = IconTheme.LIGHT
+        theme = IconTheme.LIGHT,
+        ...rest
     } = props
 
     return (
-        <Svg className={classNames(cls.Icon, {}, [className, cls[theme]])} />
+        <Svg 
+            className={classNames(cls.Icon, {}, [className, cls[theme]])}
+            {...rest} 
+        />
     )
 })

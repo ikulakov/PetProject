@@ -2,9 +2,9 @@ import { Fragment, type ReactNode, memo } from 'react'
 import { Menu } from '@headlessui/react'
 import cls from './Dropdown.module.scss'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { DropdownDirection, mapDirectionClass } from '../../styles/consts'
 import popupCls from '../../styles/popup.module.scss'
+import { Link } from 'react-router-dom'
 
 export interface DropdownItem {
     disabled?: boolean
@@ -47,13 +47,22 @@ export const Dropdown = memo((props: DropdownProps) => {
                     )
                     if (item.href) {
                         return (
-                            <Menu.Item disabled={item.disabled} key={index} as={AppLink} to={item.href}>
+                            <Menu.Item 
+                                disabled={item.disabled} 
+                                key={`dropdown-key-${index}`} 
+                                as={Link} 
+                                to={item.href}
+                            >
                                 { content }
                             </Menu.Item>
                         )
                     }
                     return (
-                        <Menu.Item as={Fragment} key={index}>
+                        <Menu.Item 
+                            as={Fragment} 
+                            key={`dropdown-key-${index}`} 
+                            disabled={item.disabled}
+                        >
                             { content }
                         </Menu.Item>
                     )
