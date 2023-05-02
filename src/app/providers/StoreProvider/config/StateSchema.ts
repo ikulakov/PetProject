@@ -1,7 +1,7 @@
 import { type CombinedState, type EnhancedStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
 import { type ArticleDetailsSchema, type ArticleListSchema } from '@/entities/Article'
-import { type ArticleDetailsPageRecommendationSchema } from '@/entities/Article/model/types/articleDetailsPageRecommendationSchema'
+import { type ArticleDetailsPageRecommendationSchema } from '@/entities/Article'
 import { type CounterSchema } from '@/entities/Counter'
 import { type UserSchema } from '@/entities/User'
 import { type AddCommentFormSchema } from '@/features/AddCommentForm'
@@ -9,7 +9,7 @@ import { type ArticleDetailsCommentsSchema } from '@/features/ArticleCommentList
 import { type LoginSchema } from '@/features/AuthByUsername'
 import { type ProfileSchema } from '@/features/EditableProfileCard'
 import { type rtkApi } from '@/shared/api/rtkApi'
-import { type ScrollSaveSchema } from '@/widgets/Page/ScrollSave/model/types/ScrollSchema'
+import { type ScrollSaveSchema } from '@/widgets/Page'
 
 export interface StateSchema {
     counter: CounterSchema

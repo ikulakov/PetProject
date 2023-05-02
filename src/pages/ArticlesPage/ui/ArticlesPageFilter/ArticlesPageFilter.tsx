@@ -9,11 +9,11 @@ import { Card } from '@/shared/ui/Card/Card'
 import { useTranslation } from 'react-i18next'
 import { ArticlesSortSelector } from '@/entities/Article'
 import { type SortOrder } from '@/shared/types'
-import { type ArticleSortField, type ArticleType } from '@/entities/Article/model/types/article'
-import { fetchArticlesList } from '@/entities/Article/model/services/fetchArticlesList/fetchArticlesList'
+import { type ArticleSortField, type ArticleType } from '@/entities/Article'
+import { fetchArticlesList } from '@/entities/Article'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { useSearchParams } from 'react-router-dom'
-import { getArticlesPageType } from '@/entities/Article/model/selectors/articlesPageSelectors'
+import { getArticlesPageType } from '@/entities/Article'
 
 interface ArticlesPageFilterProps {
     className?: string

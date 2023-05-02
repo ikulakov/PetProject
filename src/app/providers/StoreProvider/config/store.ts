@@ -4,7 +4,7 @@ import { userReducer } from '@/entities/User'
 import { type StateSchema } from './StateSchema'
 import { createReducerManager } from './reducerManager'
 import { $api } from '@/shared/api/api'
-import { scrollReducer } from '@/widgets/Page/ScrollSave/model/slices/scrollSaveSclice'
+import { scrollReducer } from '@/widgets/Page'
 import { rtkApi } from '@/shared/api/rtkApi'
 
 export function createReduxStore (

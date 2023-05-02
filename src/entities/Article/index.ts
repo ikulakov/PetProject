@@ -20,6 +20,10 @@ export type {
     ArticleListSchema,
 } from './model/types/article'
 
+export type {
+    ArticleDetailsPageRecommendationSchema
+} from './model/types/articleDetailsPageRecommendationSchema'
+
 export {
     ArticleType,
     ArticleSortField,
@@ -32,6 +36,9 @@ export {
 export {
     fetchNextArticlePage
 } from './model/services/fetchNextArticlePage/fetchNextArticlePage'
+export {
+    fetchArticlesList
+} from './model/services/fetchArticlesList/fetchArticlesList'
 
 // components
 export {
@@ -69,5 +76,6 @@ export {
     getArticlesPageInited,
     getArticlesPageSearch,
     getArticlesPageOrder,
-    getArticlesPageSort
+    getArticlesPageSort,
+    getArticlesPageType
 } from './model/selectors/articlesPageSelectors'
