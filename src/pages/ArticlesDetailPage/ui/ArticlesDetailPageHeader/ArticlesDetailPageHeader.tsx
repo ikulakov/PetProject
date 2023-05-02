@@ -4,10 +4,10 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from '@/app/providers/router/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle'
 import { getArticleDetailsData } from '@/entities/Article'
+import { RoutePath } from '@/shared/const/router'
 
 interface ArticlesDetailPageHeaderProps {
     className?: string
