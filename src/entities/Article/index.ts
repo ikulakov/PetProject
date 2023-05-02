@@ -5,8 +5,13 @@ export {
 
 export {
     articleListSliceReducer,
-    articleListSliceActions
+    articleListSliceActions,
+    getArticles
 } from './model/slice/articleListSlice/articleListSlice'
+
+export {
+    articleDetailsPageRecommendationReducer
+} from './model/slice/articleDetailsPageRecommendationSlice/articleDetailsPageRecommendation'
 
 export type {
     Article,
@@ -44,6 +49,10 @@ export {
 export {
     ArticleTypeTabs
 } from './ui/ArticleTypeTabs/ArticleTypeTabs'
+
+export {
+    ArticlesSortSelector
+} from './ui/ArticlesSortSelector/ArticlesSortSelector'
 
 // selectors
 export {

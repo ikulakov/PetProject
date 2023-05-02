@@ -23,7 +23,8 @@ module.exports = {
     plugins: [
         '@typescript-eslint',
         'i18next',
-        'react-hooks'
+        'react-hooks',
+        'ulbi-tv-plugin'
     ],
     rules: {
         indent: 'off',
@@ -46,7 +47,10 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/no-invalid-void-type': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0,
-        '@typescript-eslint/no-unnecessary-condition': 0
+        '@typescript-eslint/no-unnecessary-condition': 0,
+        // 'ulbi-tv-plugin/public-api-imports': ['error', {alias: '@'}],
+        // 'ulbi-tv-plugin/path-checker': ['error', {alias: '@'}],
+        // 'ulbi-tv-plugin/layer-imports': ['error', {alias: '@'}],
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],

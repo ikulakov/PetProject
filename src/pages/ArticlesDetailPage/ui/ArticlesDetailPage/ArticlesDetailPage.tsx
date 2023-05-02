@@ -7,10 +7,10 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import cls from './ArticlesDetailPage.module.scss'
 import { Page } from '@/widgets/Page/Page'
-import { articleDetailsPageRecommendationReducer } from '@/entities/Article/model/slice/articleDetailsPageRecommendationSlice/articleDetailsPageRecommendation'
+import { articleDetailsPageRecommendationReducer } from '@/entities/Article'
 import { ArticlesDetailPageHeader } from '../ArticlesDetailPageHeader/ArticlesDetailPageHeader'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
-import { ArticleDetailsComments } from '@/pages/ArticlesDetailPage/ui/ArticleDetailsComments/ArticleDetailsComments'
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 import { ArticleRating } from '@/features/ArticleRating'
 
 interface ArticlesDetailPageProps {

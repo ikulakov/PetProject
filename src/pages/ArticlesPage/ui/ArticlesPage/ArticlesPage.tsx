@@ -2,12 +2,12 @@ import { memo, useCallback } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticlesPage.module.scss'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { articleListSliceReducer } from '@/entities/Article/model/slice/articleListSlice/articleListSlice'
+import { articleListSliceReducer } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Page } from '@/widgets/Page/Page'
 import { fetchNextArticlePage } from '@/entities/Article/model/services/fetchNextArticlePage/fetchNextArticlePage'
-import { ArticlesPageFilter } from '@/pages/ArticlesPage/ui/ArticlesPageFilter/ArticlesPageFilter'
-import { ArticlesInfiniteList } from '@/pages/ArticlesPage/ui/ArticlesInfiniteList/ArticlesInfiniteList'
+import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter'
+import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
 
 interface ArticlesPageProps {
     className?: string
