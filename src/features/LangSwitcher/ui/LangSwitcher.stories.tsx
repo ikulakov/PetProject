@@ -11,10 +11,11 @@ export default {
     }
 } as ComponentMeta<typeof LangSwitcher>
 
-const Template: ComponentStory<typeof LangSwitcher> = (args) => <LangSwitcher {...args} />
+const Template: ComponentStory<typeof LangSwitcher> = (args) => <div style={{backgroundColor: 'gray', padding: '10px'}}><LangSwitcher {...args} /></div>
 
 export const Light = Template.bind({})
 Light.args = {}
+Light.decorators = []
 
 export const Dark = Template.bind({})
 Dark.args = {}

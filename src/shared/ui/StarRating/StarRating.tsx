@@ -17,7 +17,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     const {
         className, size = 30, selectedStars = 0, onSelect,
     } = props;
-    const [currentStarsCount, setCurrentStarsCount] = useState(0);
+    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (starsCount: number) => () => {
@@ -56,7 +56,9 @@ export const StarRating = memo((props: StarRatingProps) => {
                     width={size}
                     height={size}
                     onMouseLeave={onLeave}
+                    onFocus={onLeave} // for mobile
                     onMouseEnter={onHover(starNumber)}
+                    onTouchStart={onHover(starNumber)} // for mobile
                     onClick={onClick(starNumber)}
                 />
             ))}

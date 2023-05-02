@@ -11,6 +11,7 @@ import { articleDetailsPageRecommendationReducer } from '@/entities/Article/mode
 import { ArticlesDetailPageHeader } from '../ArticlesDetailPageHeader/ArticlesDetailPageHeader'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { ArticleDetailsComments } from '@/pages/ArticlesDetailPage/ui/ArticleDetailsComments/ArticleDetailsComments'
+import { ArticleRating } from '@/features/ArticleRating'
 
 interface ArticlesDetailPageProps {
     className?: string
@@ -38,6 +39,7 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
             <Page className={classNames(cls.articlesDetailPage, {}, [className])}>
                 <ArticlesDetailPageHeader />
                 <ArticleDetails id={articleId} />
+                <ArticleRating id={articleId} />
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={articleId} />
             </Page>
