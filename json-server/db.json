@@ -799,6 +799,12 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "profileId": "2"
+    },
+    {
+      "profileId": "3",
+      "userId": "1",
+      "rate": 4,
+      "id": "-SD3She"
     }
   ]
 }

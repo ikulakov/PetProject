@@ -19,5 +19,7 @@
   "Некорректно введены имя или фамилия": "Name or surname entered incorrectly",
   "Данных не получено": "No data received",
   "Ошибка сервера": "server error",
-  "Профиль пользователя": "User profile"
+  "Профиль пользователя": "User profile",
+  "Оцените профиль": "Rate your profile",
+  "Оставьте свой отзыв о текущем пользователе": "Leave your feedback about the current user"
 }
