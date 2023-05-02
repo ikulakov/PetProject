@@ -5,7 +5,7 @@ import { getArticles } from '@/entities/Article'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSearchParams } from 'react-router-dom'
-import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextTheme } from '@/shared/ui/Text'
 
 interface ArticlesInfiniteListProps {
     className?: string

@@ -5,7 +5,7 @@ interface LoaderProps {
     className?: string
 }
 
-const Loader: React.FC<LoaderProps> = ({ className }) => {
+export const Loader: React.FC<LoaderProps> = ({ className }) => {
     return (
         <div className={classNames(cls.Loader, {}, [className])}>
             <div></div>
@@ -14,5 +14,3 @@ const Loader: React.FC<LoaderProps> = ({ className }) => {
         </div>
     )
 }
-
-export default Loader

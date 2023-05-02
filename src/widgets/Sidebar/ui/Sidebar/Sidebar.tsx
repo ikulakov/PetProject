@@ -1,6 +1,6 @@
 import cls from './Sidebar.module.scss'
 import { memo, useState } from 'react'
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button'
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import ArrowCollapseIcon from '../../assets/chevrons-right.svg'

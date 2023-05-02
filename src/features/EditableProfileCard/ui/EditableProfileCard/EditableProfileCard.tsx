@@ -14,7 +14,7 @@ import { ValidateProfileError } from "../../model/consts/consts"
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { type Currency } from '@/entities/Currency'
-import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextTheme } from '@/shared/ui/Text'
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { type Country } from '@/entities/Country'
 import { ProfileCard } from '@/entities/Profile'
