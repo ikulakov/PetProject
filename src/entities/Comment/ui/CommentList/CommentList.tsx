@@ -1,9 +1,9 @@
-import cls from './CommentList.module.scss'
-import { classNames } from '@/shared/lib/classNames/classNames'
 import { memo } from 'react'
-import { type Comment } from '../../model/types/comment'
-import { Text } from '@/shared/ui/Text'
 import { useTranslation } from 'react-i18next'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Text } from '@/shared/ui/Text'
+import cls from './CommentList.module.scss'
+import { type Comment } from '../../model/types/comment'
 import { CommentItem } from '../CommentItem/CommentItem'
 
 interface CommentListProps {

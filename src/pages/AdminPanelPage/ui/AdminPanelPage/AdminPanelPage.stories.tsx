@@ -1,6 +1,6 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
-import AdminPanelPage from './AdminPanelPage'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import AdminPanelPage from './AdminPanelPage'
 
 export default {
     title: 'pages/AdminPanelPage',

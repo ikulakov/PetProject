@@ -1,10 +1,10 @@
 import { memo } from 'react'
-import { ArticlesList, getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView, initArticlesPage } from '@/entities/Article'
 import { useSelector } from 'react-redux'
-import { getArticles } from '@/entities/Article'
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSearchParams } from 'react-router-dom'
+import { ArticlesList, getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView, initArticlesPage } from '@/entities/Article'
+import { getArticles } from '@/entities/Article'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Text, TextTheme } from '@/shared/ui/Text'
 
 interface ArticlesInfiniteListProps {

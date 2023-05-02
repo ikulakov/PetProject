@@ -1,5 +1,5 @@
-import { getArticleById } from './getArticleById'
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+import { getArticleById } from './getArticleById'
 
 const data = {
     id: '1',

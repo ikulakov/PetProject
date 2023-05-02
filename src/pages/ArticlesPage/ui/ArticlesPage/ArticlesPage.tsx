@@ -1,13 +1,13 @@
 import { memo, useCallback } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './ArticlesPage.module.scss'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articleListSliceReducer } from '@/entities/Article'
+import { fetchNextArticlePage } from '@/entities/Article'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Page } from '@/widgets/Page'
-import { fetchNextArticlePage } from '@/entities/Article'
-import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter'
+import cls from './ArticlesPage.module.scss'
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList'
+import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter'
 
 interface ArticlesPageProps {
     className?: string

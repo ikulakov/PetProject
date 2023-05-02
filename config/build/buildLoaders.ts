@@ -1,7 +1,7 @@
-import type webpack from 'webpack'
-import { type BuildOptions } from './types/config'
-import { buildCssLoader } from './loaders/buildCssLoader'
 import ReactRefreshTypeScript from 'react-refresh-typescript'
+import type webpack from 'webpack'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { type BuildOptions } from './types/config'
 
 export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {

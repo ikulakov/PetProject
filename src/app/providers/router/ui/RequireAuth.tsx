@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux'
-import { type UserRole, getUserAuthData } from '@/entities/User'
-import { Navigate, useLocation } from 'react-router-dom'
 import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { Navigate, useLocation } from 'react-router-dom'
+import { type UserRole, getUserAuthData } from '@/entities/User'
 import { getUserRoles } from '@/entities/User'
 import { RoutePath } from '@/shared/const/router'
 

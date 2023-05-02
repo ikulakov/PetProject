@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/prefer-includes */
 import path from 'path';
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
-import type { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
+import type { BuildPaths } from '../build/types/config';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {

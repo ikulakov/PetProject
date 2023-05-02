@@ -1,13 +1,13 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './NotificationButton.module.scss'
 import { memo, useState } from 'react'
-import { Popover } from '@/shared/ui/Popups'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { Icon, IconTheme } from '@/shared/ui/Icon'
 import { NotificationList } from '@/entities/Notification'
 import NotifyIcon from '@/shared/assets/icons/bell.svg'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Drawer } from '@/shared/ui/Drawer'
+import { Icon, IconTheme } from '@/shared/ui/Icon'
+import { Popover } from '@/shared/ui/Popups'
+import cls from './NotificationButton.module.scss'
 
 interface NotificationButtonProps {
     className?: string

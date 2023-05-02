@@ -1,10 +1,10 @@
 import { Fragment, type ReactNode, memo } from 'react'
 import { Menu } from '@headlessui/react'
-import cls from './Dropdown.module.scss'
+import { Link } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import cls from './Dropdown.module.scss'
 import { DropdownDirection, mapDirectionClass } from '../../styles/consts'
 import popupCls from '../../styles/popup.module.scss'
-import { Link } from 'react-router-dom'
 
 export interface DropdownItem {
     disabled?: boolean

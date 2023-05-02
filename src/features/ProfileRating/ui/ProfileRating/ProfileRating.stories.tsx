@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import ProfileRating from './ProfileRating'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import ProfileRating from './ProfileRating'
 
 export default {
     title: 'features/Profile/ProfileRating',

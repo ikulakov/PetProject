@@ -1,13 +1,13 @@
-import cls from './Sidebar.module.scss'
 import { memo, useState } from 'react'
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { SidebarItem } from '../SidebarItem/SidebarItem'
-import ArrowCollapseIcon from '../../assets/chevrons-right.svg'
-import type { SidebarItemsType } from '../../model/types/sidebar'
 import { useSelector } from 'react-redux'
-import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
 import { VStack } from '@/shared/ui/Stack'
+import cls from './Sidebar.module.scss'
+import ArrowCollapseIcon from '../../assets/chevrons-right.svg'
+import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import type { SidebarItemsType } from '../../model/types/sidebar'
+import { SidebarItem } from '../SidebarItem/SidebarItem'
 
 interface SidebarProps {
     className?: string

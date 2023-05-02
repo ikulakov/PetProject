@@ -1,6 +1,6 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { type Article } from '../../model/types/article'
 import { ArticlesListItem } from './ArticlesListItem'
+import { type Article } from '../../model/types/article'
 
 export default {
     title: 'entities/Article/ArticleListItem',

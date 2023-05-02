@@ -1,9 +1,9 @@
-import cls from './ArticlesSortSelector.module.scss'
-import { classNames } from '@/shared/lib/classNames/classNames'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Select, type SelectOption } from '@/shared/ui/Select'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { type SortOrder } from '@/shared/types'
+import { Select, type SelectOption } from '@/shared/ui/Select'
+import cls from './ArticlesSortSelector.module.scss'
 import { ArticleSortField } from '../../model/types/article'
 
 interface ArticlesSortSelectorProps {

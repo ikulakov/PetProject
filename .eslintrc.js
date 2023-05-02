@@ -24,7 +24,8 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'ulbi-tv-plugin'
+        'ulbi-tv-plugin',
+        'import'
     ],
     rules: {
         indent: 'off',
@@ -62,6 +63,34 @@ module.exports = {
                 alias: '@',
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             }
+        ],
+        'import/order': [
+            'error',
+            {
+                groups: ['builtin', 'external', 'internal'],
+                pathGroups: [
+                    {
+                        pattern: 'react',
+                        group: 'external',
+                        position: 'before',
+                    },
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                pathGroupsExcludedImportTypes: ['react'],
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: true,
+                },
+            },
         ],
     },
     overrides: [{
