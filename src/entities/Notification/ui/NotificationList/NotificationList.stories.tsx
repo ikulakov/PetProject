@@ -5,7 +5,7 @@ import { Notification } from '@/entities/Notification/model/types/notifications'
 import withMock from 'storybook-addon-mock';
 
 export default {
-    title: 'shared/NotificationList',
+    title: 'entities/Notification/NotificationList',
     component: NotificationList,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -35,6 +35,25 @@ Normal.parameters = {
                 { ...notification, id: '2' },
                 { ...notification, id: '3' }
             ]
+        }
+    ]
+}
+
+export const IsLoading = Template.bind({});
+IsLoading.args = {}
+IsLoading.decorators = [StoreDecorator({})]
+IsLoading.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/notifications`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...notification, id: '1' },
+                { ...notification, id: '2' },
+                { ...notification, id: '3' }
+            ],
+            delay: 4000
         }
     ]
 }

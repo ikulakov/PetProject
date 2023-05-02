@@ -1,6 +1,5 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { Dropdown } from './Dropdown'
-import { Button } from '@/shared/ui/Button/Button'
 
 export default {
     title: 'shared/Dropdown',
@@ -21,6 +20,6 @@ Normal.args = {
         }
     ],
     // eslint-disable-next-line i18next/no-literal-string
-    trigger: <Button>Trigger button</Button>,
+    trigger: <>Trigger button</>,
     direction: 'bottom right'
 }

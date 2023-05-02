@@ -1,8 +1,9 @@
-import path from 'path'
-import type webpack from 'webpack'
-import type { BuildPaths } from '../build/types/config'
-import { buildCssLoader } from '../build/loaders/buildCssLoader'
-import { DefinePlugin, type RuleSetRule } from 'webpack'
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/prefer-includes */
+import path from 'path';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+import type { BuildPaths } from '../build/types/config';
+import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
@@ -13,18 +14,21 @@ export default ({ config }: { config: webpack.Configuration }) => {
         locales: '',
         buildLocales: ''
     }
-    config.resolve?.modules?.push(paths.src)
-    config.resolve?.extensions?.push('.ts', '.tsx')
+    config.resolve!.modules!.push(paths.src)
+    config.resolve!.extensions!.push('.ts', '.tsx')
+    config.resolve!.alias = { 
+        ...config.resolve!.alias,
+        '@': paths.src 
+    }
 
-    const rules = config.module?.rules as RuleSetRule[]
-    // @ts-expect-error temp
-    config.module.rules = rules.map((rule) => {
-        // eslint-disable-next-line @typescript-eslint/prefer-includes
+    // @ts-expect-error ignore
+    config.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
-            return { ...rule, exclude: /\.svg$/i }
+            return { ...rule, exclude: /\.svg$/i };
         }
         return rule
     })
+
     config.module?.rules.push({
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
@@ -32,12 +36,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     })
     config.module?.rules.push(buildCssLoader(true))
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    config.resolve!.alias = { '@': paths.src }
-
     config.plugins?.push(new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify(''),
+        __API__: JSON.stringify('https://testapi.ru'),
         __PROJECT__: JSON.stringify('storybook')
     }))
 
