@@ -42,6 +42,7 @@
   },
   "include": [
     "./config/**/*.ts",
+    "./config/**/*.js",
     "./config/**/*.tsx",
     "./src/**/*.ts",
     "./src/**/*.tsx",

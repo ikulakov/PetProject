@@ -1,7 +1,8 @@
 import { type ReactNode, useEffect, useMemo, useState } from 'react'
-import { Theme, ThemeContext, LOCAL_STORAGE_THEME_KEY } from '../lib/ThemeContext'
+import { ThemeContext } from '../../../../shared/lib/context/ThemeContext'
+import { Theme } from '@/shared/const/theme'
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage'
 
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT
 
 interface ThemeProviderProps {

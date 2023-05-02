@@ -11,8 +11,8 @@ import EyeIcon from '../../../../shared/assets/icons/eye.svg'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { RoutePath } from '@/app/providers/router/routeConfig/routeConfig'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { RoutePath } from '@/shared/const/router'
 
 interface ArticlesListItemProps {
     className?: string

@@ -48,6 +48,7 @@ module.exports = {
         '@typescript-eslint/no-invalid-void-type': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0,
         '@typescript-eslint/no-unnecessary-condition': 0,
+        'ulbi-tv-plugin/path-checker': ['error', {alias: '@'}],
         'ulbi-tv-plugin/public-api-imports': [
             'error', 
             {
@@ -55,8 +56,13 @@ module.exports = {
                 testFiles: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
             }
         ],
-        'ulbi-tv-plugin/path-checker': ['error', {alias: '@'}],
-        // 'ulbi-tv-plugin/layer-imports': ['error', {alias: '@'}],
+        'ulbi-tv-plugin/layer-imports': [
+            'error', 
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            }
+        ],
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],
