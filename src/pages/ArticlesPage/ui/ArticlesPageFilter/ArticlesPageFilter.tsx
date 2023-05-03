@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { fetchArticlesList } from '@/entities/Article'
 import { type ArticleSortField, type ArticleType } from '@/entities/Article'
-import { ArticlesSortSelector } from '@/entities/Article'
-import { type ArticleView, ArticleViewSelector, articleListSliceActions, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageView, ArticleTypeTabs } from '@/entities/Article'
+import { type ArticleView, articleListSliceActions, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageView } from '@/entities/Article'
 import { getArticlesPageType } from '@/entities/Article'
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
+import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
@@ -82,7 +84,7 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
     return (
         <div className={classNames('', {}, [className])}>
             <div className={cls.sortWrapper}>
-                <ArticlesSortSelector
+                <ArticleSortSelector
                     sort={sort}
                     order={order}
                     onChangeOrder={onChangeOrder}

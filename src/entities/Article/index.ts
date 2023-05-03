@@ -49,18 +49,6 @@ export {
     ArticlesList
 } from './ui/ArticlesList/ArticlesList'
 
-export {
-    ArticleViewSelector
-} from './ui/ArticleViewSelector/ArticleViewSelector'
-
-export {
-    ArticleTypeTabs
-} from './ui/ArticleTypeTabs/ArticleTypeTabs'
-
-export {
-    ArticlesSortSelector
-} from './ui/ArticlesSortSelector/ArticlesSortSelector'
-
 // selectors
 export {
     getArticleDetailsData
