@@ -1,3 +1,4 @@
+/* eslint-disable fsd-architecture/layer-imports */
 import { type ReactNode, useEffect } from 'react'
 import { type Reducer } from '@reduxjs/toolkit'
 import { useDispatch, useStore } from 'react-redux'

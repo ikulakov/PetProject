@@ -1,5 +1,6 @@
-import { rmSync } from 'fs'
-import { join as joinPath } from 'path'
+/* eslint-disable @typescript-eslint/no-var-requires */
 
+const fs = require('fs')
+const { join: joinPath } = require('path')
 const cacheDir = joinPath(__dirname, '..', 'node_modules/.cache')
-rmSync(cacheDir, { recursive: true, force: true })
+fs.rmSync(cacheDir, { recursive: true, force: true })

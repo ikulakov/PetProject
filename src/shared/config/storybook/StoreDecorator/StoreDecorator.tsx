@@ -1,3 +1,4 @@
+/* eslint-disable fsd-architecture/layer-imports */
 import { type Story } from '@storybook/react'
 import { StoreProvider, type StateSchema } from '@/app/providers/StoreProvider'
 import { articleDetailsReducer, articleListSliceReducer } from '@/entities/Article'

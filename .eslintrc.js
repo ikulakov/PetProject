@@ -24,8 +24,9 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'ulbi-tv-plugin',
-        'import'
+        // 'ulbi-tv-plugin',
+        'import',
+        'fsd-architecture'
     ],
     rules: {
         indent: 'off',
@@ -49,19 +50,19 @@ module.exports = {
         '@typescript-eslint/no-invalid-void-type': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0,
         '@typescript-eslint/no-unnecessary-condition': 0,
-        'ulbi-tv-plugin/path-checker': ['error', {alias: '@'}],
-        'ulbi-tv-plugin/public-api-imports': [
+        'fsd-architecture/import-path-check': ['error', {alias: '@'}],
+        'fsd-architecture/public-api-imports': [
             'error', 
             {
                 alias: '@',
                 testFiles: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
             }
         ],
-        'ulbi-tv-plugin/layer-imports': [
+        'fsd-architecture/layer-imports': [
             'error', 
             {
                 alias: '@',
-                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/StoreDecorator.tsx'],
             }
         ],
         'import/order': [

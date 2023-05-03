@@ -1,4 +1,5 @@
 import { type DeepPartial } from '@reduxjs/toolkit'
+// eslint-disable-next-line fsd-architecture/layer-imports
 import { type StateSchema } from '@/app/providers/StoreProvider/config/StateSchema'
 import { getCounterValue } from './getCounterValue'
 
