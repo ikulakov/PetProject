@@ -13,7 +13,15 @@ export const parameters = {
             date: /Date$/
         }
     },
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    themes: {
+        default: 'light',
+        list: [
+            { name: 'light', class: Theme.LIGHT, color: '#fff' },
+            { name: 'dark', class: Theme.DARK, color: '#1d1e20' },
+            { name: 'blue', class: Theme.BLUE, color: '#5e69ee' },
+        ],
+    },
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
