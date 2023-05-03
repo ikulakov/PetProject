@@ -1,6 +1,6 @@
 import { type Story } from '@storybook/react'
 import { StoreProvider, type StateSchema } from '@/app/providers/StoreProvider'
-import { articleDetailsReducer } from '@/entities/Article'
+import { articleDetailsReducer, articleListSliceReducer } from '@/entities/Article'
 import { addCommentFormReducer } from '@/features/AddCommentForm'
 import { articleDetailCommentsReducer } from '@/features/ArticleCommentList'
 import { loginReducer } from '@/features/AuthByUsername'
@@ -12,7 +12,8 @@ const defaultAsyncReducers: ReducersList = {
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articleDetailCommentsReducer
+    articleDetailsComments: articleDetailCommentsReducer,
+    articlesPage: articleListSliceReducer
 }
 
 export const StoreDecorator = (
