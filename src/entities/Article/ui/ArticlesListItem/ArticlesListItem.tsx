@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { type HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticleDetails } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Avatar } from '@/shared/ui/Avatar'
@@ -62,7 +61,7 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                         <Button
                             theme={ButtonTheme.OUTLINE}
                         >
-                            <AppLink to={RoutePath.article_details + article.id} target={target}>
+                            <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                                 {t('Читать далее')}
                             </AppLink>
                         </Button>
@@ -75,7 +74,7 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
 
     return (
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <AppLink to={RoutePath.article_details + article.id} target={target}>
+            <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
                         <img alt={article.title} src={article.img} className={cls.img} />

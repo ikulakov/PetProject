@@ -7,7 +7,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { LangSwitcher } from '@/features/LangSwitcher'
 import { NotificationButton } from '@/features/NotificationButton'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticleCreate } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 data-testid="navbar"
             >
                 <Text className={cls.appName} title={t('Pet App')} theme={TextTheme.INVERTED} />
-                <AppLink to={RoutePath.article_create} className={cls.createBtn}>
+                <AppLink to={getRouteArticleCreate()} className={cls.createBtn}>
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap='16' className={cls.widgets}>
