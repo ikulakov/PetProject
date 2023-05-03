@@ -14,6 +14,7 @@ export default {
 const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => <ArticlesInfiniteList { ...args } />
 
 export const Normal = Template.bind({})
-Normal.args = {
-
-}
+Normal.args = {}
+Normal.decorators = [
+    StoreDecorator({})
+]

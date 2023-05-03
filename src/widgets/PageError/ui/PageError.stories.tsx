@@ -1,6 +1,4 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { PageError } from './PageError'
 
 export default {
@@ -13,9 +11,5 @@ export default {
 
 const Template: ComponentStory<typeof PageError> = (args) => <PageError {...args} />
 
-export const Light = Template.bind({})
-Light.args = {}
-
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Normal = Template.bind({})
+Normal.args = {}
