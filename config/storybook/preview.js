@@ -1,8 +1,8 @@
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator'
-import { withRouter } from 'storybook-addon-react-router-v6'
 import { Theme } from '@/shared/const/theme'
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { RouterDecorator } from '@/shared/config/storybook/RoterDecorator/RouterDecorator'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -33,6 +33,7 @@ export const parameters = {
 export const decorators = [
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT),
-    withRouter,
-    SuspenseDecorator
+    // withRouter,
+    SuspenseDecorator,
+    RouterDecorator
 ]

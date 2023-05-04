@@ -7,12 +7,12 @@ export default {
     title: 'pages/Article/ArticlesDetailPage',
     component: ArticlesDetailPage,
     loaders: [],
-    parameters: {
-        reactRouter: {
-            routePath: '/articles/:id',
-            routeParams: { id: '1' }
-        }
-    },
+    // parameters: {
+    //     reactRouter: {
+    //         routePath: '/articles/:id',
+    //         routeParams: { id: '1' }
+    //     }
+    // },
     argTypes: {
         backgroundColor: { control: 'color' }
     }

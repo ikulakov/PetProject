@@ -5,12 +5,12 @@ module.exports = {
         options: {
             backgrounds: false
         }
-    }, '@storybook/addon-interactions', 'storybook-addon-react-router-v6', 'storybook-addon-mock', 'storybook-addon-themes'],
+    }, '@storybook/addon-interactions', 'storybook-addon-mock', 'storybook-addon-themes'],
     framework: '@storybook/react-webpack5',
     // core: {
     //     builder: '@storybook/builder-webpack5'
     // },
     docs: {
-        autodocs: true
+        autodocs: false
     }
 };
