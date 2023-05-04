@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react"
+import { UserRole } from "@/entities/User"
 import { getRouteAbout, getRouteAdmin, getRouteProfile } from "@/shared/const/router"
 import { componentRender } from "@/shared/lib/tests/componentRender/componentRender"
 import AppRouter from "./AppRouter"
@@ -47,7 +48,12 @@ describe('app/router/AppRouter.test', () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
             initialState: {
-                user: {_inited: true, authData: {}}
+                user: {_inited: true, authData: {
+                    id: '1',
+                    roles: [
+                        UserRole.ADMIN
+                    ]
+                }}
             }
         })
 
