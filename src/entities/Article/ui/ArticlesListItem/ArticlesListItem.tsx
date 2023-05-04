@@ -3,11 +3,13 @@ import { useTranslation } from 'react-i18next'
 import EyeIcon from '@/shared/assets/icons/eye.svg'
 import { getRouteArticleDetails } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { AppImage } from '@/shared/ui/AppImage'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Card } from '@/shared/ui/Card'
 import { Icon } from '@/shared/ui/Icon'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { Text } from '@/shared/ui/Text'
 import cls from './ArticlesListItem.module.scss'
 import { type Article, type ArticleTextBlock, type ArticleView } from '../../model/types/article'
@@ -53,7 +55,12 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                     </div>
                     <Text title={article.title} className={cls.date} />
                     {types}
-                    <img alt={article.title} src={article.img} className={cls.img} />
+                    <AppImage
+                        fallback={<Skeleton width={'100%'} height={250} />}
+                        alt={article.title} 
+                        src={article.img} 
+                        className={cls.img} 
+                    />
                     {textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
@@ -77,7 +84,12 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
             <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
-                        <img alt={article.title} src={article.img} className={cls.img} />
+                        <AppImage 
+                            alt={article.title} 
+                            src={article.img} 
+                            className={cls.img}
+                            fallback={<Skeleton width={200} height={200} />}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoWrapper}>

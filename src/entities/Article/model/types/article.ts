@@ -1,6 +1,6 @@
 import { type EntityState } from '@reduxjs/toolkit'
 import { type User } from '@/entities/User'
-import { type SortOrder } from '@/shared/types'
+import { type SortOrder } from '@/shared/types/sort'
 
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 

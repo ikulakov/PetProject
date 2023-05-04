@@ -53,11 +53,18 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
                 }
             </HStack>
             {isLoading &&
-                <HStack max gap='16' className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
+                <HStack 
+                    max 
+                    gap='16' 
+                    className={classNames(cls.ArticlesList, {}, [cls[view]])}
+                >
                     {new Array(view === 'grid' ? 9 : 3)
                         .fill(0)
                         .map((_, index) => (
-                            <ArticleListItemSkeleton view={view} key={index} className='' />
+                            <ArticleListItemSkeleton 
+                                view={view}
+                                key={index}
+                            />
                         ))}
                 </HStack>
             }

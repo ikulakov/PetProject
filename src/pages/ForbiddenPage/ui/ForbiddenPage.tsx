@@ -17,6 +17,7 @@ const ForbiddenPage = memo((props: ForbiddenPageProps) => {
     return (
         <Page
             className={classNames(cls.ForbiddenPage, {}, [className])}
+            data-testid='ForbiddenPage'
         >
             {t('У вас нет доступа к данной странице')}
         </Page>

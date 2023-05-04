@@ -24,7 +24,7 @@ export const Icon = memo((props: IconProps) => {
     return (
         <Svg 
             className={classNames(cls.Icon, {}, [className, cls[theme]])}
-            {...rest} 
+            {...rest}
         />
     )
 })

@@ -15,3 +15,5 @@ export const rtkApi = createApi({
     }),
     endpoints: () => ({})
 })
+
+// npm i -D isomorphic-fetch для решения ошибки в консоли при тестах
