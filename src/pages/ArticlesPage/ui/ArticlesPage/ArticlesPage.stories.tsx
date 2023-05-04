@@ -8,7 +8,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
+    // parameters: {
+    //     loki: {
+    //         skip: true
+    //     }
+    // }
 } as ComponentMeta<typeof ArticlesPage>
 
 const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage { ...args } />
