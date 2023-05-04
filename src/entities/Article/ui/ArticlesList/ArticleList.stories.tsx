@@ -1,4 +1,4 @@
-import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { ArticlesList } from './ArticlesList'
 import { type Article } from '../../model/types/article'
 
@@ -8,7 +8,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof ArticlesList>
+} as StoryObj<typeof ArticlesList>
 
 const article = {
     id: '1',
@@ -90,7 +90,7 @@ const article = {
     ]
 } as Article
 
-const Template: ComponentStory<typeof ArticlesList> = (args) => <ArticlesList {...args} />
+const Template: StoryFn<typeof ArticlesList> = (args) => <ArticlesList {...args} />
 
 export const IsLoadingGrid = Template.bind({})
 IsLoadingGrid.args = {

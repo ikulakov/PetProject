@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { LangSwitcher } from './LangSwitcher'
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof LangSwitcher>
+} as StoryObj<typeof LangSwitcher>
 
-const Template: ComponentStory<typeof LangSwitcher> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><LangSwitcher {...args} /></div>
+const Template: StoryFn<typeof LangSwitcher> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><LangSwitcher {...args} /></div>
 
 export const Normal = Template.bind({})
 Normal.args = {}

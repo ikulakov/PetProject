@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
@@ -18,9 +18,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-} as ComponentMeta<typeof ProfilePage>
+} as StoryObj<typeof ProfilePage>
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />
+const Template: StoryFn<typeof ProfilePage> = (args) => <ProfilePage {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}

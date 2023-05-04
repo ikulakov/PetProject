@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { Theme } from '@/shared/const/theme'
 import { Button, ButtonSize, ButtonTheme } from './Button'
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator'
@@ -9,9 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Button>
+} as StoryObj<typeof Button>
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: StoryFn<typeof Button> = (args) => <Button {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

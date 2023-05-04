@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 
+import { StoryFn, StoryObj } from '@storybook/react'
 import { Flex } from './Flex'
 
 export default {
@@ -9,9 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Flex>
+} as StoryObj<typeof Flex>
 
-const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />
+const Template: StoryFn<typeof Flex> = (args) => <Flex {...args} />
 
 export const Row = Template.bind({})
 Row.args = {

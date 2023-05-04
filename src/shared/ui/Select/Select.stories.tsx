@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { Select } from './Select'
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Select>
+} as StoryObj<typeof Select>
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
+const Template: StoryFn<typeof Select> = (args) => <Select {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

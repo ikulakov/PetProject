@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { Loader } from './Loader'
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Loader>
+} as StoryObj<typeof Loader>
 
-const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />
+const Template: StoryFn<typeof Loader> = (args) => <Loader {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}

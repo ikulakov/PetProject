@@ -1,4 +1,3 @@
-import { addDecorator } from '@storybook/react'
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator'
 import { withRouter } from 'storybook-addon-react-router-v6'
 import { Theme } from '@/shared/const/theme'
@@ -24,9 +23,16 @@ export const parameters = {
     },
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-addDecorator(StyleDecorator)
-addDecorator(ThemeDecorator(Theme.LIGHT))
-// addDecorator(RouterDecorator)
-addDecorator(withRouter)
-addDecorator(SuspenseDecorator)
+// // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+// addDecorator(StyleDecorator)
+// addDecorator(ThemeDecorator(Theme.LIGHT))
+// // addDecorator(RouterDecorator)
+// addDecorator(withRouter)
+// addDecorator(SuspenseDecorator)
+
+export const decorators = [
+    StyleDecorator,
+    ThemeDecorator(Theme.LIGHT),
+    withRouter,
+    SuspenseDecorator
+]

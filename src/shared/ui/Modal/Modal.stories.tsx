@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 import { Modal } from './Modal'
@@ -9,9 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Modal>
+} as StoryObj<typeof Modal>
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />
+const Template: StoryFn<typeof Modal> = (args) => <Modal {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import AdminPanelPage from './AdminPanelPage'
 
@@ -9,9 +9,9 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof AdminPanelPage>
+} as StoryObj<typeof AdminPanelPage>
 
-const Template: ComponentStory<typeof AdminPanelPage> = (args) => <AdminPanelPage { ...args } />
+const Template: StoryFn<typeof AdminPanelPage> = (args) => <AdminPanelPage { ...args } />
 
 export const Normal = Template.bind({})
 Normal.args = {

@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { CommentItem } from './CommentItem'
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof CommentItem>
+} as StoryObj<typeof CommentItem>
 
-const Template: ComponentStory<typeof CommentItem> = (args) => <CommentItem {...args} />
+const Template: StoryFn<typeof CommentItem> = (args) => <CommentItem {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {

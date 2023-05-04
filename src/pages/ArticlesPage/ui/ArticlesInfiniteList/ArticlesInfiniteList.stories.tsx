@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ArticlesInfiniteList } from './ArticlesInfiniteList'
 
@@ -9,9 +9,9 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof ArticlesInfiniteList>
+} as StoryObj<typeof ArticlesInfiniteList>
 
-const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => <ArticlesInfiniteList { ...args } />
+const Template: StoryFn<typeof ArticlesInfiniteList> = (args) => <ArticlesInfiniteList { ...args } />
 
 export const Normal = Template.bind({})
 Normal.args = {}

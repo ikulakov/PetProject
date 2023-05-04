@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { ArticleSortSelector } from './ArticleSortSelector'
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof ArticleSortSelector>
+} as StoryObj<typeof ArticleSortSelector>
 
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector { ...args } />
+const Template: StoryFn<typeof ArticleSortSelector> = (args) => <ArticleSortSelector { ...args } />
 
 export const Normal = Template.bind({})
 Normal.args = {

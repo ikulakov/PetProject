@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { AvatarDropdown } from './AvatarDropdown'
 
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof AvatarDropdown>
+} as StoryObj<typeof AvatarDropdown>
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => <div style={{marginLeft: '150px', width: 'max-content'}}><AvatarDropdown { ...args } /></div>
+const Template: StoryFn<typeof AvatarDropdown> = (args) => <div style={{marginLeft: '150px', width: 'max-content'}}><AvatarDropdown { ...args } /></div>
 
 export const Normal = Template.bind({})
 Normal.args = {}

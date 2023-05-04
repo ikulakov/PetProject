@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, StoryObj } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { NotificationButton } from './NotificationButton';
 
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     }
-} as ComponentMeta<typeof NotificationButton>;
+} as StoryObj<typeof NotificationButton>;
 
-const Template: ComponentStory<typeof NotificationButton> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><NotificationButton { ...args } /></div>
+const Template: StoryFn<typeof NotificationButton> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><NotificationButton { ...args } /></div>
 
 export const Normal = Template.bind({});
 Normal.args = {}

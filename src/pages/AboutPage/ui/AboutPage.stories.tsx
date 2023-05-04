@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import AboutPage from './AboutPage'
 
@@ -9,9 +9,9 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof AboutPage>
+} as StoryObj<typeof AboutPage>
 
-const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />
+const Template: StoryFn<typeof AboutPage> = () => <AboutPage />
 
 export const Normal = Template.bind({})
 Normal.args = {}

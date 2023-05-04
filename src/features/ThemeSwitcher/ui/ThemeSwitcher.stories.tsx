@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 import { ThemeSwitcher } from './ThemeSwitcher'
@@ -9,9 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof ThemeSwitcher>
+} as StoryObj<typeof ThemeSwitcher>
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><ThemeSwitcher {...args} /></div>
+const Template: StoryFn<typeof ThemeSwitcher> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><ThemeSwitcher {...args} /></div>
 
 export const Light = Template.bind({})
 Light.args = {}

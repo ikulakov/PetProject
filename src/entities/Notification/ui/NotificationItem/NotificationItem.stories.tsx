@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, StoryObj } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof NotificationItem>;
+} as StoryObj<typeof NotificationItem>;
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem { ...args } />;
+const Template: StoryFn<typeof NotificationItem> = (args) => <NotificationItem { ...args } />;
 
 export const Normal = Template.bind({});
 Normal.args = {

@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { Dropdown } from './Dropdown'
 import { Button } from '../../../Button'
 
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Dropdown>
+} as StoryObj<typeof Dropdown>
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown { ...args } />
+const Template: StoryFn<typeof Dropdown> = (args) => <Dropdown { ...args } />
 
 export const Normal = Template.bind({})
 Normal.args = {

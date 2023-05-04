@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { AppLink, AppLinkTheme } from './AppLink'
 
 export default {
@@ -10,9 +10,9 @@ export default {
     args: {
         to: '/'
     }
-} as ComponentMeta<typeof AppLink>
+} as StoryObj<typeof AppLink>
 
-const Template: ComponentStory<typeof AppLink> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><AppLink {...args} /></div>
+const Template: StoryFn<typeof AppLink> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><AppLink {...args} /></div>
 
 export const Primary = Template.bind({})
 Primary.args = {

@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 import { Text, TextSize, TextTheme } from './Text'
@@ -9,9 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Text>
+} as StoryObj<typeof Text>
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
+const Template: StoryFn<typeof Text> = (args) => <Text {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

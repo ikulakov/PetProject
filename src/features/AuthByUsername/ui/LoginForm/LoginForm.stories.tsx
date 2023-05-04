@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import LoginForm from './LoginForm'
 
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof LoginForm>
+} as StoryObj<typeof LoginForm>
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />
+const Template: StoryFn<typeof LoginForm> = (args) => <LoginForm {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {}

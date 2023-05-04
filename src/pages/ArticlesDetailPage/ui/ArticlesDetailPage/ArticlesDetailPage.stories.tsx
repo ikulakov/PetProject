@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { type Article, ArticleType } from '@/entities/Article'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import ArticlesDetailPage from './ArticlesDetailPage'
@@ -16,7 +16,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof ArticlesDetailPage>
+} as StoryObj<typeof ArticlesDetailPage>
 
 const articleData: Article = {
     id: '1',
@@ -94,7 +94,7 @@ const articleData: Article = {
     ]
 }
 
-const Template: ComponentStory<typeof ArticlesDetailPage> = (args) => <ArticlesDetailPage { ...args } />
+const Template: StoryFn<typeof ArticlesDetailPage> = (args) => <ArticlesDetailPage { ...args } />
 
 export const Primary = Template.bind({})
 Primary.args = {}

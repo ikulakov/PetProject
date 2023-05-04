@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { RatingCard } from './RatingCard'
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof RatingCard>
+} as StoryObj<typeof RatingCard>
 
-const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />
+const Template: StoryFn<typeof RatingCard> = (args) => <RatingCard {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {

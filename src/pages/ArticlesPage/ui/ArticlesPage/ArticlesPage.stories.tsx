@@ -1,4 +1,4 @@
-import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { StoryFn, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import ArticlesPage from './ArticlesPage'
 
@@ -14,9 +14,9 @@ export default {
     //         skip: true
     //     }
     // }
-} as ComponentMeta<typeof ArticlesPage>
+} as StoryObj<typeof ArticlesPage>
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage { ...args } />
+const Template: StoryFn<typeof ArticlesPage> = (args) => <ArticlesPage { ...args } />
 
 export const Normal = Template.bind({})
 Normal.args = {
