@@ -1,16 +1,19 @@
-/* eslint-disable @typescript-eslint/no-namespace */
 /// <reference types="cypress" />
+import { getByTestId } from 'cypress/support/commands/common'
 import { login } from 'cypress/support/commands/login'
+import * as articleCommands from './commands/article'
+import * as commentCommands from './commands/comments'
+import * as profileCommands from './commands/profile'
+import * as ratingCommands from './commands/rating'
 
 Cypress.Commands.add('login', login)
+Cypress.Commands.add('getByTestId', getByTestId)
+Cypress.Commands.addAll(profileCommands)
+Cypress.Commands.addAll(articleCommands)
+Cypress.Commands.addAll(commentCommands)
+Cypress.Commands.addAll(ratingCommands)
 
-declare global {
-    namespace Cypress {
-        interface Chainable {
-            login(username?: string, password?: string): Chainable<void>
-        }
-    }
-}
+
 
 // ***********************************************
 // This example commands.ts shows you how to

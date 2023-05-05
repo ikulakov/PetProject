@@ -24,7 +24,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentItem, {}, [className])}>
+            <div className={classNames(cls.CommentItem, {}, [className])} data-testid="CommentItem.Loading">
                 <div className={cls.header}>
                     <Skeleton width={50} height={50} border={'50%'} />
                     <Skeleton width={100} height={20} />
@@ -41,7 +41,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
     }
 
     return (
-        <div className={classNames(cls.CommentItem, {}, [className])}>
+        <div className={classNames(cls.CommentItem, {}, [className])} data-testid="CommentItem.Content">
             <AppLink
                 to={ getRouteProfile(comment.user.id) }
                 className={cls.header}

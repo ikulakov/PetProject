@@ -41,6 +41,7 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
                 max
                 gap='16'
                 className={classNames(cls.ArticlesList, {}, [className, cls[view]])}
+                data-testid='ArticlesList'
             >
                 {articles.map((article: Article) => (
                     <ArticlesListItem
