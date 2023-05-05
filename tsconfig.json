@@ -52,6 +52,6 @@
     "./scripts/**/*.ts",
     "./json-server/*.js",
     // "./cypress/**/*.ts",
-    // "cypress.config.ts"
+    "cypress.config.ts"
   ]
 }
