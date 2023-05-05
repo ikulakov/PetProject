@@ -17,20 +17,22 @@ interface ArticlesListProps {
 }
 
 export const ArticlesList = memo((props: ArticlesListProps) => {
-    const {
-        className,
-        articles,
-        isLoading,
-        view = 'grid',
-        target
-    } = props
+    const { className, articles, isLoading, view = 'grid', target } = props
 
     const { t } = useTranslation()
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
-                <Text title={t('Статьи не найдены')} size={TextSize.L} />
+            <div
+                className={classNames(cls.ArticlesList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
+                <Text
+                    title={t('Статьи не найдены')}
+                    size={TextSize.L}
+                />
             </div>
         )
     }
@@ -39,9 +41,12 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
         <>
             <HStack
                 max
-                gap='16'
-                className={classNames(cls.ArticlesList, {}, [className, cls[view]])}
-                data-testid='ArticlesList'
+                gap="16"
+                className={classNames(cls.ArticlesList, {}, [
+                    className,
+                    cls[view],
+                ])}
+                data-testid="ArticlesList"
             >
                 {articles.map((article: Article) => (
                     <ArticlesListItem
@@ -50,25 +55,24 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
                         key={article.id}
                         target={target}
                     />
-                ))
-                }
+                ))}
             </HStack>
-            {isLoading &&
-                <HStack 
-                    max 
-                    gap='16' 
+            {isLoading && (
+                <HStack
+                    max
+                    gap="16"
                     className={classNames(cls.ArticlesList, {}, [cls[view]])}
                 >
                     {new Array(view === 'grid' ? 9 : 3)
                         .fill(0)
                         .map((_, index) => (
-                            <ArticleListItemSkeleton 
+                            <ArticleListItemSkeleton
                                 view={view}
                                 key={index}
                             />
                         ))}
                 </HStack>
-            }
+            )}
         </>
     )
 })

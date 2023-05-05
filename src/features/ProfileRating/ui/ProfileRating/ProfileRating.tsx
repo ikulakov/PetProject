@@ -12,51 +12,61 @@ export interface ProfileRatingProps {
 }
 
 const ProfileRating = memo((props: ProfileRatingProps) => {
-    const {
-        className,
-        id: profileId
-    } = props
+    const { className, id: profileId } = props
     const { t } = useTranslation()
 
     const userData = useSelector(getUserAuthData)
     const { data, isLoading } = useGetProfileRating({
-        profileId, 
-        userId: userData?.id ?? ''
+        profileId,
+        userId: userData?.id ?? '',
     })
 
     const [rateProfileMutation] = useRateProfile()
 
-    const handleRateProfile = useCallback((rate: number, feedback?: string) => {
-        try {
-            rateProfileMutation({
-                profileId,
-                userId: userData?.id ?? '',
-                rate,
-                feedback
-            })
-        } catch (e) {
-            console.log(e)
-        }
-    }, [profileId, rateProfileMutation, userData?.id])
+    const handleRateProfile = useCallback(
+        (rate: number, feedback?: string) => {
+            try {
+                rateProfileMutation({
+                    profileId,
+                    userId: userData?.id ?? '',
+                    rate,
+                    feedback,
+                })
+            } catch (e) {
+                console.log(e)
+            }
+        },
+        [profileId, rateProfileMutation, userData?.id],
+    )
 
-    const onCancel = useCallback((rate: number) => {
-        handleRateProfile(rate)
-    }, [handleRateProfile])
+    const onCancel = useCallback(
+        (rate: number) => {
+            handleRateProfile(rate)
+        },
+        [handleRateProfile],
+    )
 
-    const onAccept = useCallback((rate: number, feedback?: string) => {
-        handleRateProfile(rate, feedback)
-    }, [handleRateProfile])
+    const onAccept = useCallback(
+        (rate: number, feedback?: string) => {
+            handleRateProfile(rate, feedback)
+        },
+        [handleRateProfile],
+    )
 
-    
     if (userData?.id === profileId) {
         return null
     }
 
     if (isLoading) {
-        return <Skeleton width={'100%'} height={120} />
+        return (
+            <Skeleton
+                width={'100%'}
+                height={120}
+            />
+        )
     }
     const rating = data?.[0]
-    
+
     return (
         <RatingCard
             className={className}

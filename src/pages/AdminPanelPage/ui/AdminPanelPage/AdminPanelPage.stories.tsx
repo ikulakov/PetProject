@@ -6,14 +6,14 @@ export default {
     title: 'pages/AdminPanelPage',
     component: AdminPanelPage,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof AdminPanelPage>
 
-const Template: ComponentStory<typeof AdminPanelPage> = (args) => <AdminPanelPage { ...args } />
+const Template: ComponentStory<typeof AdminPanelPage> = (args) => (
+    <AdminPanelPage {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.args = {
-
-}
+Normal.args = {}

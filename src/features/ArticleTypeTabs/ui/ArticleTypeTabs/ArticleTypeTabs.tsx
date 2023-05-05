@@ -14,28 +14,34 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     const { className, value, onChangeTab } = props
     const { t } = useTranslation()
 
-    const onClickTab = useCallback((tab: TabItem) => {
-        onChangeTab(tab.value as ArticleType)
-    }, [onChangeTab])
+    const onClickTab = useCallback(
+        (tab: TabItem) => {
+            onChangeTab(tab.value as ArticleType)
+        },
+        [onChangeTab],
+    )
 
-    const tabs = useMemo<TabItem[]>(() => [
-        {
-            content: t('Экономика'),
-            value: ArticleType.ECONOMICS
-        },
-        {
-            content: t('IT'),
-            value: ArticleType.IT
-        },
-        {
-            content: t('Наука'),
-            value: ArticleType.SCIENCE
-        },
-        {
-            content: t('Все'),
-            value: ArticleType.ALL
-        }
-    ], [t])
+    const tabs = useMemo<TabItem[]>(
+        () => [
+            {
+                content: t('Экономика'),
+                value: ArticleType.ECONOMICS,
+            },
+            {
+                content: t('IT'),
+                value: ArticleType.IT,
+            },
+            {
+                content: t('Наука'),
+                value: ArticleType.SCIENCE,
+            },
+            {
+                content: t('Все'),
+                value: ArticleType.ALL,
+            },
+        ],
+        [t],
+    )
 
     return (
         <Tabs

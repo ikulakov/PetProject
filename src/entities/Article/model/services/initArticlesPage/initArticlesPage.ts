@@ -6,7 +6,11 @@ import { getArticlesPageInited } from '../../selectors/articlesPageSelectors'
 import { type ArticleSortField, type ArticleType } from '../../types/article'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 
-export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
+export const initArticlesPage = createAsyncThunk<
+    void,
+    URLSearchParams,
+    ThunkConfig<string>
+>(
     'entities/Article/initArticlesPage',
     // eslint-disable-next-line @typescript-eslint/require-await
     async (searchParams, thunkApi) => {
@@ -18,20 +22,28 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
         searchParams.forEach((value, key) => {
             switch (key) {
                 case 'order':
-                    dispatch(articleListSliceActions.setOrder(value as SortOrder))
+                    dispatch(
+                        articleListSliceActions.setOrder(value as SortOrder),
+                    )
                     break
                 case 'sort':
-                    dispatch(articleListSliceActions.setSort(value as ArticleSortField))
+                    dispatch(
+                        articleListSliceActions.setSort(
+                            value as ArticleSortField,
+                        ),
+                    )
                     break
                 case 'q':
                     dispatch(articleListSliceActions.setSearch(value))
                     break
                 case 'type':
-                    dispatch(articleListSliceActions.setType(value as ArticleType))
+                    dispatch(
+                        articleListSliceActions.setType(value as ArticleType),
+                    )
                     break
             }
         })
         dispatch(articleListSliceActions.initState())
         dispatch(fetchArticlesList({}))
-    }
+    },
 )

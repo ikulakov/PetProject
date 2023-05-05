@@ -16,7 +16,7 @@ const profile: Profile = {
     currency: Currency.USD,
     country: Country.Russia,
     city: 'Moscow',
-    username: 'admin123'
+    username: 'admin123',
 }
 
 const options = {
@@ -25,18 +25,18 @@ const options = {
             data: profile,
             form: profile,
             readonly: true,
-            isLoading: false
+            isLoading: false,
         },
         user: {
             authData: {
                 id: '1',
-                username: 'admin'
-            }
-        }
+                username: 'admin',
+            },
+        },
     },
     asyncReducers: {
-        profile: profileReducer
-    }
+        profile: profileReducer,
+    },
 }
 
 describe('features/EditableProfileCard', () => {
@@ -46,24 +46,35 @@ describe('features/EditableProfileCard', () => {
 
     test('Режим рид онли должен переключаться', async () => {
         componentRender(<EditableProfileCard id={'1'} />, options)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
-        expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument()
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        )
+        expect(
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+        ).toBeInTheDocument()
     })
 
     test('При отмене значения должны обнуляться', async () => {
         componentRender(<EditableProfileCard id={'1'} />, options)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        )
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'))
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user')
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'user',
+        )
         await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'user')
 
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user')
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user')
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+        )
 
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('admin')
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('admin')
@@ -71,19 +82,32 @@ describe('features/EditableProfileCard', () => {
 
     test('Должна появиться ошибка', async () => {
         componentRender(<EditableProfileCard id={'1'} />, options)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        )
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        )
 
-        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument()
+        expect(
+            screen.getByTestId('EditableProfileCard.Error.Paragraph'),
+        ).toBeInTheDocument()
     })
 
     test('Если нет ошибок, должен уйти put запрос на сервер', async () => {
         const mockPutReq = jest.spyOn($api, 'put')
         componentRender(<EditableProfileCard id={'1'} />, options)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'))
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user')
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        )
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'user',
+        )
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        )
 
         expect(mockPutReq).toHaveBeenCalled()
     })

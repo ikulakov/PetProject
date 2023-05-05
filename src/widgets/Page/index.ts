@@ -1,9 +1,5 @@
-export { Page }from './ui/Page/Page'
+export { Page } from './ui/Page/Page'
 
-export {
-    scrollReducer
-} from './ScrollSave/model/slices/scrollSaveSclice'
+export { scrollReducer } from './ScrollSave/model/slices/scrollSaveSclice'
 
-export type {
-    ScrollSaveSchema
-} from './ScrollSave/model/types/ScrollSchema'
+export type { ScrollSaveSchema } from './ScrollSave/model/types/ScrollSchema'

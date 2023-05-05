@@ -10,22 +10,21 @@ interface CurrencySelectProps {
     onChange?: (value: Currency) => void
 }
 
-const currencyOptions = Object.entries(Currency).map((val) => (
-    { value: val[0], content: val[1] }
-))
+const currencyOptions = Object.entries(Currency).map((val) => ({
+    value: val[0],
+    content: val[1],
+}))
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
-    const {
-        className,
-        value,
-        readonly,
-        onChange
-    } = props
+    const { className, value, readonly, onChange } = props
     const { t } = useTranslation()
 
-    const onChangeCurrencySelect = useCallback((value: string) => {
-        onChange?.(value as Currency)
-    }, [onChange])
+    const onChangeCurrencySelect = useCallback(
+        (value: string) => {
+            onChange?.(value as Currency)
+        },
+        [onChange],
+    )
 
     return (
         <ListBox
@@ -37,7 +36,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
             readonly={readonly}
             defaultValue={t('Укажите валюту')}
             label={t('Укажите валюту')}
-            direction='top left'
+            direction="top left"
         />
     )
 })

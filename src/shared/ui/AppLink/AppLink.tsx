@@ -6,7 +6,7 @@ import { classNames } from '../../lib/classNames/classNames'
 export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
-    RED = 'red'
+    RED = 'red',
 }
 
 interface AppLinkProps extends LinkProps {
@@ -15,20 +15,22 @@ interface AppLinkProps extends LinkProps {
     children: ReactNode
 }
 
-export const AppLink: React.FC<AppLinkProps> = memo(({
-    to,
-    children,
-    theme = AppLinkTheme.PRIMARY,
-    className,
-    ...otherProps
-}) => {
-    return (
-        <Link
-            {...otherProps}
-            to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
-        >
-            {children}
-        </Link>
-    )
-})
+export const AppLink: React.FC<AppLinkProps> = memo(
+    ({
+        to,
+        children,
+        theme = AppLinkTheme.PRIMARY,
+        className,
+        ...otherProps
+    }) => {
+        return (
+            <Link
+                {...otherProps}
+                to={to}
+                className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            >
+                {children}
+            </Link>
+        )
+    },
+)

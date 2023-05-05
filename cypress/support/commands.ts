@@ -13,8 +13,6 @@ Cypress.Commands.addAll(articleCommands)
 Cypress.Commands.addAll(commentCommands)
 Cypress.Commands.addAll(ratingCommands)
 
-
-
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite

@@ -1,4 +1,9 @@
-import { type MutableRefObject, type ReactNode, type UIEvent, useRef } from 'react'
+import {
+    type MutableRefObject,
+    type ReactNode,
+    type UIEvent,
+    useRef,
+} from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { type StateSchema } from '@/app/providers/StoreProvider'
@@ -12,29 +17,27 @@ import cls from './Page.module.scss'
 import { getScrollSavePath } from '../../ScrollSave/model/selectors/scrollSave'
 import { scrollActions } from '../../ScrollSave/model/slices/scrollSaveSclice'
 
-interface PageProps extends TestProps{
+interface PageProps extends TestProps {
     className?: string
     children: ReactNode
     onScrollEnd?: () => void
 }
 
 export const Page = (props: PageProps) => {
-    const {
-        className,
-        children,
-        onScrollEnd
-    } = props
+    const { className, children, onScrollEnd } = props
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
     const dispatch = useAppDispatch()
     const { pathname } = useLocation()
-    const scrollPosition = useSelector((state: StateSchema) => getScrollSavePath(state, pathname))
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getScrollSavePath(state, pathname),
+    )
 
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
-        callback: onScrollEnd
+        callback: onScrollEnd,
     })
 
     useInitialEffect(() => {
@@ -42,10 +45,12 @@ export const Page = (props: PageProps) => {
     })
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname
-        }))
+        dispatch(
+            scrollActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        )
     }, 500)
 
     return (
@@ -56,7 +61,12 @@ export const Page = (props: PageProps) => {
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
+            {onScrollEnd ? (
+                <div
+                    className={cls.trigger}
+                    ref={triggerRef}
+                />
+            ) : null}
         </section>
     )
 }

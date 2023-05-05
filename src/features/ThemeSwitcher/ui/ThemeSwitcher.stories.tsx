@@ -7,11 +7,15 @@ export default {
     title: 'features/ThemeSwitcher',
     component: ThemeSwitcher,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof ThemeSwitcher>
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><ThemeSwitcher {...args} /></div>
+const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
+    <div style={{ backgroundColor: 'var(--primary-color)', padding: '10px' }}>
+        <ThemeSwitcher {...args} />
+    </div>
+)
 
 export const Light = Template.bind({})
 Light.args = {}

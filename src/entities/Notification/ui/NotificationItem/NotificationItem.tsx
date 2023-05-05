@@ -14,20 +14,23 @@ interface NotificationItemProps {
 export const NotificationItem = memo((props: NotificationItemProps) => {
     const { className, item } = props
     const content = (
-        <Card 
-            className={classNames(cls.notificationItem, {}, [className])} 
+        <Card
+            className={classNames(cls.notificationItem, {}, [className])}
             theme={'outlined'}
         >
-            <Text title={item.title} text={item.description} />
+            <Text
+                title={item.title}
+                text={item.description}
+            />
         </Card>
     )
 
     if (item.href) {
         return (
-            <AppLink 
-                to={item.href} 
-                target='_blank' 
-                rel={'noreferrer'} 
+            <AppLink
+                to={item.href}
+                target="_blank"
+                rel={'noreferrer'}
                 className={cls.link}
             >
                 {content}
@@ -35,9 +38,5 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
         )
     }
 
-    return (
-        <>
-            {content}
-        </>
-    )
+    return <>{content}</>
 })

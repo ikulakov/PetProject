@@ -1,6 +1,14 @@
-import { type CombinedState, type EnhancedStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
+import {
+    type CombinedState,
+    type EnhancedStore,
+    type Reducer,
+    type ReducersMapObject,
+} from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
-import { type ArticleDetailsSchema, type ArticleListSchema } from '@/entities/Article'
+import {
+    type ArticleDetailsSchema,
+    type ArticleListSchema,
+} from '@/entities/Article'
 import { type ArticleDetailsPageRecommendationSchema } from '@/entities/Article'
 import { type CounterSchema } from '@/entities/Counter'
 import { type UserSchema } from '@/entities/User'

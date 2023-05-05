@@ -9,17 +9,19 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof NotificationList>;
+} as ComponentMeta<typeof NotificationList>
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList { ...args } />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+)
 
 const notification: Notification = {
     id: '1',
     description: 'Description',
-    title: 'Title'
+    title: 'Title',
 }
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})
 Normal.args = {}
 Normal.decorators = [StoreDecorator({})]
 Normal.parameters = {
@@ -31,13 +33,13 @@ Normal.parameters = {
             response: [
                 { ...notification, id: '1' },
                 { ...notification, id: '2' },
-                { ...notification, id: '3' }
-            ]
-        }
-    ]
+                { ...notification, id: '3' },
+            ],
+        },
+    ],
 }
 
-export const IsLoading = Template.bind({});
+export const IsLoading = Template.bind({})
 IsLoading.args = {}
 IsLoading.decorators = [StoreDecorator({})]
 IsLoading.parameters = {
@@ -49,9 +51,9 @@ IsLoading.parameters = {
             response: [
                 { ...notification, id: '1' },
                 { ...notification, id: '2' },
-                { ...notification, id: '3' }
+                { ...notification, id: '3' },
             ],
-            delay: 4000
-        }
-    ]
+            delay: 4000,
+        },
+    ],
 }

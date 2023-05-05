@@ -9,5 +9,3 @@ export interface ProfileSchema {
     readonly: boolean
     validateErrors?: ValidateProfileError[]
 }
-
-

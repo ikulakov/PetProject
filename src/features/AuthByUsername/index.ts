@@ -2,11 +2,6 @@ import { loginReducer } from './model/slice/loginSlice'
 import { LoginSchema } from './model/types/LoginSchema'
 import { LoginModal } from './ui/LoginModal/LoginModal'
 
-export {
-    LoginModal,
-    loginReducer
-}
+export { LoginModal, loginReducer }
 
-export type {
-    LoginSchema
-}
+export type { LoginSchema }

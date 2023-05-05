@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import { selectByTestId } from "cypress/helpers/selectByTestId"
+import { selectByTestId } from 'cypress/helpers/selectByTestId'
 
 export const getByTestId = (testId: string) => {
     return cy.get(selectByTestId(testId))

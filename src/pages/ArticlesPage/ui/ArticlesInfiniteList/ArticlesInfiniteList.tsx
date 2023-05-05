@@ -1,7 +1,13 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
-import { ArticlesList, getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView, initArticlesPage } from '@/entities/Article'
+import {
+    ArticlesList,
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+    initArticlesPage,
+} from '@/entities/Article'
 import { getArticles } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
@@ -25,7 +31,12 @@ export const ArticlesInfiniteList = memo((props: ArticlesInfiniteListProps) => {
     })
 
     if (error) {
-        return <Text text={error} theme={TextTheme.ERROR} />
+        return (
+            <Text
+                text={error}
+                theme={TextTheme.ERROR}
+            />
+        )
     }
 
     return (

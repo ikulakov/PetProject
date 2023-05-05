@@ -6,14 +6,14 @@ export default {
     title: 'pages/Article/ArticlesPageFilter',
     component: ArticlesPageFilter,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticlesPageFilter>
 
-const Template: ComponentStory<typeof ArticlesPageFilter> = (args) => <ArticlesPageFilter { ...args } />
+const Template: ComponentStory<typeof ArticlesPageFilter> = (args) => (
+    <ArticlesPageFilter {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.args = {
-
-}
+Normal.args = {}

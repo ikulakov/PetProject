@@ -5,18 +5,18 @@ import cls from './Text.module.scss'
 export enum TextTheme {
     PRIMARY = 'primary',
     INVERTED = 'inverted',
-    ERROR = 'error'
+    ERROR = 'error',
 }
 
 export enum TextAlign {
     LEFT = 'left',
     RIGHT = 'right',
-    CENTER = 'center'
+    CENTER = 'center',
 }
 
 export enum TextSize {
     M = 'size_m',
-    L = 'size_l'
+    L = 'size_l',
 }
 
 interface TextProps {
@@ -38,20 +38,13 @@ export const Text = memo((props: TextProps) => {
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
-        'data-testid': dataTestId = 'Text'
+        'data-testid': dataTestId = 'Text',
     } = props
 
-    const additionalClasses = [
-        className,
-        cls[theme],
-        cls[align],
-        cls[size]
-    ]
+    const additionalClasses = [className, cls[theme], cls[align], cls[size]]
 
     return (
-        <div
-            className={classNames(cls.Text, {}, additionalClasses)}
-        >
+        <div className={classNames(cls.Text, {}, additionalClasses)}>
             {title && (
                 <p
                     className={cls.title}
@@ -68,7 +61,6 @@ export const Text = memo((props: TextProps) => {
                     {text}
                 </p>
             )}
-
         </div>
     )
 })

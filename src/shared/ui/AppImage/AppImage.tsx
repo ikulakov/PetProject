@@ -1,4 +1,10 @@
-import { ImgHTMLAttributes, ReactNode, memo, useLayoutEffect, useState } from 'react'
+import {
+    ImgHTMLAttributes,
+    ReactNode,
+    memo,
+    useLayoutEffect,
+    useState,
+} from 'react'
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string
@@ -9,13 +15,13 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const AppImage = memo((props: AppImageProps) => {
-    const { 
-        className, 
-        alt = 'img', 
-        src, 
-        fallback, 
-        errorFallback, 
-        ...rest 
+    const {
+        className,
+        alt = 'img',
+        src,
+        fallback,
+        errorFallback,
+        ...rest
     } = props
     const [isLoading, setIsLoading] = useState(true)
     const [hasError, setHasError] = useState(false)
@@ -40,11 +46,11 @@ export const AppImage = memo((props: AppImageProps) => {
     }
 
     return (
-        <img 
-            className={className} 
+        <img
+            className={className}
             src={src}
             alt={alt}
-            {...rest} 
+            {...rest}
         />
     )
 })

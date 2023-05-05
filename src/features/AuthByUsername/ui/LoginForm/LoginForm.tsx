@@ -2,7 +2,10 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
@@ -21,14 +24,11 @@ export interface LoginFormProps {
 }
 
 const initialReducers: ReducersList = {
-    loginForm: loginReducer
+    loginForm: loginReducer,
 }
 
 const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        className,
-        onSuccess
-    } = props
+    const { className, onSuccess } = props
     const { t } = useTranslation()
     const dispatch = useAppDispatch()
 
@@ -37,13 +37,19 @@ const LoginForm = memo((props: LoginFormProps) => {
     const error = useSelector(getLoginError)
     const isLoading = useSelector(getLoginIsLoading)
 
-    const onUsernameChange = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value))
-    }, [dispatch])
+    const onUsernameChange = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value))
+        },
+        [dispatch],
+    )
 
-    const onPasswordChange = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value))
-    }, [dispatch])
+    const onPasswordChange = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value))
+        },
+        [dispatch],
+    )
 
     const onFormSubmit = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }))
@@ -54,10 +60,11 @@ const LoginForm = memo((props: LoginFormProps) => {
     }, [onSuccess, dispatch, username, password])
 
     return (
-        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-            <div
-                className={classNames(cls.LoginForm, {}, [className])}
-            >
+        <DynamicModuleLoader
+            reducers={initialReducers}
+            removeAfterUnmount
+        >
+            <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
                 <Input
                     className={cls.input}
@@ -81,7 +88,12 @@ const LoginForm = memo((props: LoginFormProps) => {
                 >
                     {t('Войти')}
                 </Button>
-                {error && <Text text={t('Пользователь ввел неверный логин или пароль')} theme={TextTheme.ERROR} />}
+                {error && (
+                    <Text
+                        text={t('Пользователь ввел неверный логин или пароль')}
+                        theme={TextTheme.ERROR}
+                    />
+                )}
             </div>
         </DynamicModuleLoader>
     )

@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type UserSchema, type User } from '../types/user'
 
 const initialState: UserSchema = {
-    _inited: false
+    _inited: false,
 }
 
 export const userSlice = createSlice({
@@ -16,10 +16,10 @@ export const userSlice = createSlice({
             state.authData = action.payload
             state._inited = true
         },
-        logout: state => {
+        logout: (state) => {
             state.authData = undefined
-        }
-    }
+        },
+    },
 })
 
 export const { actions: userActions } = userSlice

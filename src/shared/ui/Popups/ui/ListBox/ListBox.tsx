@@ -35,11 +35,11 @@ export const ListBox = memo((props: ListBoxProps) => {
         readonly,
         label,
         direction = 'bottom left',
-        onChange
+        onChange,
     } = props
 
     return (
-        <HStack gap='16'>
+        <HStack gap="16">
             {label && <span className={cls.label}>{label}</span>}
             <HListbox
                 disabled={readonly}
@@ -49,13 +49,18 @@ export const ListBox = memo((props: ListBoxProps) => {
                 className={popupCls.popup}
             >
                 {/* <HStack className={cls.ListBox} > */}
-                <HListbox.Button as={'div'} className={popupCls.trigger}>
-                    <Button disabled={readonly}>
-                        {value ?? defaultValue}
-                    </Button>
+                <HListbox.Button
+                    as={'div'}
+                    className={popupCls.trigger}
+                >
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListbox.Button>
-                <HListbox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
-                    { items?.map((item) => (
+                <HListbox.Options
+                    className={classNames(cls.options, {}, [
+                        mapDirectionClass[direction],
+                    ])}
+                >
+                    {items?.map((item) => (
                         <HListbox.Option
                             key={item.value}
                             value={item.value}
@@ -63,15 +68,22 @@ export const ListBox = memo((props: ListBoxProps) => {
                             as={Fragment}
                         >
                             {({ active, selected }) => (
-                                <li className={classNames(cls.item, { [popupCls.active]: active, [popupCls.disabled]: item.disabled }, [className])}>
+                                <li
+                                    className={classNames(
+                                        cls.item,
+                                        {
+                                            [popupCls.active]: active,
+                                            [popupCls.disabled]: item.disabled,
+                                        },
+                                        [className],
+                                    )}
+                                >
                                     {selected && '>'}
                                     {item.content}
                                 </li>
-
                             )}
                         </HListbox.Option>
-
-                    )) }
+                    ))}
                 </HListbox.Options>
                 {/* </HStack> */}
             </HListbox>

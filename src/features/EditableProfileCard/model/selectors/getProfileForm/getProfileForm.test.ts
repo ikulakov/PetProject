@@ -10,15 +10,15 @@ const data = {
     lastname: 'Kulakov',
     first: 'Ivan',
     city: 'Moscow',
-    currency: Currency.RUB
+    currency: Currency.RUB,
 }
 
 describe('getProfileForm.test', () => {
     test('should return form data', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
-                form: data
-            }
+                form: data,
+            },
         }
         expect(getProfileForm(state as StateSchema)).toEqual(data)
     })

@@ -4,7 +4,10 @@ import { useSelector } from 'react-redux'
 import CalendarIcon from '@/shared/assets/icons/calendar.svg'
 import EyeIcon from '@/shared/assets/icons/eye.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Avatar } from '@/shared/ui/Avatar'
@@ -29,7 +32,7 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-    articleDetails: articleDetailsReducer
+    articleDetails: articleDetailsReducer,
 }
 
 const renderBlock = (block: ArticleBlock) => {
@@ -61,10 +64,7 @@ const renderBlock = (block: ArticleBlock) => {
 }
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-    const {
-        className,
-        id
-    } = props
+    const { className, id } = props
 
     const { t } = useTranslation('article_details')
     const dispatch = useAppDispatch()
@@ -77,56 +77,70 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         dispatch(getArticleById(id))
     })
 
-    const content = isLoading
-        ? (
-            <>
-                <Skeleton className={cls.avatar} border={'50%'} width={200} height={200} />
-                <Skeleton className={cls.title} width={300} height={32} />
-                <Skeleton className={cls.skeleton} width={600} height={24} />
-                <Skeleton className={cls.skeleton} width={'100%'} height={200} />
-            </>
-        )
-        : error
-            ? (
-                <Text
-                    text={t('Произошла ошибка при загрузке статьи')}
-                    theme={TextTheme.ERROR}
+    const content = isLoading ? (
+        <>
+            <Skeleton
+                className={cls.avatar}
+                border={'50%'}
+                width={200}
+                height={200}
+            />
+            <Skeleton
+                className={cls.title}
+                width={300}
+                height={32}
+            />
+            <Skeleton
+                className={cls.skeleton}
+                width={600}
+                height={24}
+            />
+            <Skeleton
+                className={cls.skeleton}
+                width={'100%'}
+                height={200}
+            />
+        </>
+    ) : error ? (
+        <Text
+            text={t('Произошла ошибка при загрузке статьи')}
+            theme={TextTheme.ERROR}
+        />
+    ) : (
+        <>
+            <HStack
+                justify="center"
+                max
+            >
+                <Avatar
+                    src={article?.img}
+                    size={200}
+                    className={cls.avatar}
                 />
-            )
-            : (
-                <>
-                    <HStack justify='center' max>
-                        <Avatar
-                            src={article?.img}
-                            size={200}
-                            className={cls.avatar}
-                        />
-                    </HStack>
-                    <Text
-                        title={article?.title}
-                        text={article?.subtitle}
-                        theme={TextTheme.PRIMARY}
-                        size={TextSize.L}
-                    />
-                    <HStack gap='8'>
-                        <Icon Svg={EyeIcon} />
-                        <Text text={String(article?.views)} />
-                    </HStack>
-                    <HStack gap='8'>
-                        <Icon Svg={CalendarIcon} />
-                        <Text text={article?.createdAt} />
-                    </HStack>
-                    <VStack gap='32'>
-                        {article?.blocks.map(renderBlock)}
-                    </VStack>
-                </>
-            )
+            </HStack>
+            <Text
+                title={article?.title}
+                text={article?.subtitle}
+                theme={TextTheme.PRIMARY}
+                size={TextSize.L}
+            />
+            <HStack gap="8">
+                <Icon Svg={EyeIcon} />
+                <Text text={String(article?.views)} />
+            </HStack>
+            <HStack gap="8">
+                <Icon Svg={CalendarIcon} />
+                <Text text={article?.createdAt} />
+            </HStack>
+            <VStack gap="32">{article?.blocks.map(renderBlock)}</VStack>
+        </>
+    )
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack
                 className={classNames(cls.ArticleDetails, {}, [className])}
-                gap='16'
+                gap="16"
                 max
                 data-testid="ArticleDetails"
             >

@@ -3,7 +3,7 @@ module.exports = {
         browser: true,
         es2021: true,
         jest: true,
-        node: true
+        node: true,
     },
     extends: [
         'eslint:recommended',
@@ -12,13 +12,14 @@ module.exports = {
         'plugin:@typescript-eslint/strict',
         // 'standard-with-typescript',
         'plugin:i18next/recommended',
-        'plugin:storybook/recommended'
+        'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         tsconfigRootDir: __dirname,
         project: ['./tsconfig.json', './cypress/tsconfig.json'],
-        ecmaVersion: 'latest'
+        ecmaVersion: 'latest',
     },
     plugins: [
         '@typescript-eslint',
@@ -26,14 +27,12 @@ module.exports = {
         'react-hooks',
         // 'ulbi-tv-plugin',
         'import',
-        'fsd-architecture'
+        'fsd-architecture',
     ],
     rules: {
-        indent: 'off',
-        '@typescript-eslint/indent': ['warn', 4],
+        // indent: 'off',
+        // '@typescript-eslint/indent': ['warn', 4],
         '@typescript-eslint/strict-boolean-expressions': 0,
-        // '@typescript-eslint/prefer-nullish-coalescing': 0,
-        // 'i18next/no-literal-string': 0,
         '@typescript-eslint/restrict-plus-operands': 0,
         '@typescript-eslint/explicit-function-return-type': 0, // "warn"
         '@typescript-eslint/consistent-type-assertions': 0,
@@ -50,20 +49,28 @@ module.exports = {
         '@typescript-eslint/no-invalid-void-type': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0,
         '@typescript-eslint/no-unnecessary-condition': 0,
-        'fsd-architecture/import-path-check': ['error', {alias: '@'}],
+        'fsd-architecture/import-path-check': ['error', { alias: '@' }],
         'fsd-architecture/public-api-imports': [
-            'error', 
+            'error',
             {
                 alias: '@',
-                testFiles: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
-            }
+                testFiles: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
         ],
         'fsd-architecture/layer-imports': [
-            'error', 
+            'error',
             {
                 alias: '@',
-                ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/StoreDecorator.tsx'],
-            }
+                ignoreImportPatterns: [
+                    '**/StoreProvider',
+                    '**/testing',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
         ],
         'import/order': [
             'error',
@@ -94,15 +101,17 @@ module.exports = {
             },
         ],
     },
-    overrides: [{
-        files: ['**/src/**/*.test.{ts,tsx}'],
-        rules: {
-            'i18next/no-literal-string': 0
-        }
-    }],
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 0,
+            },
+        },
+    ],
     globals: {
         __IS_DEV__: true,
         __API__: true,
-        __PROJECT__: true
-    }
+        __PROJECT__: true,
+    },
 }

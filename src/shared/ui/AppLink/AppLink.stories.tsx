@@ -5,29 +5,33 @@ export default {
     title: 'shared/AppLink',
     component: AppLink,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
     args: {
-        to: '/'
-    }
+        to: '/',
+    },
 } as ComponentMeta<typeof AppLink>
 
-const Template: ComponentStory<typeof AppLink> = (args) => <div style={{backgroundColor: 'var(--primary-color)', padding: '10px'}}><AppLink {...args} /></div>
+const Template: ComponentStory<typeof AppLink> = (args) => (
+    <div style={{ backgroundColor: 'var(--primary-color)', padding: '10px' }}>
+        <AppLink {...args} />
+    </div>
+)
 
 export const Primary = Template.bind({})
 Primary.args = {
     children: 'Text',
-    theme: AppLinkTheme.PRIMARY
+    theme: AppLinkTheme.PRIMARY,
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
     children: 'Text',
-    theme: AppLinkTheme.SECONDARY
+    theme: AppLinkTheme.SECONDARY,
 }
 
 export const Red = Template.bind({})
 Red.args = {
     children: 'Text',
-    theme: AppLinkTheme.RED
+    theme: AppLinkTheme.RED,
 }

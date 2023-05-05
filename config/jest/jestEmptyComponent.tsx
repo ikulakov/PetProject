@@ -1,7 +1,5 @@
 const jestEmptyComponent = () => {
-    return (
-        <div/>
-    )
+    return <div />
 }
 
 export default jestEmptyComponent

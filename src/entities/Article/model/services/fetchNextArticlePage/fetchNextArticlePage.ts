@@ -1,10 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from '@/app/providers/StoreProvider'
-import { getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageNum } from '../../selectors/articlesPageSelectors'
+import {
+    getArticlesPageHasMore,
+    getArticlesPageIsLoading,
+    getArticlesPageNum,
+} from '../../selectors/articlesPageSelectors'
 import { articleListSliceActions } from '../../slice/articleListSlice/articleListSlice'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 
-export const fetchNextArticlePage = createAsyncThunk<void, void, ThunkConfig<string>>(
+export const fetchNextArticlePage = createAsyncThunk<
+    void,
+    void,
+    ThunkConfig<string>
+>(
     'entities/Article/fetchNextArticlePage',
     // eslint-disable-next-line @typescript-eslint/require-await
     async (_, thunkApi) => {
@@ -18,5 +26,5 @@ export const fetchNextArticlePage = createAsyncThunk<void, void, ThunkConfig<str
             dispatch(articleListSliceActions.setPage(page + 1))
             dispatch(fetchArticlesList({}))
         }
-    }
+    },
 )

@@ -5,11 +5,13 @@ export default {
     title: 'entities/Comment/CommentList',
     component: CommentList,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof CommentList>
 
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />
+const Template: ComponentStory<typeof CommentList> = (args) => (
+    <CommentList {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
@@ -20,8 +22,8 @@ Normal.args = {
             user: {
                 id: '1',
                 username: 'user',
-                avatar: 'https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?'
-            }
+                avatar: 'https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?',
+            },
         },
         {
             id: '2',
@@ -29,13 +31,13 @@ Normal.args = {
             user: {
                 id: '2',
                 username: 'user 2',
-                avatar: 'https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?'
-            }
-        }
-    ]
+                avatar: 'https://avt-5.foto.mail.ru/mail/olgalixa/_avatar180?',
+            },
+        },
+    ],
 }
 
 export const Loading = Template.bind({})
 Loading.args = {
-    isLoading: true
+    isLoading: true,
 }

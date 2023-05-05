@@ -15,11 +15,7 @@ export const PageError: React.FC<PageErrorProps> = ({ className }) => {
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             <div>{t('Ошибка')}</div>
-            <Button
-                onClick={ReloadPage}
-            >
-                {t('Обновить страницу')}
-            </Button>
+            <Button onClick={ReloadPage}>{t('Обновить страницу')}</Button>
         </div>
     )
 }

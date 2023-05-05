@@ -16,7 +16,10 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         return null
     }
     return (
-        <Page className={classNames('', {}, [className])} data-testid='ProfilePage'>
+        <Page
+            className={classNames('', {}, [className])}
+            data-testid="ProfilePage"
+        >
             <EditableProfileCard id={prodileId} />
             <ProfileRating id={prodileId} />
         </Page>

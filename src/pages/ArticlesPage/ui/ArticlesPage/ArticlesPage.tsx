@@ -2,7 +2,10 @@ import { memo, useCallback } from 'react'
 import { articleListSliceReducer } from '@/entities/Article'
 import { fetchNextArticlePage } from '@/entities/Article'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Page } from '@/widgets/Page'
 import cls from './ArticlesPage.module.scss'
@@ -14,7 +17,7 @@ interface ArticlesPageProps {
 }
 
 const reducers: ReducersList = {
-    articlesPage: articleListSliceReducer
+    articlesPage: articleListSliceReducer,
 }
 
 const ArticlesPage = (props: ArticlesPageProps) => {
@@ -26,10 +29,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch])
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames(cls.articlesPage, {}, [className])} onScrollEnd={onLoadNextPart} data-testid='ArticlesPage'>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
+            <Page
+                className={classNames(cls.articlesPage, {}, [className])}
+                onScrollEnd={onLoadNextPart}
+                data-testid="ArticlesPage"
+            >
                 <ArticlesPageFilter />
-                <ArticlesInfiniteList className={cls.list}/>
+                <ArticlesInfiniteList className={cls.list} />
             </Page>
         </DynamicModuleLoader>
     )

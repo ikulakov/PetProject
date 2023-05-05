@@ -7,7 +7,10 @@ import { articleDetailCommentsReducer } from '@/features/ArticleCommentList'
 import { ArticleRating } from '@/features/ArticleRating'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { Page } from '@/widgets/Page'
 import cls from './ArticlesDetailPage.module.scss'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
@@ -19,7 +22,7 @@ interface ArticlesDetailPageProps {
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailCommentsReducer,
-    articleRecommendations: articleDetailsPageRecommendationReducer
+    articleRecommendations: articleDetailsPageRecommendationReducer,
 }
 
 const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
@@ -29,14 +32,18 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
 
     if (!articleId) {
         return (
-            <Page className={classNames(cls.articlesDetailPage, {}, [className])}>
+            <Page
+                className={classNames(cls.articlesDetailPage, {}, [className])}
+            >
                 {t('Статья не найдена')}
             </Page>
         )
     }
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.articlesDetailPage, {}, [className])}>
+            <Page
+                className={classNames(cls.articlesDetailPage, {}, [className])}
+            >
                 <ArticlesDetailPageHeader />
                 <ArticleDetails id={articleId} />
                 <ArticleRating id={articleId} />

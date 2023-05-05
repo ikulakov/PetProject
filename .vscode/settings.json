@@ -2,9 +2,12 @@
     "i18n-ally.localesPaths": "./public/locales",
     "i18n-ally.sourceLanguage": "ru",
     "typescript.preferences.importModuleSpecifier": "non-relative",
-    "stylelint.validate": [
-        "css",
-        "scss"
-    ],
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "stylelint.validate": ["css", "scss"],
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": true
+        // "source.fixAll.eslint": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
 }

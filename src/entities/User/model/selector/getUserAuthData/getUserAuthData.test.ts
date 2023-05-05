@@ -6,12 +6,12 @@ describe('getProfileData.test', () => {
         const data = {
             id: '1',
             username: 'admin',
-            avatar: 'link_to_avatar'
+            avatar: 'link_to_avatar',
         }
         const state: DeepPartial<StateSchema> = {
             user: {
-                authData: data
-            }
+                authData: data,
+            },
         }
         expect(getUserAuthData(state as StateSchema)).toEqual(data)
     })

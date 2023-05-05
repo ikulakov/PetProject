@@ -6,7 +6,6 @@ import { type SortOrder } from '@/shared/types/sort'
 import { Select, type SelectOption } from '@/shared/ui/Select'
 import cls from './ArticleSortSelector.module.scss'
 
-
 interface ArticleSortSelectorProps {
     className?: string
     sort: ArticleSortField
@@ -16,45 +15,43 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-    const {
-        className,
-        sort,
-        order,
-        onChangeSort,
-        onChangeOrder
-    } = props
+    const { className, sort, order, onChangeSort, onChangeOrder } = props
     const { t } = useTranslation()
 
-    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
-        {
-            value: 'asc',
-            content: t('возрастанию')
-        },
-        {
-            value: 'desc',
-            content: t('убыванию')
-        }
-    ], [t])
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+        () => [
+            {
+                value: 'asc',
+                content: t('возрастанию'),
+            },
+            {
+                value: 'desc',
+                content: t('убыванию'),
+            },
+        ],
+        [t],
+    )
 
-    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
-        {
-            value: ArticleSortField.CREATED,
-            content: t('дате создания')
-        },
-        {
-            value: ArticleSortField.VIEWS,
-            content: t('просмотрам')
-        },
-        {
-            value: ArticleSortField.TITLE,
-            content: t('названию')
-        }
-    ], [t])
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
+        () => [
+            {
+                value: ArticleSortField.CREATED,
+                content: t('дате создания'),
+            },
+            {
+                value: ArticleSortField.VIEWS,
+                content: t('просмотрам'),
+            },
+            {
+                value: ArticleSortField.TITLE,
+                content: t('названию'),
+            },
+        ],
+        [t],
+    )
 
     return (
-        <div
-            className={classNames(cls.ArticleSortSelector, {}, [className])}
-        >
+        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select
                 label={t('Сортировать по')}
                 options={orderOptions}

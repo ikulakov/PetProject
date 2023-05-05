@@ -16,15 +16,15 @@ export const Counter = () => {
     //     dispatch(counterActions.decrement())
     // }
 
-    const { decrement, increment, add } = useCounterActions();
+    const { decrement, increment, add } = useCounterActions()
     const handleInc = () => {
-        increment();
+        increment()
     }
     const handleDec = () => {
-        decrement();
+        decrement()
     }
     const handleAddFive = () => {
-        add(5);
+        add(5)
     }
 
     return (

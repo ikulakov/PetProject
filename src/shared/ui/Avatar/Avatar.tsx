@@ -14,20 +14,32 @@ interface AvatarProps {
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const {
-        className,
-        src,
-        size = 100,
-        alt
-    } = props
+    const { className, src, size = 100, alt } = props
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size
-    }), [size])
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    )
 
-    const errorFallback = <Icon Svg={AvatarImage} width={size} height={size} theme={IconTheme.DARK} viewBox={`0 0 ${size} ${size}`} />
-    const fallback = <Skeleton width={size} height={size} border={'50%'} />
+    const errorFallback = (
+        <Icon
+            Svg={AvatarImage}
+            width={size}
+            height={size}
+            theme={IconTheme.DARK}
+            viewBox={`0 0 ${size} ${size}`}
+        />
+    )
+    const fallback = (
+        <Skeleton
+            width={size}
+            height={size}
+            border={'50%'}
+        />
+    )
 
     return (
         <AppImage

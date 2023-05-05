@@ -22,11 +22,12 @@ export const Code = (props: CodeProps) => {
                 className={cls.copyBtn}
                 onClick={onCopy}
             >
-                <Icon Svg={CopyIcon} theme={IconTheme.DARK} />
+                <Icon
+                    Svg={CopyIcon}
+                    theme={IconTheme.DARK}
+                />
             </Button>
-            <code>
-                {code}
-            </code>
+            <code>{code}</code>
         </pre>
     )
 }

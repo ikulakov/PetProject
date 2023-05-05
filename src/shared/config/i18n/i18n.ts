@@ -11,12 +11,12 @@ void i18n
         fallbackLng: 'ru',
         debug: false, // !!__IS_DEV__
         interpolation: {
-            escapeValue: false // react already safes from xss
+            escapeValue: false, // react already safes from xss
         },
         backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json'
+            loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
-        returnNull: false
+        returnNull: false,
     })
 
 export default i18n

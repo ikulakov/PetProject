@@ -4,7 +4,14 @@ import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { fetchArticlesList } from '@/entities/Article'
 import { type ArticleSortField, type ArticleType } from '@/entities/Article'
-import { type ArticleView, articleListSliceActions, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageView } from '@/entities/Article'
+import {
+    type ArticleView,
+    articleListSliceActions,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageView,
+} from '@/entities/Article'
 import { getArticlesPageType } from '@/entities/Article'
 import { ArticleSortSelector } from '@/features/ArticleSortSelector'
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
@@ -34,52 +41,69 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const fetchData = useCallback(() => {
-        dispatch(fetchArticlesList({
-            replace: true
-        }))
+        dispatch(
+            fetchArticlesList({
+                replace: true,
+            }),
+        )
     }, [dispatch])
 
     const debouncedFetchData = useDebounce(fetchData, 500)
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articleListSliceActions.setView(view))
-    }, [dispatch])
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articleListSliceActions.setView(view))
+        },
+        [dispatch],
+    )
 
-    const onChangeOrder = useCallback((order: SortOrder) => {
-        dispatch(articleListSliceActions.setOrder(order))
-        dispatch(articleListSliceActions.setPage(1))
-        fetchData()
+    const onChangeOrder = useCallback(
+        (order: SortOrder) => {
+            dispatch(articleListSliceActions.setOrder(order))
+            dispatch(articleListSliceActions.setPage(1))
+            fetchData()
 
-        searchParams.set('order', order)
-        setSearchParams(searchParams)
-    }, [dispatch, fetchData, searchParams, setSearchParams])
+            searchParams.set('order', order)
+            setSearchParams(searchParams)
+        },
+        [dispatch, fetchData, searchParams, setSearchParams],
+    )
 
-    const onChangeSort = useCallback((sort: ArticleSortField) => {
-        dispatch(articleListSliceActions.setSort(sort))
-        dispatch(articleListSliceActions.setPage(1))
-        fetchData()
+    const onChangeSort = useCallback(
+        (sort: ArticleSortField) => {
+            dispatch(articleListSliceActions.setSort(sort))
+            dispatch(articleListSliceActions.setPage(1))
+            fetchData()
 
-        searchParams.set('sort', sort)
-        setSearchParams(searchParams)
-    }, [dispatch, fetchData, searchParams, setSearchParams])
+            searchParams.set('sort', sort)
+            setSearchParams(searchParams)
+        },
+        [dispatch, fetchData, searchParams, setSearchParams],
+    )
 
-    const onChangeSearch = useCallback((query: string) => {
-        dispatch(articleListSliceActions.setSearch(query))
-        dispatch(articleListSliceActions.setPage(1))
-        debouncedFetchData()
+    const onChangeSearch = useCallback(
+        (query: string) => {
+            dispatch(articleListSliceActions.setSearch(query))
+            dispatch(articleListSliceActions.setPage(1))
+            debouncedFetchData()
 
-        searchParams.set('q', query)
-        setSearchParams(searchParams)
-    }, [dispatch, debouncedFetchData, searchParams, setSearchParams])
+            searchParams.set('q', query)
+            setSearchParams(searchParams)
+        },
+        [dispatch, debouncedFetchData, searchParams, setSearchParams],
+    )
 
-    const onChangeTab = useCallback((value: ArticleType) => {
-        dispatch(articleListSliceActions.setType(value))
-        dispatch(articleListSliceActions.setPage(1))
-        fetchData()
+    const onChangeTab = useCallback(
+        (value: ArticleType) => {
+            dispatch(articleListSliceActions.setType(value))
+            dispatch(articleListSliceActions.setPage(1))
+            fetchData()
 
-        searchParams.set('type', value)
-        setSearchParams(searchParams)
-    }, [dispatch, fetchData, searchParams, setSearchParams])
+            searchParams.set('type', value)
+            setSearchParams(searchParams)
+        },
+        [dispatch, fetchData, searchParams, setSearchParams],
+    )
 
     return (
         <div className={classNames('', {}, [className])}>

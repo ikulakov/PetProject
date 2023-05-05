@@ -25,33 +25,41 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         setIsOpen(false)
     }
     const trigger = (
-        <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
-            <Icon Svg={NotifyIcon} theme={IconTheme.DARK} />
+        <Button
+            theme={ButtonTheme.CLEAR}
+            onClick={onOpenDrawer}
+        >
+            <Icon
+                Svg={NotifyIcon}
+                theme={IconTheme.DARK}
+            />
         </Button>
     )
 
     return (
         <>
-            {isMobile 
-                ? (
-                    <>
-                        {trigger}
-                        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                            <NotificationList />
-                        </Drawer>
-                    </>
-                )
-                : (
-                    <Popover 
-                        direction='bottom left'
-                        unmount={true}  // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу если false
-                        className={classNames(cls.notificationButton, {}, [className])}
-                        trigger={trigger}>
-                        <NotificationList className={cls.notifications}/>
-                    </Popover>
-                )
-            }
+            {isMobile ? (
+                <>
+                    {trigger}
+                    <Drawer
+                        isOpen={isOpen}
+                        onClose={onCloseDrawer}
+                    >
+                        <NotificationList />
+                    </Drawer>
+                </>
+            ) : (
+                <Popover
+                    direction="bottom left"
+                    unmount={true} // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу если false
+                    className={classNames(cls.notificationButton, {}, [
+                        className,
+                    ])}
+                    trigger={trigger}
+                >
+                    <NotificationList className={cls.notifications} />
+                </Popover>
+            )}
         </>
-
     )
 })

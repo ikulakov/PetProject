@@ -3,23 +3,23 @@ import { buildSlice } from '@/shared/lib/store/buildSlice'
 import { type CounterSchema } from '../type/CounterSchema'
 
 const initialState: CounterSchema = {
-    value: 0
+    value: 0,
 }
 
 export const counterSlice = buildSlice({
     name: 'counter',
     initialState,
     reducers: {
-        increment: state => {
+        increment: (state) => {
             state.value += 1
         },
-        decrement: state => {
+        decrement: (state) => {
             state.value -= 1
         },
         add: (state, { payload }: PayloadAction<number>) => {
-            state.value += payload;
+            state.value += payload
         },
-    }
+    },
 })
 
 // export const { actions: counterActions } = counterSlice
@@ -31,4 +31,4 @@ export const {
     actions: counterActions,
     reducer: counterReducer,
     useActions: useCounterActions,
-} = counterSlice;
+} = counterSlice

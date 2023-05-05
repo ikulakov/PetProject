@@ -3,7 +3,7 @@ import { getArticleById } from './getArticleById'
 
 const data = {
     id: '1',
-    title: 'subtitle'
+    title: 'subtitle',
 }
 
 describe('getArticleById.test', () => {

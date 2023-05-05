@@ -1,26 +1,18 @@
-export type {
-    ArticleDetailsCommentsSchema
-} from './model/types/ArticleDetailsCommentsSchema'
+export type { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema'
 
 export {
     articleDetailCommentsReducer,
-    articleDetailCommentsActions
+    articleDetailCommentsActions,
 } from './model/slice/articleDetailCommentsSlice'
 
 // selectors
-export {
-    getArticleComments
-} from './model/slice/articleDetailCommentsSlice'
+export { getArticleComments } from './model/slice/articleDetailCommentsSlice'
 
 export {
     getArticleCommentsError,
-    getArticleCommentsIsLoading
+    getArticleCommentsIsLoading,
 } from './model/selectors/comments'
 
-export {
-    fetchCommentsByArticleId
-} from './model/service/fetchCommentsByArticleId'
+export { fetchCommentsByArticleId } from './model/service/fetchCommentsByArticleId'
 
-export {
-    addCommentForArticle
-} from './model/service/addCommentForArticle'
+export { addCommentForArticle } from './model/service/addCommentForArticle'

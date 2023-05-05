@@ -5,8 +5,8 @@ describe('getArticleDetailsError.test', () => {
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-                error: 'error'
-            }
+                error: 'error',
+            },
         }
         expect(getArticleDetailsError(state as StateSchema)).toEqual('error')
     })

@@ -11,20 +11,21 @@ interface CountrySelectProps {
     onChange?: (value: Country) => void
 }
 
-const countryOptions = Object.entries(Country).map((val) => ({ value: val[0], content: val[1] }))
+const countryOptions = Object.entries(Country).map((val) => ({
+    value: val[0],
+    content: val[1],
+}))
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-    const {
-        className,
-        value,
-        readonly,
-        onChange
-    } = props
+    const { className, value, readonly, onChange } = props
     const { t } = useTranslation()
 
-    const onChangeCountrySelect = useCallback((value: string) => {
-        onChange?.(value as Country)
-    }, [onChange])
+    const onChangeCountrySelect = useCallback(
+        (value: string) => {
+            onChange?.(value as Country)
+        },
+        [onChange],
+    )
 
     return (
         <ListBox

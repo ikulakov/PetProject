@@ -1,4 +1,3 @@
-
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -15,10 +14,7 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
-    const {
-        item,
-        collapsed
-    } = props
+    const { item, collapsed } = props
 
     const { t } = useTranslation()
     const isAuth = useSelector(getUserAuthData)
@@ -31,7 +27,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
         <AppLink
             theme={AppLinkTheme.PRIMARY}
             to={item.path}
-            className={classNames(cls.item, { [cls.collapsed]: collapsed }, []) }
+            className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
         >
             <div className={cls.iconWrapper}>
                 <Icon
@@ -40,9 +36,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
                     theme={IconTheme.DARK}
                 />
             </div>
-            <span className={cls.link}>
-                {t(item.text)}
-            </span>
+            <span className={cls.link}>{t(item.text)}</span>
         </AppLink>
     )
 })

@@ -5,7 +5,7 @@ import { type Article, type ArticleDetailsSchema } from '../../types/article'
 const initialState: ArticleDetailsSchema = {
     isLoading: false,
     error: undefined,
-    data: undefined
+    data: undefined,
 }
 
 export const articleDetailsSlice = createSlice({
@@ -14,11 +14,14 @@ export const articleDetailsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
-                state.isLoading = false
-                state.data = action.payload
-                state.error = undefined
-            })
+            .addCase(
+                getArticleById.fulfilled,
+                (state, action: PayloadAction<Article>) => {
+                    state.isLoading = false
+                    state.data = action.payload
+                    state.error = undefined
+                },
+            )
             .addCase(getArticleById.pending, (state) => {
                 state.isLoading = true
             })
@@ -26,7 +29,7 @@ export const articleDetailsSlice = createSlice({
                 state.isLoading = false
                 state.error = action.payload
             })
-    }
+    },
 })
 
 export const { actions: articleDetailsActions } = articleDetailsSlice

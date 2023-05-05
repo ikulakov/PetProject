@@ -1,16 +1,26 @@
-import { type PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
+import {
+    type PayloadAction,
+    createEntityAdapter,
+    createSlice,
+} from '@reduxjs/toolkit'
 import { type StateSchema } from '@/app/providers/StoreProvider'
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
 import { type SortOrder } from '@/shared/types/sort'
-import { type Article, type ArticleListSchema, ArticleSortField, ArticleType, type ArticleView } from '../../../model/types/article'
+import {
+    type Article,
+    type ArticleListSchema,
+    ArticleSortField,
+    ArticleType,
+    type ArticleView,
+} from '../../../model/types/article'
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList'
 
 const articlesAdapter = createEntityAdapter<Article>({
-    selectId: (article) => article.id
+    selectId: (article) => article.id,
 })
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-    (state) => state.articlesPage ?? articlesAdapter.getInitialState()
+    (state) => state.articlesPage ?? articlesAdapter.getInitialState(),
 )
 
 const articleListSlice = createSlice({
@@ -28,7 +38,7 @@ const articleListSlice = createSlice({
         sort: ArticleSortField.CREATED,
         search: '',
         order: 'asc',
-        type: ArticleType.ALL
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -50,12 +60,14 @@ const articleListSlice = createSlice({
         setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload
         },
-        initState: state => {
-            const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView
+        initState: (state) => {
+            const view = localStorage.getItem(
+                ARTICLE_VIEW_LOCALSTORAGE_KEY,
+            ) as ArticleView
             state.view = view
             state.limit = view === 'list' ? 4 : 9
             state._inited = true
-        }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -81,7 +93,7 @@ const articleListSlice = createSlice({
                 state.isLoading = false
                 state.error = action.payload
             })
-    }
+    },
 })
 
 export const { reducer: articleListSliceReducer } = articleListSlice

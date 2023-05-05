@@ -28,11 +28,14 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
         setIsAuthModal((prev) => !prev)
     }, [])
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            onToggleModal()
-        }
-    }, [onToggleModal])
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                onToggleModal()
+            }
+        },
+        [onToggleModal],
+    )
 
     useEffect(() => {
         if (isAuthModal) {
@@ -50,11 +53,21 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 className={classNames(cls.Navbar, {}, [className])}
                 data-testid="navbar"
             >
-                <Text className={cls.appName} title={t('Pet App')} theme={TextTheme.INVERTED} />
-                <AppLink to={getRouteArticleCreate()} className={cls.createBtn}>
+                <Text
+                    className={cls.appName}
+                    title={t('Pet App')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={getRouteArticleCreate()}
+                    className={cls.createBtn}
+                >
                     {t('Создать статью')}
                 </AppLink>
-                <HStack gap='16' className={cls.widgets}>
+                <HStack
+                    gap="16"
+                    className={cls.widgets}
+                >
                     <ThemeSwitcher />
                     <LangSwitcher />
                     <NotificationButton />
@@ -69,13 +82,26 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
             className={classNames(cls.Navbar, {}, [className])}
             data-testid="navbar"
         >
-            <HStack gap='16' className={cls.widgets}>
+            <HStack
+                gap="16"
+                className={cls.widgets}
+            >
                 <ThemeSwitcher />
                 <LangSwitcher />
-                <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onToggleModal}>{t('Войти')}</Button>
+                <Button
+                    theme={ButtonTheme.CLEAR_INVERTED}
+                    onClick={onToggleModal}
+                >
+                    {t('Войти')}
+                </Button>
             </HStack>
 
-            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />}
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onToggleModal}
+                />
+            )}
         </header>
     )
 })

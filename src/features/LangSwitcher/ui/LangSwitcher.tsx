@@ -9,18 +9,21 @@ interface LangSwitcherProps {
     className?: string
 }
 
-export const LangSwitcher: React.FC<LangSwitcherProps> = memo(({ className }) => {
-    const { t, i18n } = useTranslation()
+export const LangSwitcher: React.FC<LangSwitcherProps> = memo(
+    ({ className }) => {
+        const { t, i18n } = useTranslation()
 
-    const toggleLanguage = (): void => {
-        void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
-    }
-    return (
-        <Button
-            className={classNames(cls.LangSwitcher, {}, [className])}
-            theme={ButtonTheme.CLEAR}
-            onClick={toggleLanguage}>
-            <LangIcon /> {t('Язык')}
-        </Button>
-    )
-})
+        const toggleLanguage = (): void => {
+            void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+        }
+        return (
+            <Button
+                className={classNames(cls.LangSwitcher, {}, [className])}
+                theme={ButtonTheme.CLEAR}
+                onClick={toggleLanguage}
+            >
+                <LangIcon /> {t('Язык')}
+            </Button>
+        )
+    },
+)

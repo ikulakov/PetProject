@@ -6,26 +6,38 @@ export default {
     title: 'features/LoginForm',
     component: LoginForm,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof LoginForm>
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+    <LoginForm {...args} />
+)
 
 export const Primary = Template.bind({})
 Primary.args = {}
-Primary.decorators = [StoreDecorator({
-    loginForm: { username: 'Username', password: 'password' }
-})]
+Primary.decorators = [
+    StoreDecorator({
+        loginForm: { username: 'Username', password: 'password' },
+    }),
+]
 
 export const WithError = Template.bind({})
 WithError.args = {}
-WithError.decorators = [StoreDecorator({
-    loginForm: { username: 'Username', password: 'password', error: 'Some error' }
-})]
+WithError.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: 'Username',
+            password: 'password',
+            error: 'Some error',
+        },
+    }),
+]
 
 export const FormSending = Template.bind({})
 FormSending.args = {}
-FormSending.decorators = [StoreDecorator({
-    loginForm: { isLoading: true }
-})]
+FormSending.decorators = [
+    StoreDecorator({
+        loginForm: { isLoading: true },
+    }),
+]

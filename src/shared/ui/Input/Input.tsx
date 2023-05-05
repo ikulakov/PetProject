@@ -1,8 +1,17 @@
-import { type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
+import {
+    type InputHTMLAttributes,
+    memo,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'> // переопределение дефолтных типов
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+> // переопределение дефолтных типов
 
 interface InputProps extends HTMLInputProps {
     className?: string
@@ -47,17 +56,17 @@ export const Input = memo((props: InputProps) => {
     }, [autofocus])
 
     return (
-        <div className={classNames(cls.InputWrapper, { [cls.readonly]: readonly }, [className])}>
-            {placeholder && !isFocused && !value &&
-                <div className={cls.placeholder}>
-                    {placeholder}
-                </div>
-            }
-            {label &&
-                <span className={cls.label}>
-                    {label}
-                </span>
-            }
+        <div
+            className={classNames(
+                cls.InputWrapper,
+                { [cls.readonly]: readonly },
+                [className],
+            )}
+        >
+            {placeholder && !isFocused && !value && (
+                <div className={cls.placeholder}>{placeholder}</div>
+            )}
+            {label && <span className={cls.label}>{label}</span>}
             <input
                 type={type}
                 value={value}

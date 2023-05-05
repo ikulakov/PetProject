@@ -6,15 +6,15 @@ export default {
     title: 'pages/Article/ArticlesInfiniteList',
     component: ArticlesInfiniteList,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticlesInfiniteList>
 
-const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => <ArticlesInfiniteList { ...args } />
+const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => (
+    <ArticlesInfiniteList {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [
-    StoreDecorator({})
-]
+Normal.decorators = [StoreDecorator({})]

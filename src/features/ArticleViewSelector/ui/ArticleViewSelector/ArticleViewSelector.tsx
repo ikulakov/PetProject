@@ -13,23 +13,22 @@ interface ArticleViewSelectorProps {
     onViewClick?: (view: ArticleView) => void
 }
 
-const viewTypes: { view: ArticleView, icon: React.FunctionComponent<React.SVGAttributes<SVGElement>> }[] = [
+const viewTypes: {
+    view: ArticleView
+    icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+}[] = [
     {
         view: 'list',
-        icon: ListIcon
+        icon: ListIcon,
     },
     {
         view: 'grid',
-        icon: GridIcon
-    }
+        icon: GridIcon,
+    },
 ]
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onViewClick
-    } = props
+    const { className, view, onViewClick } = props
 
     const onClick = (newView: ArticleView) => {
         return () => {
@@ -38,23 +37,23 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleViewSelector, {}, [className])}
-        >
-            {
-                viewTypes.map(viewType => (
-                    <Button
-                        onClick={onClick(viewType.view)}
-                        theme={ButtonTheme.CLEAR}
-                        key={viewType.view}
-                    >
-                        <Icon
-                            Svg={viewType.icon}
-                            className={classNames('', { [cls.selected]: viewType.view === view }, [])}
-                        />
-                    </Button>
-                ))
-            }
+        <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+            {viewTypes.map((viewType) => (
+                <Button
+                    onClick={onClick(viewType.view)}
+                    theme={ButtonTheme.CLEAR}
+                    key={viewType.view}
+                >
+                    <Icon
+                        Svg={viewType.icon}
+                        className={classNames(
+                            '',
+                            { [cls.selected]: viewType.view === view },
+                            [],
+                        )}
+                    />
+                </Button>
+            ))}
         </div>
     )
 })

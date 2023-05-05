@@ -5,13 +5,13 @@ export default {
     title: 'features/Article/ArticlesSortSelector',
     component: ArticleSortSelector,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof ArticleSortSelector>
 
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector { ...args } />
+const Template: ComponentStory<typeof ArticleSortSelector> = (args) => (
+    <ArticleSortSelector {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.args = {
-
-}
+Normal.args = {}

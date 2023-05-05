@@ -19,18 +19,15 @@ interface SelectProps<T extends string> {
 }
 
 export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
-    const {
-        className,
-        label,
-        options,
-        value,
-        readonly,
-        onChange
-    } = props
+    const { className, label, options, value, readonly, onChange } = props
 
     const optionsList = useMemo(() => {
-        return options?.map(option => (
-            <option className={cls.option} value={option.value} key={option.value}>
+        return options?.map((option) => (
+            <option
+                className={cls.option}
+                value={option.value}
+                key={option.value}
+            >
                 {option.content}
             </option>
         ))
@@ -43,14 +40,8 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     }
 
     return (
-        <div
-            className={classNames(cls.wrapper, {}, [className])}
-        >
-            {label &&
-                <span className={cls.label}>
-                    {label}
-                </span>
-            }
+        <div className={classNames(cls.wrapper, {}, [className])}>
+            {label && <span className={cls.label}>{label}</span>}
             <select
                 className={cls.Select}
                 value={value}

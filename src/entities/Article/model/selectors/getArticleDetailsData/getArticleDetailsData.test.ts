@@ -5,12 +5,12 @@ describe('getArticleDetailsData.test', () => {
     test('should return data', () => {
         const data = {
             id: '1',
-            title: 'subtitle'
+            title: 'subtitle',
         }
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-                data
-            }
+                data,
+            },
         }
         expect(getArticleDetailsData(state as StateSchema)).toEqual(data)
     })

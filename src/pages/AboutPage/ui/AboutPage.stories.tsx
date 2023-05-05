@@ -6,9 +6,9 @@ export default {
     title: 'pages/AboutPage',
     component: AboutPage,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof AboutPage>
 
 const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />

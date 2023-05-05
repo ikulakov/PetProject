@@ -21,24 +21,31 @@ interface DropdownProps {
 }
 
 export const Dropdown = memo((props: DropdownProps) => {
-    const {
-        className,
-        items,
-        trigger,
-        direction = 'bottom left'
-    } = props
+    const { className, items, trigger, direction = 'bottom left' } = props
 
     return (
-        <Menu as={'div'} className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}>
-            <Menu.Button className={popupCls.trigger}>
-                {trigger}
-            </Menu.Button>
-            <Menu.Items className={classNames(cls.items, {}, [mapDirectionClass[direction]]) }>
+        <Menu
+            as={'div'}
+            className={classNames(cls.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ])}
+        >
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+            <Menu.Items
+                className={classNames(cls.items, {}, [
+                    mapDirectionClass[direction],
+                ])}
+            >
                 {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
-                            type='button'
-                            className={classNames(cls.item, { [popupCls.active]: active }, [])}
+                            type="button"
+                            className={classNames(
+                                cls.item,
+                                { [popupCls.active]: active },
+                                [],
+                            )}
                             disabled={item.disabled}
                             onClick={item.onClick}
                         >
@@ -47,28 +54,27 @@ export const Dropdown = memo((props: DropdownProps) => {
                     )
                     if (item.href) {
                         return (
-                            <Menu.Item 
-                                disabled={item.disabled} 
-                                key={`dropdown-key-${index}`} 
-                                as={Link} 
+                            <Menu.Item
+                                disabled={item.disabled}
+                                key={`dropdown-key-${index}`}
+                                as={Link}
                                 to={item.href}
                             >
-                                { content }
+                                {content}
                             </Menu.Item>
                         )
                     }
                     return (
-                        <Menu.Item 
-                            as={Fragment} 
-                            key={`dropdown-key-${index}`} 
+                        <Menu.Item
+                            as={Fragment}
+                            key={`dropdown-key-${index}`}
                             disabled={item.disabled}
                         >
-                            { content }
+                            {content}
                         </Menu.Item>
                     )
                 })}
             </Menu.Items>
         </Menu>
     )
-}
-)
+})

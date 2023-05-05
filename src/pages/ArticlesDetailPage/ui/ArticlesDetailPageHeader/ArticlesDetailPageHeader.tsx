@@ -13,45 +13,47 @@ interface ArticlesDetailPageHeaderProps {
     className?: string
 }
 
-export const ArticlesDetailPageHeader = memo((props: ArticlesDetailPageHeaderProps) => {
-    const {
-        className
-    } = props
-    const { t } = useTranslation()
-    const navigate = useNavigate()
+export const ArticlesDetailPageHeader = memo(
+    (props: ArticlesDetailPageHeaderProps) => {
+        const { className } = props
+        const { t } = useTranslation()
+        const navigate = useNavigate()
 
-    const article = useSelector(getArticleDetailsData)
-    const canEdit = useSelector(getCanEditArticle)
+        const article = useSelector(getArticleDetailsData)
+        const canEdit = useSelector(getCanEditArticle)
 
-    const onBackToList = useCallback(() => {
-        navigate(getRouteArticles())
-    }, [navigate])
+        const onBackToList = useCallback(() => {
+            navigate(getRouteArticles())
+        }, [navigate])
 
-    const onEditArticle = useCallback(() => {
-        if (article) {
-            navigate(getRouteArticleEdit(article.id))
-        }
-    }, [article, navigate])
+        const onEditArticle = useCallback(() => {
+            if (article) {
+                navigate(getRouteArticleEdit(article.id))
+            }
+        }, [article, navigate])
 
-    return (
-        <div
-            className={classNames(cls.ArticlesDetailPageHeader, {}, [className])}
-        >
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onBackToList}
+        return (
+            <div
+                className={classNames(cls.ArticlesDetailPageHeader, {}, [
+                    className,
+                ])}
             >
-                {t('Назад к списку')}
-            </Button>
-            {canEdit &&
                 <Button
                     theme={ButtonTheme.OUTLINE}
-                    onClick={onEditArticle}
-                    className={cls.editBtn}
+                    onClick={onBackToList}
                 >
-                    {t('Редактировать')}
+                    {t('Назад к списку')}
                 </Button>
-            }
-        </div>
-    )
-})
+                {canEdit && (
+                    <Button
+                        theme={ButtonTheme.OUTLINE}
+                        onClick={onEditArticle}
+                        className={cls.editBtn}
+                    >
+                        {t('Редактировать')}
+                    </Button>
+                )}
+            </div>
+        )
+    },
+)

@@ -1,17 +1,15 @@
 export {
     articleDetailsReducer,
-    articleDetailsActions
+    articleDetailsActions,
 } from './model/slice/articleDetailsSlice/articleDetailsSlice'
 
 export {
     articleListSliceReducer,
     articleListSliceActions,
-    getArticles
+    getArticles,
 } from './model/slice/articleListSlice/articleListSlice'
 
-export {
-    articleDetailsPageRecommendationReducer
-} from './model/slice/articleDetailsPageRecommendationSlice/articleDetailsPageRecommendation'
+export { articleDetailsPageRecommendationReducer } from './model/slice/articleDetailsPageRecommendationSlice/articleDetailsPageRecommendation'
 
 export type {
     Article,
@@ -20,39 +18,22 @@ export type {
     ArticleListSchema,
 } from './model/types/article'
 
-export type {
-    ArticleDetailsPageRecommendationSchema
-} from './model/types/articleDetailsPageRecommendationSchema'
+export type { ArticleDetailsPageRecommendationSchema } from './model/types/articleDetailsPageRecommendationSchema'
 
-export {
-    ArticleType,
-    ArticleSortField,
-} from './model/types/article'
+export { ArticleType, ArticleSortField } from './model/types/article'
 
 // services
-export {
-    initArticlesPage
-} from './model/services/initArticlesPage/initArticlesPage'
-export {
-    fetchNextArticlePage
-} from './model/services/fetchNextArticlePage/fetchNextArticlePage'
-export {
-    fetchArticlesList
-} from './model/services/fetchArticlesList/fetchArticlesList'
+export { initArticlesPage } from './model/services/initArticlesPage/initArticlesPage'
+export { fetchNextArticlePage } from './model/services/fetchNextArticlePage/fetchNextArticlePage'
+export { fetchArticlesList } from './model/services/fetchArticlesList/fetchArticlesList'
 
 // components
-export {
-    ArticleDetails
-} from './ui/ArticleDetails/ArticleDetails'
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails'
 
-export {
-    ArticlesList
-} from './ui/ArticlesList/ArticlesList'
+export { ArticlesList } from './ui/ArticlesList/ArticlesList'
 
 // selectors
-export {
-    getArticleDetailsData
-} from './model/selectors/getArticleDetailsData/getArticleDetailsData'
+export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData'
 
 export {
     getArticlesPageIsLoading,
@@ -65,5 +46,5 @@ export {
     getArticlesPageSearch,
     getArticlesPageOrder,
     getArticlesPageSort,
-    getArticlesPageType
+    getArticlesPageType,
 } from './model/selectors/articlesPageSelectors'

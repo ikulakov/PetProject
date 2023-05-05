@@ -7,7 +7,7 @@ export const enum ButtonTheme {
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
     BACKGOUND = 'background',
-    BACKGOUND_INVERTED = 'backgroundInverted'
+    BACKGOUND_INVERTED = 'backgroundInverted',
 }
 
 export const enum ButtonSize {
@@ -36,7 +36,11 @@ export const Button = memo((props: ButtonProps) => {
 
     return (
         <button
-            className={classNames(cls.Button, { [cls.square]: square }, [className, cls[theme], cls[size]])}
+            className={classNames(cls.Button, { [cls.square]: square }, [
+                className,
+                cls[theme],
+                cls[size],
+            ])}
             {...otherProps}
         >
             {children}

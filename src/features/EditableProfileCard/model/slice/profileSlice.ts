@@ -8,7 +8,7 @@ const initialState: ProfileSchema = {
     readonly: true,
     isLoading: false,
     error: undefined,
-    data: undefined
+    data: undefined,
 }
 
 export const profileSlice = createSlice({
@@ -26,17 +26,20 @@ export const profileSlice = createSlice({
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
                 ...state.form,
-                ...action.payload
+                ...action.payload,
             } // обновит только изменившиеся поля
-        }
+        },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-                state.isLoading = false
-                state.data = action.payload
-                state.form = action.payload
-            })
+            .addCase(
+                fetchProfileData.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.isLoading = false
+                    state.data = action.payload
+                    state.form = action.payload
+                },
+            )
             .addCase(fetchProfileData.pending, (state) => {
                 state.error = undefined
                 state.isLoading = true
@@ -46,13 +49,16 @@ export const profileSlice = createSlice({
                 state.error = action.payload
             })
 
-            .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-                state.isLoading = false
-                state.data = action.payload
-                state.form = action.payload
-                state.readonly = true
-                state.validateErrors = undefined
-            })
+            .addCase(
+                updateProfileData.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.isLoading = false
+                    state.data = action.payload
+                    state.form = action.payload
+                    state.readonly = true
+                    state.validateErrors = undefined
+                },
+            )
             .addCase(updateProfileData.pending, (state) => {
                 state.validateErrors = undefined
                 state.isLoading = true
@@ -61,7 +67,7 @@ export const profileSlice = createSlice({
                 state.isLoading = false
                 state.validateErrors = action.payload
             })
-    }
+    },
 })
 
 export const { actions: profileActions } = profileSlice

@@ -6,14 +6,14 @@ export default {
     title: 'pages/Article/ArticleDetailsComments',
     component: ArticleDetailsComments,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticleDetailsComments>
 
-const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments { ...args } />
+const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
+    <ArticleDetailsComments {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.args = {
-
-}
+Normal.args = {}

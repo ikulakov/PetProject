@@ -11,7 +11,7 @@ const data = {
     lastname: 'Kulakov',
     first: 'Ivan',
     city: 'Moscow',
-    currency: Currency.RUB
+    currency: Currency.RUB,
 }
 
 describe('fetchProfileData.test', () => {

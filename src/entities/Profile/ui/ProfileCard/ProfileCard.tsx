@@ -42,7 +42,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeAvatar,
         onChangeUsername,
         onChangeCurrency,
-        onChangeCountry
+        onChangeCountry,
     } = props
     const { t } = useTranslation('profile')
 
@@ -50,7 +50,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         return (
             <HStack
                 className={classNames(cls.ProfileCard, {}, [className])}
-                justify='center'
+                justify="center"
                 max
             >
                 <Loader />
@@ -61,7 +61,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         return (
             <HStack
                 className={classNames(cls.ProfileCard, {}, [className])}
-                justify='center'
+                justify="center"
                 max
             >
                 <Text
@@ -75,18 +75,24 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <VStack
             className={classNames(cls.ProfileCard, {}, [className])}
-            gap='32'
+            gap="32"
             max
         >
-            {data?.avatar &&
-                <HStack justify='center' max>
+            {data?.avatar && (
+                <HStack
+                    justify="center"
+                    max
+                >
                     <Avatar
                         src={data.avatar}
                         size={180}
                     />
                 </HStack>
-            }
-            <VStack gap='16' max>
+            )}
+            <VStack
+                gap="16"
+                max
+            >
                 <Input
                     value={data?.first}
                     placeholder={t('Ваше имя')}

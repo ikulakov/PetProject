@@ -10,11 +10,7 @@ interface AdminPanelPageProps {
 const AdminPanelPage = (props: AdminPanelPageProps) => {
     const { t } = useTranslation('admin')
 
-    return (
-        <Page data-testid='AdminPanelPage'>
-            {t('Админ панель')}
-        </Page>
-    )
+    return <Page data-testid="AdminPanelPage">{t('Админ панель')}</Page>
 }
 
 export default memo(AdminPanelPage)

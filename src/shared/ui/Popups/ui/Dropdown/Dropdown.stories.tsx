@@ -6,21 +6,23 @@ export default {
     title: 'shared/Dropdown',
     component: Dropdown,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof Dropdown>
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown { ...args } />
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
     items: [
         {
             content: 'test content',
-            href: 'test link'
-        }
+            href: 'test link',
+        },
     ],
     // eslint-disable-next-line i18next/no-literal-string
     trigger: <Button>Menu</Button>,
-    direction: 'bottom right'
+    direction: 'bottom right',
 }

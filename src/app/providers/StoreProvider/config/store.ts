@@ -7,16 +7,16 @@ import { scrollReducer } from '@/widgets/Page'
 import { createReducerManager } from './reducerManager'
 import { type StateSchema } from './StateSchema'
 
-export function createReduxStore (
+export function createReduxStore(
     initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>
+    asyncReducers?: ReducersMapObject<StateSchema>,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
         scrollSave: scrollReducer,
-        [rtkApi.reducerPath]: rtkApi.reducer
+        [rtkApi.reducerPath]: rtkApi.reducer,
     }
 
     const reducerManager = createReducerManager(rootReducers)
@@ -25,13 +25,14 @@ export function createReduxStore (
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: getDefaultMiddleware => getDefaultMiddleware({
-            thunk: {
-                extraArgument: {
-                    api: $api
-                }
-            }
-        }).concat(rtkApi.middleware)
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                    },
+                },
+            }).concat(rtkApi.middleware),
     })
 
     // @ts-expect-error temp

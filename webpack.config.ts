@@ -11,7 +11,7 @@ export default (env: BuildEnv): webpack.Configuration => {
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
         locales: path.resolve(__dirname, 'public', 'locales'),
-        buildLocales: path.resolve(__dirname, 'build', 'locales')
+        buildLocales: path.resolve(__dirname, 'build', 'locales'),
     }
 
     const mode = env.mode || 'development'
@@ -26,7 +26,7 @@ export default (env: BuildEnv): webpack.Configuration => {
         isDev,
         port: PORT,
         apiUrl,
-        project: 'frontend'
+        project: 'frontend',
     })
 
     return config
