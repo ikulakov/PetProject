@@ -1,5 +1,6 @@
-import { Article } from "@/entities/Article";
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-namespace */
+import { Article } from "../../../src/entities/Article";
 
 const defaultArticle = {
     title: "Javascript news СВЕЖАЯ",
@@ -9,7 +10,7 @@ const defaultArticle = {
     createdAt: "26.04.2022",
     userId: "1",
     type: [
-      "IT"
+        "IT"
     ],
     blocks: []
 }
