@@ -50,6 +50,8 @@
     ".eslintrc.js",
     "./scripts/*.js",
     "./scripts/**/*.ts",
-    "./json-server/*.js"
+    "./json-server/*.js",
+    // "./cypress/**/*.ts",
+    // "cypress.config.ts"
   ]
 }

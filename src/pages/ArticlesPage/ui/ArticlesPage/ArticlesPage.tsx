@@ -27,7 +27,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames(cls.articlesPage, {}, [className])} onScrollEnd={onLoadNextPart}>
+            <Page className={classNames(cls.articlesPage, {}, [className])} onScrollEnd={onLoadNextPart} data-testid='ArticlesPage'>
                 <ArticlesPageFilter />
                 <ArticlesInfiniteList className={cls.list}/>
             </Page>
