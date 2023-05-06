@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
-import { getByTestId } from 'cypress/support/commands/common'
-import { login } from 'cypress/support/commands/login'
 import * as articleCommands from './commands/article'
 import * as commentCommands from './commands/comments'
+import { getByTestId } from './commands/common'
+import { login } from './commands/login'
 import * as profileCommands from './commands/profile'
 import * as ratingCommands from './commands/rating'
 

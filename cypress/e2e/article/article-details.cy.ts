@@ -33,3 +33,5 @@ describe('Пользователь заходит на страницу стат
         cy.get('[data-selected=true]').should('have.length', 5)
     })
 })
+
+export {}

@@ -24,7 +24,7 @@ export function buildPlugins ({ paths, isDev, apiUrl, project }: BuildOptions): 
     if (isDev) {
         plugins.push(
             new BundleAnalyzerPlugin({
-                openAnalyzer: false
+                openAnalyzer: false,
             }),
             new ReactRefreshWebpackPlugin(),
             new CircularDependencyPlugin({
