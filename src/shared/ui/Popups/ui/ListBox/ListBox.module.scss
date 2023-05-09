@@ -1,10 +1,10 @@
 .options {
-    background-color: var(--listbox-bg);
     position: absolute;
     z-index: 10;
-    border-radius: 20px;
-    box-shadow: 4px 4px 20px var(--listbox-bg);
     width: 100%;
+    border-radius: 20px;
+    background-color: var(--listbox-bg);
+    box-shadow: 4px 4px 20px var(--listbox-bg);
 }
 
 .item {
@@ -12,7 +12,7 @@
 }
 
 .label {
+    color: var(--secondary-color);
     font-weight: 500;
     font-size: 14px;
-    color: var(--secondary-color);
 }

@@ -1,19 +1,19 @@
 .items {
-    background: var(--card-bg);
     position: absolute;
     z-index: 10;
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    border-radius: 8px;
+    background: var(--card-bg);
 }
 
 .item {
-    padding: 10px 20px;
     width: 100%;
+    padding: 10px 20px;
     border: none;
     background: none;
-    outline: none;
     color: var(--primary-color);
+    outline: none;
     cursor: pointer;
 }

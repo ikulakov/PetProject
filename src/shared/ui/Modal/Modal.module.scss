@@ -1,34 +1,33 @@
 .Modal {
-    inset: 0;
     position: fixed;
+    inset: 0;
     z-index: -1;
-    pointer-events: none;
-    opacity: 0;
-    transition: 0.1s ease-out;
-    transition-property: opacity, z-index;
     display: grid;
     place-items: center;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .content {
     z-index: var(--modal-z-index);
+    min-width: 30%;
     padding: 40px;
     border-radius: 3px;
     background-color: var(--bg-color);
-    transform: scale(0.4);
-    transition: 0.1s all;
-    min-width: 30%;
     color: var(--primary-color);
+
+    // transition: all 1s ease;
+    // transform: scale(0.4);
 }
 
 .opened {
+    z-index: var(--modal-z-index);
     opacity: 1;
     pointer-events: auto;
-    z-index: var(--modal-z-index);
 
-    .content {
-        transform: scale(1);
-    }
+    // .content {
+    // transform: scale(1);
+    // }
 }
 
 // TODO: Починить анимацию попапа

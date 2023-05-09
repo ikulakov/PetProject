@@ -30,7 +30,6 @@ module.exports = {
         'fsd-architecture',
     ],
     rules: {
-        // indent: 'off',
         // '@typescript-eslint/indent': ['warn', 4],
         '@typescript-eslint/strict-boolean-expressions': 0,
         '@typescript-eslint/restrict-plus-operands': 0,
@@ -49,6 +48,7 @@ module.exports = {
         '@typescript-eslint/no-invalid-void-type': 0,
         '@typescript-eslint/prefer-nullish-coalescing': 0,
         '@typescript-eslint/no-unnecessary-condition': 0,
+        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
         'fsd-architecture/import-path-check': ['error', { alias: '@' }],
         'fsd-architecture/public-api-imports': [
             'error',

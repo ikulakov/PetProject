@@ -1,13 +1,13 @@
 .Code {
+    position: relative;
+    overflow: auto;
     padding: 20px 25px;
     background: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
-    position: relative;
-    overflow: auto;
 }
 
 .copyBtn {
     position: absolute;
-    right: 25px;
     top: 20px;
+    right: 25px;
 }

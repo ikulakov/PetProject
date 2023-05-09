@@ -1,16 +1,16 @@
 .Sidebar {
+    position: relative;
+    flex-shrink: 0;
     width: var(--sidebar-width);
     height: calc(100vh - var(--header-height));
     background-color: var(--inverted-bg-color);
     transition: width 0.2s ease;
-    position: relative;
-    flex-shrink: 0;
 }
 
 .toggle {
     position: absolute;
-    bottom: 32px;
     right: -32px;
+    bottom: 32px;
     transform: rotate(180deg);
 }
 

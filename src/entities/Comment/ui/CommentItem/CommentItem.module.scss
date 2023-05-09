@@ -1,14 +1,14 @@
 .CommentItem {
     margin-bottom: 15px;
     padding: 20px;
-    background: var(--inverted-primary-color);
     border-radius: 3px;
+    background: var(--inverted-primary-color);
     box-shadow: 0 2px 5px rgb(153 153 153 / 20%);
 }
 
 .header {
     display: flex;
     gap: 10px;
-    margin-bottom: 10px;
     align-items: center;
+    margin-bottom: 10px;
 }

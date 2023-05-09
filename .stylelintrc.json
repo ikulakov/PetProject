@@ -1,7 +1,11 @@
 {
-    "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-hudochenkov/full"
+    ],
     "rules": {
         "indentation": [4],
-        "selector-class-pattern": null
+        "selector-class-pattern": null,
+        "selector-max-type": null
     }
 }

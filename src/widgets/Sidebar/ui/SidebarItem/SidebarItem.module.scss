@@ -3,22 +3,22 @@
 }
 
 .link {
+    white-space: nowrap;
     opacity: 1;
     transition: opacity 0.3s ease-in;
-    white-space: nowrap;
 }
 
 .iconWrapper {
-    width: 25px;
     display: flex;
-    margin-right: 10px;
     justify-content: center;
+    width: 25px;
+    margin-right: 10px;
 }
 
 .collapsed {
     .link {
-        opacity: 0;
         width: 0;
+        opacity: 0;
         transition: none;
     }
 }

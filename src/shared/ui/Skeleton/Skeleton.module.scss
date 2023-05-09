@@ -1,20 +1,20 @@
 .Skeleton {
-    width: 100%;
-    height: 50px;
     position: relative;
-    background: var(--skeleton-background);
 
     // box-shadow: 0 2px 12px 0 var(--skeleton-shadow);
     overflow: hidden;
+    width: 100%;
+    height: 50px;
+    background: var(--skeleton-background);
 
     &::before {
         content: "";
-        display: block;
         position: absolute;
-        left: -150px;
         top: 0;
-        height: 100%;
+        left: -150px;
+        display: block;
         width: 80%;
+        height: 100%;
         background: linear-gradient(to right, transparent 0%, var(--skeleton-color) 50%, transparent 100%);
         animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }

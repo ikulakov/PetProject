@@ -4,20 +4,20 @@
 }
 
 .label {
+    max-width: 150px;
     margin-right: 10px;
+    color: var(--secondary-color);
     font-weight: 500;
     font-size: 14px;
-    max-width: 150px;
-    color: var(--secondary-color);
 }
 
 .Select {
-    outline: none;
-    color: var(--primary-color);
     padding: 5px 15px 5px 5px;
+    color: var(--primary-color);
+    outline: none;
 }
 
 .option {
-    color: var(--inverted-primary-color);
     background: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
 }

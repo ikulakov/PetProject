@@ -6,13 +6,13 @@
 
 body,
 .app_drawer {
-    font: var(--font-m);
     color: var(--primary-color);
+    font: var(--font-m);
 }
 
 .App {
-    background-color: var(--bg-color);
     min-height: 100vh;
+    background-color: var(--bg-color);
 }
 
 .page-content {
@@ -29,7 +29,7 @@ body,
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);
-    border-radius: 20px;
     border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    background-color: var(--inverted-primary-color);
 }
