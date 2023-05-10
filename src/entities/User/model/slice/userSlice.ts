@@ -1,5 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { setFeatureFlags } from '@/shared/lib/features'
+import { JsonSettings } from '../../model/types/jsonSettings'
+import { initAuthData } from '../services/initAuthData'
+import { saveJsonSettings } from '../services/saveJsonSettings'
 import { UserSchema, User } from '../types/user'
 
 const initialState: UserSchema = {
@@ -14,14 +17,31 @@ export const userSlice = createSlice({
             state.authData = action.payload
             setFeatureFlags(action.payload.features)
         },
-        initAuthData: (state, action: PayloadAction<User | undefined>) => {
-            state.authData = action.payload
-            setFeatureFlags(action.payload?.features)
-            state._inited = true
-        },
         logout: (state) => {
             state.authData = undefined
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(
+            saveJsonSettings.fulfilled,
+            (state, action: PayloadAction<JsonSettings>) => {
+                if (state.authData) {
+                    state.authData.jsonSettings = action.payload
+                }
+            },
+        )
+
+        builder.addCase(
+            initAuthData.fulfilled,
+            (state, action: PayloadAction<User>) => {
+                state.authData = action.payload
+                setFeatureFlags(action.payload?.features)
+                state._inited = true
+            },
+        )
+        builder.addCase(initAuthData.rejected, (state) => {
+            state._inited = true
+        })
     },
 })
 

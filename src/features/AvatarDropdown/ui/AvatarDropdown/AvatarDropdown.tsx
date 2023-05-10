@@ -30,8 +30,8 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const user = useSelector(getUserAuthData)
 
     const onLogout = useCallback(() => {
-        localStorage.removeItem(USER_LOCALSTORAGE_KEY)
         dispatch(userActions.logout())
+        localStorage.removeItem(USER_LOCALSTORAGE_KEY)
     }, [dispatch])
 
     if (!user) {
