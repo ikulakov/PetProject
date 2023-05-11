@@ -9,15 +9,15 @@
         "start:dev:server": "node ./json-server/index.js",
         "build:prod": "webpack --env mode=production apiUrl=https://production-project-server-eta.vercel.app",
         "build:dev": "webpack --env mode=development",
-        "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
+        "prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
         "lint:ts": "eslint \"**/*.{ts,tsx}\"",
         "lint:ts-fix": "eslint \"**/*.{ts,tsx}\" --fix",
-        "lint:scss": "npx stylelint \"**/*.scss\"",
+        "lint:scss": "stylelint \"**/*.scss\"",
         "test:unit": "jest --config ./config/jest/jest.config.ts",
         "test:e2e": "cypress open",
-        "test:ui": "npx loki test",
-        "test:ui:ok": "npx loki approve",
-        "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+        "test:ui": "loki test",
+        "test:ui:ok": "loki approve",
+        "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
         "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
         "test:ui:json": "node scripts/generate-visual-json-report.js",
         "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
@@ -25,7 +25,8 @@
         "storybook:build": "build-storybook -c ./config/storybook",
         "prepare": "husky install",
         "generate:slice": "node ./scripts/createSlice/index.js",
-        "postinstall": "node ./scripts/clear-cache.js"
+        "postinstall": "node ./scripts/clear-cache.js",
+        "remove-features": "ts-node ./scripts/remove-feature.ts"
     },
     "lint-staged": {
         "**/*.{ts,tsx}": [

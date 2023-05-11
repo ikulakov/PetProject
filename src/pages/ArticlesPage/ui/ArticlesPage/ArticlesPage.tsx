@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react'
 import { articleListSliceReducer } from '@/entities/Article'
 import { fetchNextArticlePage } from '@/entities/Article'
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
     DynamicModuleLoader,
@@ -40,6 +41,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             >
                 <ArticlesPageFilter />
                 <ArticlesInfiniteList className={cls.list} />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     )
