@@ -12,7 +12,7 @@ import {
     type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ToggleFeatures } from '@/shared/lib/features'
-import { Card } from '@/shared/ui/Card'
+import { Card } from '@/shared/ui/deprecated/Card'
 import { Page } from '@/widgets/Page'
 import cls from './ArticlesDetailPage.module.scss'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { getArticleDetailsData } from '@/entities/Article'
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import cls from './ArticlesDetailPageHeader.module.scss'
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle'
 
