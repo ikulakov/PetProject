@@ -43,7 +43,11 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                 text={String(article.views)}
                 className={cls.views}
             />
-            <Icon Svg={EyeIcon} />
+            <Icon
+                Svg={EyeIcon}
+                width={'24px'}
+                height={'24px'}
+            />
         </>
     )
 

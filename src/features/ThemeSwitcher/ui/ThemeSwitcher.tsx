@@ -31,9 +31,17 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo(
                 theme={ButtonTheme.CLEAR}
             >
                 {theme === Theme.DARK ? (
-                    <DarkIcon style={{ stroke: '#ffc107' }} />
+                    <DarkIcon
+                        style={{ stroke: '#ffc107' }}
+                        width={'24px'}
+                        height={'24px'}
+                    />
                 ) : (
-                    <LightIcon style={{ stroke: '#98afba' }} />
+                    <LightIcon
+                        style={{ stroke: '#98afba' }}
+                        width={'24px'}
+                        height={'24px'}
+                    />
                 )}
             </Button>
         )

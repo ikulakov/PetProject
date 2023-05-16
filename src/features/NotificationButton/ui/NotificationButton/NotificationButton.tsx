@@ -32,6 +32,8 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             <Icon
                 Svg={NotifyIcon}
                 theme={IconTheme.DARK}
+                width={'24px'}
+                height={'24px'}
             />
         </Button>
     )

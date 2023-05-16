@@ -1,6 +1,8 @@
 import { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { AppLogo } from '@/shared/ui/AppLogo'
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
 import { VStack } from '@/shared/ui/Stack'
 import cls from './Sidebar.module.scss'
@@ -19,36 +21,56 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const onToggle = (): void => {
         setCollapsed((prev) => !prev)
     }
+
     return (
-        <aside
-            data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
-        >
-            <VStack
-                gap="32"
-                className={cls.items}
-                role={'navigation'}
-            >
-                {sidebarItemsList.map((item) => (
-                    <SidebarItem
-                        item={item}
-                        collapsed={collapsed}
-                        key={item.path}
-                    />
-                ))}
-            </VStack>
-            <Button
-                data-testid="sidebar-toggle"
-                onClick={onToggle}
-                className={cls.toggle}
-                size={ButtonSize.LARGE}
-                theme={ButtonTheme.BACKGOUND_INVERTED}
-                square
-            >
-                <ArrowCollapseIcon />
-            </Button>
-        </aside>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <aside
+                    data-testid="sidebar"
+                    className={classNames(
+                        cls.Sidebar,
+                        { [cls.collapsed]: collapsed },
+                        [className],
+                    )}
+                >
+                    <VStack
+                        gap="32"
+                        className={cls.items}
+                        role={'navigation'}
+                    >
+                        {sidebarItemsList.map((item) => (
+                            <SidebarItem
+                                item={item}
+                                collapsed={collapsed}
+                                key={item.path}
+                            />
+                        ))}
+                    </VStack>
+                    <Button
+                        data-testid="sidebar-toggle"
+                        onClick={onToggle}
+                        className={cls.toggle}
+                        size={ButtonSize.LARGE}
+                        theme={ButtonTheme.BACKGOUND_INVERTED}
+                        square
+                    >
+                        <ArrowCollapseIcon />
+                    </Button>
+                </aside>
+            }
+            on={
+                <aside
+                    data-testid="sidebar"
+                    className={classNames(
+                        cls.SidebarRedesigned,
+                        { [cls.collapsed]: collapsed },
+                        [className],
+                    )}
+                >
+                    <AppLogo className={cls.appLogo} />
+                </aside>
+            }
+        />
     )
 })

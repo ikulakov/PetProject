@@ -22,7 +22,11 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = memo(
                 theme={ButtonTheme.CLEAR}
                 onClick={toggleLanguage}
             >
-                <LangIcon /> {t('Язык')}
+                <LangIcon
+                    width={'24px'}
+                    height={'24px'}
+                />{' '}
+                {t('Язык')}
             </Button>
         )
     },

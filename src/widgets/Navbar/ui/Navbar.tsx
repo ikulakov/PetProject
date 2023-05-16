@@ -9,6 +9,7 @@ import { NotificationButton } from '@/features/NotificationButton'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import { getRouteArticleCreate } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
@@ -49,31 +50,52 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
 
     if (user) {
         return (
-            <header
-                className={classNames(cls.Navbar, {}, [className])}
-                data-testid="navbar"
-            >
-                <Text
-                    className={cls.appName}
-                    title={t('Pet App')}
-                    theme={TextTheme.INVERTED}
-                />
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    className={cls.createBtn}
-                >
-                    {t('Создать статью')}
-                </AppLink>
-                <HStack
-                    gap="16"
-                    className={cls.widgets}
-                >
-                    <ThemeSwitcher />
-                    <LangSwitcher />
-                    <NotificationButton />
-                    <AvatarDropdown />
-                </HStack>
-            </header>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                off={
+                    <header
+                        className={classNames(cls.Navbar, {}, [className])}
+                        data-testid="navbar"
+                    >
+                        <Text
+                            className={cls.appName}
+                            title={t('Pet App')}
+                            theme={TextTheme.INVERTED}
+                        />
+                        <AppLink
+                            to={getRouteArticleCreate()}
+                            className={cls.createBtn}
+                        >
+                            {t('Создать статью')}
+                        </AppLink>
+                        <HStack
+                            gap="16"
+                            className={cls.widgets}
+                        >
+                            <ThemeSwitcher />
+                            <LangSwitcher />
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </HStack>
+                    </header>
+                }
+                on={
+                    <header
+                        className={classNames(cls.NavbarRedesigned, {}, [
+                            className,
+                        ])}
+                        data-testid="navbar"
+                    >
+                        <HStack
+                            gap="16"
+                            className={cls.widgets}
+                        >
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </HStack>
+                    </header>
+                }
+            />
         )
     }
 

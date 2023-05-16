@@ -125,11 +125,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 size={TextSize.L}
             />
             <HStack gap="8">
-                <Icon Svg={EyeIcon} />
+                <Icon
+                    Svg={EyeIcon}
+                    width={'24px'}
+                    height={'24px'}
+                />
                 <Text text={String(article?.views)} />
             </HStack>
             <HStack gap="8">
-                <Icon Svg={CalendarIcon} />
+                <Icon
+                    Svg={CalendarIcon}
+                    width={'24px'}
+                    height={'24px'}
+                />
                 <Text text={article?.createdAt} />
             </HStack>
             <VStack gap="32">{article?.blocks.map(renderBlock)}</VStack>

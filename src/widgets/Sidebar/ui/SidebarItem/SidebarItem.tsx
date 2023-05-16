@@ -34,6 +34,8 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
                     Svg={item.Icon}
                     className={cls.icon}
                     theme={IconTheme.DARK}
+                    width={'24px'}
+                    height={'24px'}
                 />
             </div>
             <span className={cls.link}>{t(item.text)}</span>

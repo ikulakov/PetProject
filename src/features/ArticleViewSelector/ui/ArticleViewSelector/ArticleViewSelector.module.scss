@@ -1,9 +1,10 @@
 .ArticleViewSelector {
     display: flex;
+    gap: 6px;
     margin-bottom: 30px;
 }
 
 .selected {
     stroke: var(--secondary-color);
-    stroke-width: 2.5px;
+    stroke-width: 2.3px;
 }

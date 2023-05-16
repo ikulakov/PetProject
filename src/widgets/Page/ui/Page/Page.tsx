@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { type StateSchema } from '@/app/providers/StoreProvider'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { toggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
@@ -53,10 +54,16 @@ export const Page = (props: PageProps) => {
         )
     }, 500)
 
+    const pageClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => cls.Page,
+        on: () => cls.Page_redesigned,
+    })
+
     return (
         <section
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(pageClass, {}, [className])}
             onScroll={onScroll}
             data-testid={props['data-testid'] ?? 'Page'}
         >
