@@ -2,11 +2,17 @@ import { memo, useState } from 'react'
 import { NotificationList } from '@/entities/Notification'
 import NotifyIcon from '@/shared/assets/icons/bell.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button'
 import { Drawer } from '@/shared/ui/deprecated/Drawer'
-import { Icon, IconTheme } from '@/shared/ui/deprecated/Icon'
-import { Popover } from '@/shared/ui/deprecated/Popups'
+import { Icon as IconDeprecated, IconTheme } from '@/shared/ui/deprecated/Icon'
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups'
+import { Icon } from '@/shared/ui/redesigned/Icon'
+import { Popover } from '@/shared/ui/redesigned/Popups'
 import cls from './NotificationButton.module.scss'
 
 interface NotificationButtonProps {
@@ -25,17 +31,31 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         setIsOpen(false)
     }
     const trigger = (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={onOpenDrawer}
-        >
-            <Icon
-                Svg={NotifyIcon}
-                theme={IconTheme.DARK}
-                width={'24px'}
-                height={'24px'}
-            />
-        </Button>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <ButtonDeprecated
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onOpenDrawer}
+                >
+                    <IconDeprecated
+                        Svg={NotifyIcon}
+                        theme={IconTheme.DARK}
+                        width={'24px'}
+                        height={'24px'}
+                    />
+                </ButtonDeprecated>
+            }
+            on={
+                <Icon
+                    Svg={NotifyIcon}
+                    width={'24px'}
+                    height={'24px'}
+                    onClick={onOpenDrawer}
+                    clickable
+                />
+            }
+        />
     )
 
     return (
@@ -51,16 +71,33 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                     </Drawer>
                 </>
             ) : (
-                <Popover
-                    direction="bottom left"
-                    unmount={true} // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу если false
-                    className={classNames(cls.notificationButton, {}, [
-                        className,
-                    ])}
-                    trigger={trigger}
-                >
-                    <NotificationList className={cls.notifications} />
-                </Popover>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    off={
+                        <PopoverDeprecated
+                            direction="bottom left"
+                            unmount={true} // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу если false
+                            className={classNames(cls.notificationButton, {}, [
+                                className,
+                            ])}
+                            trigger={trigger}
+                        >
+                            <NotificationList className={cls.notifications} />
+                        </PopoverDeprecated>
+                    }
+                    on={
+                        <Popover
+                            direction="bottom left"
+                            unmount={true} // уведомления будут подгружаться даже при закрытом попапе, запросы идут сразу если false
+                            className={classNames(cls.notificationButton, {}, [
+                                className,
+                            ])}
+                            trigger={trigger}
+                        >
+                            <NotificationList className={cls.notifications} />
+                        </Popover>
+                    }
+                />
             )}
         </>
     )

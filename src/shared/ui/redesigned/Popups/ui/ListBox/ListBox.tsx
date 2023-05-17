@@ -26,11 +26,6 @@ interface ListBoxProps {
     onChange?: <T extends string>(value: T) => void
 }
 
-/**
- * Устарел используем новый компонент из папки designed
- * @deprecated
- */
-
 export const ListBox = memo((props: ListBoxProps) => {
     const {
         className,

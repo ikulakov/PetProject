@@ -3,7 +3,7 @@ import AvatarImage from '@/shared/assets/icons/user.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Avatar.module.scss'
 import { AppImage } from '../../redesigned/AppImage'
-import { Icon, IconTheme } from '../Icon'
+import { Icon } from '../Icon'
 import { Skeleton } from '../Skeleton'
 
 interface AvatarProps {
@@ -12,11 +12,6 @@ interface AvatarProps {
     src?: string
     size?: number
 }
-
-/**
- * Устарел используем новый компонент из папки designed
- * @deprecated
- */
 
 export const Avatar = (props: AvatarProps) => {
     const { className, src, size = 100, alt } = props
@@ -34,7 +29,6 @@ export const Avatar = (props: AvatarProps) => {
             Svg={AvatarImage}
             width={size}
             height={size}
-            theme={IconTheme.DARK}
             viewBox={`0 0 ${size} ${size}`}
         />
     )
