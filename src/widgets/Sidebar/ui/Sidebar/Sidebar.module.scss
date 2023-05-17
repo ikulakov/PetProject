@@ -5,18 +5,18 @@
     height: calc(100vh - var(--header-height));
     background-color: var(--inverted-bg-color);
     transition: width 0.2s ease;
-}
 
-.toggle {
-    position: absolute;
-    right: -32px;
-    bottom: 32px;
-    transform: rotate(180deg);
-}
+    .toggle {
+        position: absolute;
+        right: -32px;
+        bottom: 32px;
+        transform: rotate(180deg);
+    }
 
-.items {
-    margin-top: 20px;
-    margin-left: 25px;
+    .items {
+        margin-top: 20px;
+        margin-left: 25px;
+    }
 }
 
 .collapsed {
@@ -30,12 +30,53 @@
 // Redesigned
 
 .SidebarRedesigned {
+    position: relative;
     width: 220px;
     height: 100%;
     border-radius: 32px;
     background: var(--light-bg-redesigned);
+
+    .appLogo {
+        padding-top: 20px;
+    }
+
+    .items {
+        margin-top: 40px;
+    }
+
+    .toggle {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        cursor: pointer;
+        transform: rotate(180deg);
+    }
+
+    .switchers {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 }
 
-.appLogo {
-    padding-top: 20px;
+.collapsedRedesigned {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .items {
+        display: flex;
+        align-items: center;
+    }
+
+    .toggle {
+        transform: rotate(360deg);
+    }
 }
