@@ -1,14 +1,26 @@
 .Button {
     display: flex;
+    gap: 8px;
     justify-content: center;
     align-items: center;
-    padding: 6px 15px;
+    padding: 8px 16px;
     color: var(--text-redesigned);
     cursor: pointer;
     transition: 0.2 ease;
 
+    .addonLeft,
+    .addonRight {
+        display: flex;
+    }
+
     &:hover {
         color: var(--accent-redesigned);
+
+        .addonLeft svg,
+        .addonRight svg {
+            color: var(--accent-redesigned);
+            stroke: var(--accent-redesigned);
+        }
     }
 }
 
@@ -31,7 +43,6 @@
 }
 
 .filled {
-    padding: 8px 16px;
     border: none;
     border-radius: 34px;
     background: var(--light-bg-redesigned);

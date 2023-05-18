@@ -12,6 +12,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize
     square?: boolean
     children: ReactNode
+    addonLeft?: ReactNode
+    addonRight?: ReactNode
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -21,7 +23,9 @@ export const Button = memo((props: ButtonProps) => {
         variant = 'outline',
         size = 'small',
         square,
-        ...otherProps
+        addonLeft,
+        addonRight,
+        ...rest
     } = props
 
     return (
@@ -31,9 +35,11 @@ export const Button = memo((props: ButtonProps) => {
                 cls[variant],
                 cls[size],
             ])}
-            {...otherProps}
+            {...rest}
         >
+            <div className={cls.addonLeft}>{addonLeft}</div>
             {children}
+            <div className={cls.addonRight}>{addonRight}</div>
         </button>
     )
 })

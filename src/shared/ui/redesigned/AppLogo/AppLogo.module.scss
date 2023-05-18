@@ -38,5 +38,7 @@
 }
 
 .appLogo {
+    position: relative;
+    z-index: 10;
     stroke-width: 1px;
 }
