@@ -8,7 +8,7 @@
     transition: 0.2 ease;
 
     &:hover {
-        color: var(--accent-redesigned)
+        color: var(--accent-redesigned);
     }
 }
 
@@ -28,6 +28,14 @@
     border: 1px solid var(--primary-color);
     background: none;
     color: var(--primary-color);
+}
+
+.filled {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 34px;
+    background: var(--light-bg-redesigned);
+    outline: none;
 }
 
 .square {

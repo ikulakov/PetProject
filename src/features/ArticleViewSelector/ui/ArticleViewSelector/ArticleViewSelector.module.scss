@@ -2,9 +2,15 @@
     display: flex;
     gap: 6px;
     margin-bottom: 30px;
+
+    .selected {
+        stroke: var(--secondary-color);
+        stroke-width: 1.3px;
+    }
 }
 
-.selected {
-    stroke: var(--secondary-color);
-    stroke-width: 2.3px;
+.ArticleViewSelectorRedesigned {
+    .notSelected {
+        stroke: var(--light-bg-redesigned);
+    }
 }

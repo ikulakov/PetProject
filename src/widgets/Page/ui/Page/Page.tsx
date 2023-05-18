@@ -27,7 +27,7 @@ interface PageProps extends TestProps {
 export const Page = (props: PageProps) => {
     const { className, children, onScrollEnd } = props
 
-    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
+    const wrapperRef = useRef() as MutableRefObject<HTMLElement>
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
     const dispatch = useAppDispatch()
     const { pathname } = useLocation()
@@ -37,7 +37,11 @@ export const Page = (props: PageProps) => {
 
     useInfiniteScroll({
         triggerRef,
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef,
+        }),
         callback: onScrollEnd,
     })
 

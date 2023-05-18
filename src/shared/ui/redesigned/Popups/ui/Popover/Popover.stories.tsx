@@ -4,7 +4,7 @@ import { Popover } from './Popover'
 import { Button } from '../../../Button'
 
 export default {
-    title: 'shared/Popover',
+    title: 'shared/redesigned/Popover',
     component: Popover,
     argTypes: {
         backgroundColor: { control: 'color' },

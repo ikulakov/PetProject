@@ -3,7 +3,7 @@ import { AppImage } from './AppImage'
 import { Skeleton } from '../../deprecated/Skeleton'
 
 export default {
-    title: 'shared/AppImage',
+    title: 'shared/redesigned/AppImage',
     component: AppImage,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -1,18 +1,18 @@
 .options {
     position: absolute;
     z-index: 10;
-    width: 100%;
-    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--accent-redesigned);
+    border-radius: 18px;
     background-color: var(--dark-bg-redesigned);
     box-shadow: 4px 4px 20px var(--dark-bg-redesigned);
+    cursor: pointer;
 }
 
 .item {
     padding: 10px 20px;
 }
 
-.label {
-    color: var(--secondary-color);
-    font-weight: 500;
-    font-size: 14px;
+.selected {
+    background: var(--light-bg-redesigned);
 }
