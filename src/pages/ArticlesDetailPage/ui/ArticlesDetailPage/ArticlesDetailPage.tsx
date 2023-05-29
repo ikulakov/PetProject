@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { ArticleDetails } from '@/entities/Article'
@@ -31,6 +31,10 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
     const { className } = props
     const { t } = useTranslation('article_details')
     const { id: articleId } = useParams<{ id: string }>()
+
+    useEffect(() => {
+        window.scroll({ top: 0 })
+    }, [])
 
     if (!articleId) {
         return (
