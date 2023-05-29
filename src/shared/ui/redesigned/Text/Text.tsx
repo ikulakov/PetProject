@@ -4,7 +4,7 @@ import cls from './Text.module.scss'
 
 export type TextVariant = 'primary' | 'accent' | 'error'
 export type TextAlign = 'left' | 'right' | 'center'
-export type TextSize = 'size_m' | 'size_l'
+export type TextSize = 'size_s' | 'size_m' | 'size_l'
 
 interface TextProps {
     className?: string
@@ -13,6 +13,7 @@ interface TextProps {
     variant?: TextVariant
     align?: TextAlign
     size?: TextSize
+    bold?: boolean
 
     'data-testid'?: string
 }
@@ -26,12 +27,19 @@ export const Text = memo((props: TextProps) => {
         align = 'left',
         size = 'size_m',
         'data-testid': dataTestId = 'Text',
+        bold,
     } = props
 
     const additionalClasses = [className, cls[variant], cls[align], cls[size]]
 
     return (
-        <div className={classNames(cls.Text, {}, additionalClasses)}>
+        <div
+            className={classNames(
+                cls.Text,
+                { [cls.bold]: bold },
+                additionalClasses,
+            )}
+        >
             {title && (
                 <p
                     className={cls.title}

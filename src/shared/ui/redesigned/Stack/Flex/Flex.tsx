@@ -9,6 +9,7 @@ import cls from './Flex.module.scss'
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end'
 export type FlexDirection = 'row' | 'column'
+export type FlexWrap = 'nowrap' | 'wrap'
 export type FlexGap = '4' | '8' | '16' | '24' | '32'
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -50,6 +51,7 @@ export interface FlexProps extends DivProps {
     direction: FlexDirection
     gap?: FlexGap
     max?: boolean
+    wrap?: FlexWrap
 }
 
 export const Flex = (props: FlexProps) => {
@@ -61,6 +63,7 @@ export const Flex = (props: FlexProps) => {
         direction = 'row',
         gap,
         max,
+        wrap = 'nowrap',
         ...rest
     } = props
 
@@ -70,6 +73,7 @@ export const Flex = (props: FlexProps) => {
         alignClasses[align],
         directionClasses[direction],
         gap && gapClasses[gap],
+        cls[wrap],
     ]
 
     const mods: Mods = {
