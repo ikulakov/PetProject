@@ -13,11 +13,17 @@
     min-width: 30%;
     padding: 40px;
     border-radius: 3px;
-    background-color: var(--bg-color);
-    color: var(--primary-color);
 
-    // transition: all 1s ease;
+    // transition: all 0.4s ease;
     // transform: scale(0.4);
+
+    &.modalNew {
+        background-color: var(--light-bg-redesigned);
+    }
+
+    &.modalOld {
+        background-color: var(--bg-color);
+    }
 }
 
 .opened {
@@ -26,7 +32,7 @@
     pointer-events: auto;
 
     // .content {
-    // transform: scale(1);
+    //     transform: scale(1);
     // }
 }
 

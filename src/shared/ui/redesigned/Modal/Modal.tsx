@@ -1,8 +1,9 @@
 import { type ReactNode, useEffect, useState } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { toggleFeatures } from '@/shared/lib/features'
 import cls from './Modal.module.scss'
-import { Overlay } from '../../redesigned/Overlay/Overlay'
-import { Portal } from '../../redesigned/Portal/Portal'
+import { Overlay } from '../Overlay/Overlay'
+import { Portal } from '../Portal/Portal'
 
 interface ModalProps {
     className?: string
@@ -11,11 +12,6 @@ interface ModalProps {
     onClose?: () => void
     lazy?: boolean
 }
-
-/**
- * Устарел используем новый компонент из папки designed
- * @deprecated
- */
 
 export const Modal = (props: ModalProps) => {
     const { className, children, isOpen, onClose, lazy } = props
@@ -35,14 +31,24 @@ export const Modal = (props: ModalProps) => {
         return null
     }
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(cls.Modal, { [cls.opened]: isOpen }, [
                     className,
                 ])}
             >
                 <Overlay onClick={onClose} />
-                <div className={cls.content}>{children}</div>
+                <div
+                    className={classNames(cls.content, {}, [
+                        toggleFeatures({
+                            name: 'isAppRedesigned',
+                            on: () => cls.modalNew,
+                            off: () => cls.modalOld,
+                        }),
+                    ])}
+                >
+                    {children}
+                </div>
             </div>
         </Portal>
     )

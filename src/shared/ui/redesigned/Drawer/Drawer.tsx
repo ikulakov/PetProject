@@ -4,6 +4,7 @@ import {
     AnimationProvider,
     useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider'
+import { toggleFeatures } from '@/shared/lib/features'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 import cls from './Drawer.module.scss'
 import { Overlay } from '../../redesigned/Overlay/Overlay'
@@ -18,11 +19,6 @@ interface DrawerProps {
 }
 
 const height = window.innerHeight - 100
-
-/**
- * Устарел используем новый компонент из папки designed
- * @deprecated
- */
 
 export const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimationLibs()
@@ -84,17 +80,22 @@ export const DrawerContent = memo((props: DrawerProps) => {
     const display = y.to((py) => (py < height ? 'block' : 'none'))
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(cls.Drawer, { [cls.opened]: isOpen }, [
                     className,
                     theme,
-                    'app_drawer',
                 ])}
             >
                 <Overlay onClick={() => close()} />
                 <Spring.a.div
-                    className={cls.content}
+                    className={classNames(cls.content, {}, [
+                        toggleFeatures({
+                            name: 'isAppRedesigned',
+                            on: () => cls.drawerNew,
+                            off: () => cls.drawerOld,
+                        }),
+                    ])}
                     style={{
                         display,
                         bottom: `calc(-100vh + ${height - 100}px)`,
@@ -113,11 +114,6 @@ const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs()
     return isLoaded ? <DrawerContent {...props} /> : null
 }
-
-/**
- * Устарел используем новый компонент из папки designed
- * @deprecated
- */
 
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>

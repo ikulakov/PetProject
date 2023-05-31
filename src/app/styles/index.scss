@@ -4,15 +4,11 @@
 @import 'themes/normal';
 @import 'themes/blue';
 
-body,
-.app_drawer {
-    color: var(--primary-color);
-    font: var(--font-m);
-}
-
 .App {
     min-height: 100vh;
     background-color: var(--bg-color);
+    color: var(--primary-color);
+    font: var(--font-m);
 }
 
 .App_redisigned {
