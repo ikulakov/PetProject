@@ -86,7 +86,7 @@ export const ArticleListItemRedesigned = memo(
                             src={article.img}
                             className={cls.img}
                         />
-                        {textBlock.paragraphs && (
+                        {textBlock?.paragraphs && (
                             <Text
                                 text={textBlock.paragraphs
                                     .slice(0, 2)
