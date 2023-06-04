@@ -6,6 +6,7 @@ import { articleDetailsPageRecommendationReducer } from '@/entities/Article'
 import { articleDetailCommentsReducer } from '@/features/ArticleCommentList'
 import { ArticleRating } from '@/features/ArticleRating'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout/StickyContentLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
     DynamicModuleLoader,
@@ -13,10 +14,13 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { Card } from '@/shared/ui/deprecated/Card'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Page } from '@/widgets/Page'
 import cls from './ArticlesDetailPage.module.scss'
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 import { ArticlesDetailPageHeader } from '../ArticlesDetailPageHeader/ArticlesDetailPageHeader'
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer'
 
 interface ArticlesDetailPageProps {
     className?: string
@@ -45,27 +49,55 @@ const ArticlesDetailPage = (props: ArticlesDetailPageProps) => {
             </Page>
         )
     }
-    // const articleRatingCard = toggleFeatures({
-    //     name: 'isArticleRatingEnabled',
-    //     on: () => <ArticleRating id={articleId} />,
-    //     off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
-    // })
-
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page
-                className={classNames(cls.articlesDetailPage, {}, [className])}
-            >
-                <ArticlesDetailPageHeader />
-                <ArticleDetails id={articleId} />
-                <ToggleFeatures
-                    feature="isArticleRatingEnabled"
-                    on={<ArticleRating id={articleId} />}
-                    off={<Card>{t('Оценка статей скоро появится')}</Card>}
-                />
-                <ArticleRecommendationsList />
-                <ArticleDetailsComments id={articleId} />
-            </Page>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <StickyContentLayout
+                        content={
+                            <Page
+                                className={classNames(
+                                    cls.articlesDetailPage,
+                                    {},
+                                    [className],
+                                )}
+                            >
+                                <VStack
+                                    gap="16"
+                                    max
+                                >
+                                    <DetailsContainer />
+                                    {/* <ArticleDetails id={articleId} /> */}
+                                    <ArticleRating id={articleId} />
+                                    <ArticleRecommendationsList />
+                                    <ArticleDetailsComments id={articleId} />
+                                </VStack>
+                            </Page>
+                        }
+                        right={<AdditionalInfoContainer />}
+                    />
+                }
+                off={
+                    <Page
+                        className={classNames(cls.articlesDetailPage, {}, [
+                            className,
+                        ])}
+                    >
+                        <ArticlesDetailPageHeader />
+                        <ArticleDetails id={articleId} />
+                        <ToggleFeatures
+                            feature="isArticleRatingEnabled"
+                            on={<ArticleRating id={articleId} />}
+                            off={
+                                <Card>{t('Оценка статей скоро появится')}</Card>
+                            }
+                        />
+                        <ArticleRecommendationsList />
+                        <ArticleDetailsComments id={articleId} />
+                    </Page>
+                }
+            />
         </DynamicModuleLoader>
     )
 }

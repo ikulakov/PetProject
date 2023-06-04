@@ -8,21 +8,13 @@ import {
     DynamicModuleLoader,
     type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
-import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
-import {
-    Text as TextDeprecated,
-    TextSize,
-    TextTheme,
-} from '@/shared/ui/deprecated/Text'
-import { AppImage } from '@/shared/ui/redesigned/AppImage'
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
+import { Avatar } from '@/shared/ui/deprecated/Avatar'
+import { Icon } from '@/shared/ui/deprecated/Icon'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Text, TextSize, TextTheme } from '@/shared/ui/deprecated/Text'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
-import { Text } from '@/shared/ui/redesigned/Text'
 import cls from './ArticleDetails.module.scss'
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
@@ -71,79 +63,13 @@ const renderBlock = (block: ArticleBlock) => {
     }
 }
 
-const Redesigned = () => {
-    const article = useSelector(getArticleDetailsData)
-    return (
-        <>
-            <Text
-                title={article?.title}
-                size="size_l"
-                bold
-            />
-            <Text title={article?.subtitle} />
-            <AppImage
-                fallback={
-                    <Skeleton
-                        width={'100%'}
-                        height={420}
-                        border={'16px'}
-                    />
-                }
-                src={article?.img}
-                className={cls.img}
-            />
-            <VStack gap="32">{article?.blocks.map(renderBlock)}</VStack>
-        </>
-    )
-}
-
-const Deprecated = () => {
-    const article = useSelector(getArticleDetailsData)
-    return (
-        <>
-            <HStack
-                justify="center"
-                max
-            >
-                <AvatarDeprecated
-                    src={article?.img}
-                    size={200}
-                    className={cls.avatar}
-                />
-            </HStack>
-            <TextDeprecated
-                title={article?.title}
-                text={article?.subtitle}
-                theme={TextTheme.PRIMARY}
-                size={TextSize.L}
-            />
-            <HStack gap="8">
-                <IconDeprecated
-                    Svg={EyeIcon}
-                    width={'24px'}
-                    height={'24px'}
-                />
-                <TextDeprecated text={String(article?.views)} />
-            </HStack>
-            <HStack gap="8">
-                <IconDeprecated
-                    Svg={CalendarIcon}
-                    width={'24px'}
-                    height={'24px'}
-                />
-                <TextDeprecated text={article?.createdAt} />
-            </HStack>
-            <VStack gap="32">{article?.blocks.map(renderBlock)}</VStack>
-        </>
-    )
-}
-
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { className, id } = props
 
     const { t } = useTranslation('article_details')
     const dispatch = useAppDispatch()
 
+    const article = useSelector(getArticleDetailsData)
     const isLoading = useSelector(getArticleDetailsIsLoading)
     const error = useSelector(getArticleDetailsError)
 
@@ -153,39 +79,69 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const content = isLoading ? (
         <>
-            <SkeletonDeprecated
+            <Skeleton
                 className={cls.avatar}
                 border={'50%'}
                 width={200}
                 height={200}
             />
-            <SkeletonDeprecated
+            <Skeleton
                 className={cls.title}
                 width={300}
                 height={32}
             />
-            <SkeletonDeprecated
+            <Skeleton
                 className={cls.skeleton}
                 width={600}
                 height={24}
             />
-            <SkeletonDeprecated
+            <Skeleton
                 className={cls.skeleton}
                 width={'100%'}
                 height={200}
             />
         </>
     ) : error ? (
-        <TextDeprecated
+        <Text
             text={t('Произошла ошибка при загрузке статьи')}
             theme={TextTheme.ERROR}
         />
     ) : (
-        <ToggleFeatures
-            feature="isAppRedesigned"
-            on={<Redesigned />}
-            off={<Deprecated />}
-        />
+        <>
+            <HStack
+                justify="center"
+                max
+            >
+                <Avatar
+                    src={article?.img}
+                    size={200}
+                    className={cls.avatar}
+                />
+            </HStack>
+            <Text
+                title={article?.title}
+                text={article?.subtitle}
+                theme={TextTheme.PRIMARY}
+                size={TextSize.L}
+            />
+            <HStack gap="8">
+                <Icon
+                    Svg={EyeIcon}
+                    width={'24px'}
+                    height={'24px'}
+                />
+                <Text text={String(article?.views)} />
+            </HStack>
+            <HStack gap="8">
+                <Icon
+                    Svg={CalendarIcon}
+                    width={'24px'}
+                    height={'24px'}
+                />
+                <Text text={article?.createdAt} />
+            </HStack>
+            <VStack gap="32">{article?.blocks.map(renderBlock)}</VStack>
+        </>
     )
 
     return (

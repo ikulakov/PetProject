@@ -34,5 +34,7 @@
   "Закрыть": "close",
   "Ваш отзыв": "your feedback",
   "Спасибо за оценку!": "Thank you for rating!",
-  "Настройки": "Settings"
+  "Настройки": "Settings",
+  "{{count}} просмотров_other": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view"
 }

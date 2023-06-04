@@ -26,6 +26,7 @@ export const ArticleListItemRedesigned = memo(
                 <Avatar
                     src={article.user.avatar}
                     size={32}
+                    className={cls.avatar}
                 />
                 <Text
                     text={article.user.username}
@@ -123,6 +124,7 @@ export const ArticleListItemRedesigned = memo(
                 <Card
                     className={cls.card}
                     border="round-xs"
+                    padding="0"
                 >
                     <AppImage
                         alt={article.title}
