@@ -34,6 +34,7 @@ export { ArticlesList } from './ui/ArticlesList/ArticlesList'
 
 // selectors
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData'
+export { getArticleDetailsIsLoading } from './model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading'
 
 export {
     getArticlesPageIsLoading,

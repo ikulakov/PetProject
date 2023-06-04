@@ -6,10 +6,18 @@ import {
     DynamicModuleLoader,
     type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
-import { Input } from '@/shared/ui/deprecated/Input'
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button'
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input'
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text'
+import { Button } from '@/shared/ui/redesigned/Button'
+import { Input } from '@/shared/ui/redesigned/Input'
+import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 import cls from './LoginForm.module.scss'
 import { getLoginError } from '../../model/selector/getLoginError'
 import { getLoginIsLoading } from '../../model/selector/getLoginIsLoading'
@@ -53,7 +61,6 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     const onFormSubmit = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }))
-        console.log(result)
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess()
         }
@@ -64,37 +71,81 @@ const LoginForm = memo((props: LoginFormProps) => {
             reducers={initialReducers}
             removeAfterUnmount
         >
-            <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t('Форма авторизации')} />
-                <Input
-                    className={cls.input}
-                    value={username}
-                    placeholder={t('Введите имя')}
-                    onChange={onUsernameChange}
-                    autofocus
-                />
-                <Input
-                    className={cls.input}
-                    onChange={onPasswordChange}
-                    placeholder={t('Введите пароль')}
-                    value={password}
-                />
-                <Button
-                    className={cls.loginBtn}
-                    theme={ButtonTheme.BACKGOUND_INVERTED}
-                    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-                    onClick={onFormSubmit}
-                    disabled={isLoading}
-                >
-                    {t('Войти')}
-                </Button>
-                {error && (
-                    <Text
-                        text={t('Пользователь ввел неверный логин или пароль')}
-                        theme={TextTheme.ERROR}
-                    />
-                )}
-            </div>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <VStack
+                        className={classNames(cls.LoginFormRedesigned, {}, [
+                            className,
+                        ])}
+                        gap="16"
+                    >
+                        <Text title={t('Форма авторизации')} />
+                        <Input
+                            value={username}
+                            placeholder={t('Введите имя')}
+                            onChange={onUsernameChange}
+                            autofocus
+                        />
+                        <Input
+                            onChange={onPasswordChange}
+                            placeholder={t('Введите пароль')}
+                            value={password}
+                        />
+                        <Button
+                            className={cls.loginBtn}
+                            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+                            onClick={onFormSubmit}
+                            disabled={isLoading}
+                        >
+                            {t('Войти')}
+                        </Button>
+                        {error && (
+                            <Text
+                                text={t(
+                                    'Пользователь ввел неверный логин или пароль',
+                                )}
+                                variant="error"
+                            />
+                        )}
+                    </VStack>
+                }
+                off={
+                    <div className={classNames(cls.LoginForm, {}, [className])}>
+                        <TextDeprecated title={t('Форма авторизации')} />
+                        <InputDeprecated
+                            className={cls.input}
+                            value={username}
+                            placeholder={t('Введите имя')}
+                            onChange={onUsernameChange}
+                            autofocus
+                        />
+                        <InputDeprecated
+                            className={cls.input}
+                            onChange={onPasswordChange}
+                            placeholder={t('Введите пароль')}
+                            value={password}
+                        />
+                        <ButtonDeprecated
+                            className={cls.loginBtn}
+                            theme={ButtonTheme.BACKGOUND_INVERTED}
+                            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+                            onClick={onFormSubmit}
+                            disabled={isLoading}
+                        >
+                            {t('Войти')}
+                        </ButtonDeprecated>
+                        {error && (
+                            <TextDeprecated
+                                text={t(
+                                    'Пользователь ввел неверный логин или пароль',
+                                )}
+                                theme={TextTheme.ERROR}
+                            />
+                        )}
+                    </div>
+                }
+            />
         </DynamicModuleLoader>
     )
 })

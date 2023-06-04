@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
 type ButtonVariant = 'clear' | 'outline' | 'filled'
-
+type ButtonColor = 'normal' | 'success' | 'error'
 type ButtonSize = 'small' | 'medium' | 'large'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,6 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     addonLeft?: ReactNode
     addonRight?: ReactNode
+    color?: ButtonColor
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -21,6 +22,7 @@ export const Button = memo((props: ButtonProps) => {
         children,
         className,
         variant = 'outline',
+        color = 'normal',
         size = 'small',
         square,
         addonLeft,
@@ -33,6 +35,7 @@ export const Button = memo((props: ButtonProps) => {
             className={classNames(cls.Button, { [cls.square]: square }, [
                 className,
                 cls[variant],
+                cls[color],
                 cls[size],
             ])}
             {...rest}

@@ -44,8 +44,6 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
         return items?.find((el) => el.value === value)
     }, [items, value])
 
-    console.log(selectedItem)
-
     return (
         <HStack gap="16">
             {label && <span className={cls.label}>{label}</span>}

@@ -9,10 +9,14 @@ import { NotificationButton } from '@/features/NotificationButton'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import { getRouteArticleCreate } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { ToggleFeatures } from '@/shared/lib/features'
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features'
 import { AppLink } from '@/shared/ui/deprecated/AppLink'
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button'
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
+import { Button } from '@/shared/ui/redesigned/Button'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import cls from './Navbar.module.scss'
 
@@ -24,6 +28,12 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
     const [isAuthModal, setIsAuthModal] = useState(false)
     const { t } = useTranslation()
     const user = useSelector(getUserAuthData)
+
+    const mainClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.NavbarRedesigned,
+        off: () => cls.Navbar,
+    })
 
     const onToggleModal = useCallback(() => {
         setIsAuthModal((prev) => !prev)
@@ -54,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 feature="isAppRedesigned"
                 off={
                     <header
-                        className={classNames(cls.Navbar, {}, [className])}
+                        className={classNames(mainClass, {}, [className])}
                         data-testid="navbar"
                     >
                         <Text
@@ -81,9 +91,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
                 }
                 on={
                     <header
-                        className={classNames(cls.NavbarRedesigned, {}, [
-                            className,
-                        ])}
+                        className={classNames(mainClass, {}, [className])}
                         data-testid="navbar"
                     >
                         <HStack
@@ -101,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
 
     return (
         <header
-            className={classNames(cls.Navbar, {}, [className])}
+            className={classNames(mainClass, {}, [className])}
             data-testid="navbar"
         >
             <HStack
@@ -110,12 +118,25 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }) => {
             >
                 <ThemeSwitcher />
                 <LangSwitcher />
-                <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    onClick={onToggleModal}
-                >
-                    {t('Войти')}
-                </Button>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <Button
+                            variant="clear"
+                            onClick={onToggleModal}
+                        >
+                            {t('Войти')}
+                        </Button>
+                    }
+                    off={
+                        <ButtonDeprecated
+                            theme={ButtonTheme.CLEAR_INVERTED}
+                            onClick={onToggleModal}
+                        >
+                            {t('Войти')}
+                        </ButtonDeprecated>
+                    }
+                />
             </HStack>
 
             {isAuthModal && (

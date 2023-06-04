@@ -37,13 +37,32 @@
 }
 
 .outline {
-    border: 1.5px solid var(--icon-redesigned);
     border-radius: 34px;
     background: none;
     outline: none;
 
-    &:hover {
-        border: 1.5px solid var(--accent-redesigned);
+    &.normal {
+        border: 1.5px solid var(--icon-redesigned);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.success {
+        border: 1.5px solid var(--save-redesigned);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.error {
+        border: 1.5px solid var(--cancel-redesigned);
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 
@@ -52,6 +71,18 @@
     border-radius: 34px;
     background: var(--light-bg-redesigned);
     outline: none;
+
+    &.normal {
+        background: var(--light-bg-redesigned);
+    }
+
+    &.success {
+        background: var(--save-redesigned);
+    }
+
+    &.error {
+        background: var(--cancel-redesigned);
+    }
 }
 
 .square {
