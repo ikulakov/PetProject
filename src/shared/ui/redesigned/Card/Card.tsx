@@ -29,7 +29,7 @@ export const Card = memo((props: CardProps) => {
         children,
         variant = 'normal',
         padding = '8',
-        border = 'normal',
+        border = 'round-xs',
         max,
         fullHeight,
         ...otherProps

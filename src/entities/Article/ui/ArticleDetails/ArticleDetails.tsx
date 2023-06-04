@@ -13,7 +13,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import {
     Text as TextDeprecated,
     TextSize,
@@ -69,6 +68,60 @@ const renderBlock = (block: ArticleBlock) => {
         default:
             return null
     }
+}
+
+export const ArticleDetailsSkeleton = () => {
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <>
+                    <Skeleton
+                        width={600}
+                        height={35}
+                    />
+                    <Skeleton
+                        width={400}
+                        height={30}
+                    />
+                    <Skeleton
+                        width={'100%'}
+                        height={420}
+                        border={'16px'}
+                    />
+                    <Skeleton
+                        width={'100%'}
+                        height={200}
+                    />
+                </>
+            }
+            off={
+                <>
+                    <Skeleton
+                        className={cls.avatar}
+                        border={'50%'}
+                        width={200}
+                        height={200}
+                    />
+                    <Skeleton
+                        className={cls.title}
+                        width={300}
+                        height={32}
+                    />
+                    <Skeleton
+                        className={cls.skeleton}
+                        width={600}
+                        height={24}
+                    />
+                    <Skeleton
+                        className={cls.skeleton}
+                        width={'100%'}
+                        height={200}
+                    />
+                </>
+            }
+        />
+    )
 }
 
 const Redesigned = () => {
@@ -152,33 +205,22 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     })
 
     const content = isLoading ? (
-        <>
-            <SkeletonDeprecated
-                className={cls.avatar}
-                border={'50%'}
-                width={200}
-                height={200}
-            />
-            <SkeletonDeprecated
-                className={cls.title}
-                width={300}
-                height={32}
-            />
-            <SkeletonDeprecated
-                className={cls.skeleton}
-                width={600}
-                height={24}
-            />
-            <SkeletonDeprecated
-                className={cls.skeleton}
-                width={'100%'}
-                height={200}
-            />
-        </>
+        <ArticleDetailsSkeleton />
     ) : error ? (
-        <TextDeprecated
-            text={t('Произошла ошибка при загрузке статьи')}
-            theme={TextTheme.ERROR}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Text
+                    text={t('Произошла ошибка при загрузке статьи')}
+                    variant="error"
+                />
+            }
+            off={
+                <TextDeprecated
+                    text={t('Произошла ошибка при загрузке статьи')}
+                    theme={TextTheme.ERROR}
+                />
+            }
         />
     ) : (
         <ToggleFeatures

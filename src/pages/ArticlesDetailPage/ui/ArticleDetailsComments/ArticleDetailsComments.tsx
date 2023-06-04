@@ -10,10 +10,13 @@ import {
     getArticleCommentsIsLoading,
 } from '@/features/ArticleCommentList'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Loader } from '@/shared/ui/deprecated/Loader'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
+import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface ArticleDetailsCommentsProps {
     className?: string
@@ -41,8 +44,16 @@ export const ArticleDetailsComments = memo(
         })
 
         return (
-            <div className={classNames('', {}, [className])}>
-                <Text title={t('Комментарии')} />
+            <VStack
+                className={classNames('', {}, [className])}
+                gap="32"
+                max
+            >
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<Text title={t('Комментарии')} />}
+                    off={<TextDeprecated title={t('Комментарии')} />}
+                />
                 <Suspense fallback={<Loader />}>
                     <AddCommentForm onSendComment={onSendComment} />
                 </Suspense>
@@ -50,7 +61,7 @@ export const ArticleDetailsComments = memo(
                     comments={comments}
                     isLoading={isLoading}
                 />
-            </div>
+            </VStack>
         )
     },
 )

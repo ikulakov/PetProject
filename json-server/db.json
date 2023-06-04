@@ -756,7 +756,7 @@
       },
       "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true,
@@ -868,34 +868,6 @@
       "rate": 5,
       "feedback": "asdasdasdasd",
       "id": "Y7MhPzo"
-    },
-    {
-      "userId": "1",
-      "articleId": "10",
-      "rate": 1,
-      "feedback": "отстой",
-      "id": "II0a75O"
-    },
-    {
-      "userId": "1",
-      "articleId": "7",
-      "rate": 3,
-      "feedback": "",
-      "id": "bcPnbbZ"
-    },
-    {
-      "userId": "2",
-      "articleId": "1",
-      "rate": 4,
-      "feedback": "asdasdasdad",
-      "id": "1I3E5gT"
-    },
-    {
-      "userId": "1",
-      "articleId": "2",
-      "rate": 2,
-      "feedback": "asdasdasd",
-      "id": "xbwnNBF"
     }
   ],
   "profile-ratings": [

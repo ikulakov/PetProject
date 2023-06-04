@@ -37,13 +37,13 @@
 }
 
 .outline {
-    border: 1px solid var(--icon-redesigned);
+    border: 1.5px solid var(--icon-redesigned);
     border-radius: 34px;
     background: none;
     outline: none;
 
     &:hover {
-        border: 1px solid var(--accent-redesigned);
+        border: 1.5px solid var(--accent-redesigned);
     }
 }
 
