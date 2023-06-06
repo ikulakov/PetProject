@@ -1,4 +1,5 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 import { CommentItem } from './CommentItem'
 
 export default {
@@ -13,8 +14,7 @@ const Template: ComponentStory<typeof CommentItem> = (args) => (
     <CommentItem {...args} />
 )
 
-export const Normal = Template.bind({})
-Normal.args = {
+const normalArgs = {
     comment: {
         id: '1',
         text: 'Text',
@@ -25,6 +25,13 @@ Normal.args = {
         },
     },
 }
+
+export const Normal = Template.bind({})
+Normal.args = normalArgs
+
+export const NormalRedesigned = Template.bind({})
+NormalRedesigned.args = normalArgs
+NormalRedesigned.decorators = [FeatureFlagsDecorator({ isAppRedesigned: true })]
 
 export const Loading = Template.bind({})
 Loading.args = {

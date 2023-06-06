@@ -4,6 +4,7 @@ import { withRouter } from 'storybook-addon-react-router-v6'
 import { Theme } from '@/shared/const/theme'
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { FeatureFlagsDecorator } from '../../src/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -29,3 +30,4 @@ addDecorator(ThemeDecorator(Theme.LIGHT))
 // addDecorator(RouterDecorator)
 addDecorator(withRouter)
 addDecorator(SuspenseDecorator)
+addDecorator(FeatureFlagsDecorator({}))
