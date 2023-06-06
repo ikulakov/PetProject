@@ -130,6 +130,7 @@ export const ArticleListItemSkeleton = memo(
                         <Card
                             className={clsRedesigned.card}
                             border="round-xs"
+                            padding="0"
                         >
                             <Skeleton
                                 width={'100%'}

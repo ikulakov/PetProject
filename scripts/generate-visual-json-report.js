@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/unbound-method */
-const { promisify } = require('util')
 const { readdir, writeFile } = require('fs')
 const { join: joinPath, relative } = require('path')
+const { promisify } = require('util')
 
 const asyncReaddir = promisify(readdir)
 const writeFileAsync = promisify(writeFile)

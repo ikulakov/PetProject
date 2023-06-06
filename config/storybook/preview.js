@@ -24,7 +24,6 @@ export const parameters = {
     },
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 addDecorator(StyleDecorator)
 addDecorator(ThemeDecorator(Theme.LIGHT))
 // addDecorator(RouterDecorator)

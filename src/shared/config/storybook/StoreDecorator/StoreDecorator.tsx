@@ -2,9 +2,11 @@
 import { type Story } from '@storybook/react'
 import { StoreProvider, type StateSchema } from '@/app/providers/StoreProvider'
 import {
+    articleDetailsPageRecommendationReducer,
     articleDetailsReducer,
     articleListSliceReducer,
 } from '@/entities/Article'
+import { userReducer } from '@/entities/User'
 import { addCommentFormReducer } from '@/features/AddCommentForm'
 import { articleDetailCommentsReducer } from '@/features/ArticleCommentList'
 import { loginReducer } from '@/features/AuthByUsername'
@@ -13,21 +15,23 @@ import { type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/D
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
+    user: userReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsComments: articleDetailCommentsReducer,
     articlesPage: articleListSliceReducer,
+    articleRecommendations: articleDetailsPageRecommendationReducer,
 }
 
 export const StoreDecorator =
     (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
-    (StoryComponent: Story) =>
+    (ComponentStory: Story) =>
         (
             <StoreProvider
                 initialState={state}
                 asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
             >
-                <StoryComponent />
+                <ComponentStory />
             </StoreProvider>
         )

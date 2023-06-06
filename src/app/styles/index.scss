@@ -22,17 +22,17 @@
     display: flex;
 }
 
-*::-webkit-scrollbar {
+.App *::-webkit-scrollbar {
     width: 12px;
     height: 8px;
 }
 
-*::-webkit-scrollbar-track {
+.App *::-webkit-scrollbar-track {
     border-radius: 20px;
     background: var(--card-bg);
 }
 
-*::-webkit-scrollbar-thumb {
+.App *::-webkit-scrollbar-thumb {
     border: 2px solid var(--card-bg);
     border-radius: 20px;
     background-color: var(--inverted-primary-color);

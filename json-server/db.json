@@ -739,6 +739,12 @@
       "userId": "1",
       "text": "asfasf",
       "id": "SygCNYE"
+    },
+    {
+      "articleId": "6f91vPH",
+      "text": "фывфывфыв",
+      "userId": "1",
+      "id": "xZ5LXFk"
     }
   ],
   "users": [
@@ -777,7 +783,8 @@
       "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "articlesPageHasBeenOpen": true
+        "articlesPageHasBeenOpen": true,
+        "theme": "app_dark_theme"
       }
     },
     {
@@ -789,7 +796,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg",
       "jsonSettings": {
@@ -821,7 +829,7 @@
       "currency": "RUB",
       "country": "Belarus",
       "city": "Moscow",
-      "username": "admin213",
+      "username": "admin21",
       "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
     },
     {
@@ -868,6 +876,13 @@
       "rate": 5,
       "feedback": "asdasdasdasd",
       "id": "Y7MhPzo"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "фывфывфыв",
+      "id": "HUnQM14"
     }
   ],
   "profile-ratings": [

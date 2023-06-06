@@ -39,7 +39,7 @@ export function TestProvider(props: TestProviderProps) {
             >
                 <I18nextProvider i18n={i18nForTests}>
                     <ThemeProvider initialTheme={theme}>
-                        <div className={`app ${theme}`}>{children}</div>
+                        <div className={`App ${theme}`}>{children}</div>
                     </ThemeProvider>
                 </I18nextProvider>
             </StoreProvider>
